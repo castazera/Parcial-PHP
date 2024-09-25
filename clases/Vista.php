@@ -10,6 +10,7 @@ class Vista
     public static function ValidarVista(?string $vista): array{
         switch ($vista) {
             case null:
+                
             case 'inicio':
                 $archivo = $vista;
                 $titulo = 'Bienvenido a Boards';
