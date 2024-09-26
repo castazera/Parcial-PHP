@@ -76,11 +76,29 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             </nav>
         </header>
         <main>
-            
-            <?php require_once "views/{$vista['archivo']}.php";?>
-            <!-- <div>
-                <a href="index.php?sec=quienes_somos"><button>¿QUIENES SOMOS?</button></a>
-            </div> --> 
+
+            <?php if($_GET['sec'] ?? null){
+                require_once "views/{$vista['archivo']}.php";
+            }else { ?>
+
+<div style="height: 100vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.jpg);
+            background-size:cover ;
+            background-position: center;">
+ <div style="color: #fff;
+            text-align: center;
+            width:50%;">
+ <h1 style="font-family:Oswald;
+            font-size:6em;">BOARDS</h1>
+ <p style="font-family:Oswald;
+            font-size:1.5em;">Explora nuestra selección de skateboards, longboards, mountainboards y snowboards de alta calidad. Ya sea que estés buscando adrenalina en la montaña, deslizarte por la ciudad, o conquistar nuevos terrenos, tenemos el equipo perfecto para ti.<br> ¡Encuentra tu tabla ideal y comienza la aventura!</p>
+ </div>
+</div>
+
+            <?php }?>
         </main>
         <footer>
             <div class="sticky-bottom"></div>
