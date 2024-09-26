@@ -2,14 +2,14 @@
 class Tabla{
 
     private $id;
-    private $Tipo;
-    private $Modelo;
-    private $Precio;
-    private $Talla;
-    private $Color;
-    private $Imagen;
-    private $Descripcion;
-    private $Material;
+    private $tipo;
+    private $modelo;
+    private $precio;
+    private $talla;
+    private $color;
+    private $imagen;
+    private $descripcion;
+    private $material;
 
 
     /**
@@ -28,14 +28,14 @@ class Tabla{
             $tabla = new self();
 
             $tabla -> id = $key -> id;
-            $tabla -> Tipo = $key -> Tipo;
-            $tabla -> Modelo= $key -> Modelo ; 
-            $tabla -> Precio= $key -> Precio;
-            $tabla -> Talla=  $key -> Talla;
-            $tabla -> Color = $key -> Color;
-            $tabla -> Imagen= $key -> Imagen;
-            $tabla -> Descripcion= $key -> Descripcion;
-            $tabla -> Material= $key -> Material;
+            $tabla -> tipo = $key -> tipo;
+            $tabla -> modelo= $key -> Modelo ; 
+            $tabla -> precio= $key -> Precio;
+            $tabla -> talla=  $key -> Talla;
+            $tabla -> color = $key -> Color;
+            $tabla -> imagen= $key -> Imagen;
+            $tabla -> descripcion= $key -> Descripcion;
+            $tabla -> material= $key -> Material;
             
             $catalogo[] = $tabla;    
             }}
@@ -49,7 +49,7 @@ class Tabla{
      */
     public function nombre_tabla():string{
 
-        return $this->Modelo . " de Talla " . $this->Talla . " ,color " .  $this->Color . " realizado con " . $this->Material;
+        return $this->modelo . " de Talla " . $this->talla . " ,color " .  $this->color . " realizado con " . $this->material;
     }
 
     /**
@@ -62,7 +62,7 @@ class Tabla{
         $resultado = [];
         $catalogo = self::CatalogoCompleto();
         foreach($catalogo as $tabla){
-            if($tabla->Tipo == $TipoTabla){
+            if($tabla->tipo == $TipoTabla){
                 $resultado[] = $tabla;
             }
         }
@@ -103,7 +103,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
     $catalogo = self::CatalogoCompleto();
 
     foreach($catalogo as $tabla){
-        if($tabla->Precio <= $PrecioMin){
+        if($tabla->precio <= $PrecioMin){
             $resultado[] = $tabla;
         }
     }
@@ -120,7 +120,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
  */
     public function recortar_descripcion( int $cantidad = 10 ):string{
 
-    $texto = $this->Descripcion;    
+    $texto = $this->descripcion;    
     $seleccionDePalabras = explode(" ", $texto);
     
     if(count($seleccionDePalabras) <= 10){
@@ -135,7 +135,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      * Devuelve el precio de la unidad, formateado correctamente
      */
     public function PrecioUnidad(): string{
-        return "$" . number_format($this->Precio, 2, ',', '.');
+        return "$" . number_format($this->precio, 2, ',', '.');
     }
 
     /**
@@ -163,7 +163,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getModelo()
     {
-        return $this->Modelo;
+        return $this->modelo;
     }
 
     /**
@@ -171,9 +171,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setModelo($Modelo)
+    public function setModelo($modelo)
     {
-        $this->Modelo = $Modelo;
+        $this->modelo = $modelo;
 
         return $this;
     }
@@ -183,7 +183,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getTalla()
     {
-        return $this->Talla;
+        return $this->talla;
     }
 
     /**
@@ -191,9 +191,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setTalla($Talla)
+    public function setTalla($talla)
     {
-        $this->Talla = $Talla;
+        $this->talla = $talla;
 
         return $this;
     }
@@ -203,7 +203,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getColor()
     {
-        return $this->Color;
+        return $this->color;
     }
 
     /**
@@ -211,9 +211,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setColor($Color)
+    public function setColor($color)
     {
-        $this->Color = $Color;
+        $this->color = $color;
 
         return $this;
     }
@@ -223,7 +223,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getMaterial()
     {
-        return $this->Material;
+        return $this->material;
     }
 
     /**
@@ -231,9 +231,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setMaterial($Material)
+    public function setMaterial($material)
     {
-        $this->Material = $Material;
+        $this->material = $material;
 
         return $this;
     }
@@ -243,7 +243,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getPrecio()
     {
-        return $this->Precio;
+        return $this->precio;
     }
 
     /**
@@ -251,9 +251,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setPrecio($Precio)
+    public function setPrecio($precio)
     {
-        $this->Precio = $Precio;
+        $this->precio = $precio;
 
         return $this;
     }
@@ -263,7 +263,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getImagen()
     {
-        return $this->Imagen;
+        return $this->imagen;
     }
 
     /**
@@ -271,9 +271,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setImagen($Imagen)
+    public function setImagen($imagen)
     {
-        $this->Imagen = $Imagen;
+        $this->imagen = $imagen;
 
         return $this;
     }
@@ -283,7 +283,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getDescripcion()
     {
-        return $this->Descripcion;
+        return $this->descripcion;
     }
 
     /**
@@ -291,9 +291,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setDescripcion($Descripcion)
+    public function setDescripcion($descripcion)
     {
-        $this->Descripcion = $Descripcion;
+        $this->descripcion = $descripcion;
 
         return $this;
     }
@@ -305,7 +305,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getTipo()
     {
-        return $this->Tipo;
+        return $this->tipo;
     }
 
     /**
@@ -313,9 +313,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setTipo($Tipo)
+    public function setTipo($tipo)
     {
-        $this->Tipo = $Tipo;
+        $this->tipo = $tipo;
 
         return $this;
     }

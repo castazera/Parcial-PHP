@@ -4,26 +4,26 @@ class Snowboard{
     private $name;
     private $length;
     private $width;
-    private $Tipo; 
     private $ruedas; 
+    private $tipo; 
 
 
     /**
-     * Get the value of Tipo
+     * Get the value of tipo
      */ 
     public function getTipo()
     {
-        return $this->Tipo;
+        return $this->tipo;
     }
 
     /**
-     * Set the value of Tipo
+     * Set the value of tipo
      *
      * @return  self
      */ 
-    public function setTipo($Tipo)
+    public function setTipo($tipo)
     {
-        $this->Tipo = $Tipo;
+        $this->tipo = $tipo;
 
         return $this;
     }
