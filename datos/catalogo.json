@@ -1,142 +1,142 @@
 { 
-  "Snowboard": {
+  "snowboard": {
     "Burton": {
       "id": 1,
-      "Tipo": "Snowboard",
-      "Modelo": " Snowboard - Burton Custom",
-      "Precio": 35.000,
-      "Talla": "M",
-      "Color": "Negro",
-      "Imagen": "snow_burton2_ID1.jpg",
-      "Descripcion": "La Burton Custom es una leyenda en el mundo del snowboard, conocida por su versatilidad y rendimiento excepcional. Su dise\u00f1o de n\u00facleo de madera Super Fly 2\u2122 y la tecnolog\u00eda Infinite Ride\u2122 garantizan una respuesta y durabilidad superiores, ideales tanto para los amantes del freestyle como para los freeriders.",
-      "Material": "Madera"
+      "tipo": "Snowboard",
+      "modelo": " Snowboard - Burton Custom",
+      "precio": 35.000,
+      "talla": "M",
+      "color": "Negro",
+      "imagen": "snow_burton2_ID1.jpg",
+      "descripcion": "La Burton Custom es una leyenda en el mundo del snowboard, conocida por su versatilidad y rendimiento excepcional. Su dise\u00f1o de n\u00facleo de madera Super Fly 2\u2122 y la tecnolog\u00eda Infinite Ride\u2122 garantizan una respuesta y durabilidad superiores, ideales tanto para los amantes del freestyle como para los freeriders.",
+      "material": "Madera"
     },
-    "Lib Tech": {
+    "lib_tech": {
       "id": 2,
-      "Tipo": "Snowboard",
-      "Modelo": "Snowboard - Lib Tech Orca",
-      "Precio": 27.999,
-      "Talla": "L",
-      "Color": "Azul",
-      "Imagen": "snow_libtech_ID2.jpg",
-      "Descripcion": "La Lib Tech Orca es la tabla perfecta para los aventureros que buscan potencia en nieve profunda. Su dise\u00f1o de rocker en la punta y cola combinado con una forma c\u00f3ncava te ofrece una flotaci\u00f3n y maniobrabilidad impresionantes en la nieve powder. Con su construcci\u00f3n robusta y su n\u00facleo de madera eco-friendly, la Orca es ideal para explorar nuevas fronteras en la monta\u00f1a.",
-      "Material": "Madera"
+      "tipo": "Snowboard",
+      "modelo": "Snowboard - Lib Tech Orca",
+      "precio": 27.999,
+      "talla": "L",
+      "color": "Azul",
+      "imagen": "snow_libtech_ID2.jpg",
+      "descripcion": "La Lib Tech Orca es la tabla perfecta para los aventureros que buscan potencia en nieve profunda. Su dise\u00f1o de rocker en la punta y cola combinado con una forma c\u00f3ncava te ofrece una flotaci\u00f3n y maniobrabilidad impresionantes en la nieve powder. Con su construcci\u00f3n robusta y su n\u00facleo de madera eco-friendly, la Orca es ideal para explorar nuevas fronteras en la monta\u00f1a.",
+      "material": "Madera"
     },
-    "Ride": {
+    "ride": {
       "id": 3,
-      "Tipo": "Snowboard",
-      "Modelo": "Snowboard - Ride Wildcard",
-      "Precio": 25.000,
-      "Talla": "S",
-      "Color": "Rojo",
-      "Imagen": "snow_ride_ID3.jpg",
-      "Descripcion": "La Ride Wildcard es tu compa\u00f1era ideal para un rendimiento vers\u00e1til en cualquier terreno. Con una construcci\u00f3n de n\u00facleo de madera de alta calidad y una forma direccional que optimiza la estabilidad y el control, esta tabla es perfecta para quienes buscan experimentar tanto en el parque como en las pistas.",
-      "Material": "Madera"
+      "tipo": "Snowboard",
+      "modelo": "Snowboard - Ride Wildcard",
+      "precio": 25.000,
+      "talla": "S",
+      "color": "Rojo",
+      "imagen": "snow_ride_ID3.jpg",
+      "descripcion": "La Ride Wildcard es tu compa\u00f1era ideal para un rendimiento vers\u00e1til en cualquier terreno. Con una construcci\u00f3n de n\u00facleo de madera de alta calidad y una forma direccional que optimiza la estabilidad y el control, esta tabla es perfecta para quienes buscan experimentar tanto en el parque como en las pistas.",
+      "material": "Madera"
     }
   },
-  "Skateboard": {
+  "skateboard": {
     "Element": {
       "id": 4,
-      "Tipo": "Skateboard",
-      "Modelo": "Skateboard - Element Helix",
-      "Precio": 15.000,
-      "Talla": "L",
-      "Color": "Azul",
-      "Imagen": "skate_element2_ID4.jpg",
-      "Descripcion": "El Skate Element Helix es el compa\u00f1ero ideal para los aventureros del asfalto. Dise\u00f1ado para ofrecer una experiencia de skateboarding vers\u00e1til, este modelo es perfecto tanto para principiantes como para skaters experimentados.",
-      "Material": "Pl\u00e1stico"
+      "tipo": "Skateboard",
+      "modelo": "Skateboard - Element Helix",
+      "precio": 15.000,
+      "talla": "L",
+      "color": "Azul",
+      "imagen": "skate_element2_ID4.jpg",
+      "descripcion": "El Skate Element Helix es el compa\u00f1ero ideal para los aventureros del asfalto. Dise\u00f1ado para ofrecer una experiencia de skateboarding vers\u00e1til, este modelo es perfecto tanto para principiantes como para skaters experimentados.",
+      "material": "Pl\u00e1stico"
     },
-    "Baker": {
+    "baker": {
       "id": 5,
-      "Tipo": "Skateboard",
-      "Modelo": "Skateboard - Baker Method",
-      "Precio": 12.000,
-      "Talla": "M",
-      "Color": "Negro",
-      "Imagen": "skate_baker_ID5.jpg",
-      "Descripcion": "El Skate Baker Method es la elecci\u00f3n perfecta para quienes est\u00e1n iniciando en el mundo del skateboarding. Con un enfoque en la estabilidad y el control, este skate est\u00e1 construido para ayudarte a desarrollar tus habilidades con confianza.",
-      "Material": "Pl\u00e1stico"
+      "tipo": "Skateboard",
+      "modelo": "Skateboard - Baker Method",
+      "precio": 12.000,
+      "talla": "M",
+      "color": "Negro",
+      "imagen": "skate_baker_ID5.jpg",
+      "descripcion": "El Skate Baker Method es la elecci\u00f3n perfecta para quienes est\u00e1n iniciando en el mundo del skateboarding. Con un enfoque en la estabilidad y el control, este skate est\u00e1 construido para ayudarte a desarrollar tus habilidades con confianza.",
+      "material": "Pl\u00e1stico"
     },
-    "Santa Cruz": {
+    "santa_cruz": {
       "id": 6,
-      "Tipo": "Skateboard",
-      "Modelo": "Skateboard - Santa Cruz 808",
-      "Precio": 18.000,
-      "Talla": "L",
-      "Color": "Rojo",
-      "Imagen": "skate_santacruz_ID6.jpg",
-      "Descripcion": "El Skate Santa Cruz 808 es una obra maestra para los skaters que buscan llevar su destreza al siguiente nivel. Este modelo, dise\u00f1ado para expertos, ofrece una construcci\u00f3n en fibra de vidrio que proporciona una resistencia y flexibilidad inigualables, permitiendo realizar trucos avanzados con precisi\u00f3n.",
-      "Material": "Fibra de vidrio"
+      "tipo": "Skateboard",
+      "modelo": "Skateboard - Santa Cruz 808",
+      "precio": 18.000,
+      "talla": "L",
+      "color": "Rojo",
+      "imagen": "skate_santacruz_ID6.jpg",
+      "descripcion": "El Skate Santa Cruz 808 es una obra maestra para los skaters que buscan llevar su destreza al siguiente nivel. Este modelo, dise\u00f1ado para expertos, ofrece una construcci\u00f3n en fibra de vidrio que proporciona una resistencia y flexibilidad inigualables, permitiendo realizar trucos avanzados con precisi\u00f3n.",
+      "material": "Fibra de vidrio"
     }
   },
-  "Mountainboard": {
+  "mountainboard": {
     "MSB": {
       "id": 7,
-      "Tipo": "Mountainboard",
-      "Modelo": "Mountainboard - MSB 2019",
-      "Precio": 28.000,
-      "Talla": "S",
-      "Color": "Azul",
-      "Imagen": "mountain_msb_ID7.jpg",
-      "Descripcion": "El Mountainboard MSB 2019 es la elecci\u00f3n ideal para skaters que buscan una experiencia robusta y confiable en terrenos dif\u00edciles. Su dise\u00f1o est\u00e1 optimizado para ofrecer un excelente rendimiento en rutas accidentadas, gracias a su construcci\u00f3n en madera que proporciona una combinaci\u00f3n perfecta de resistencia y flexibilidad. Con su tama\u00f1o compacto y su capacidad para enfrentar diversos desaf\u00edos, el MSB 2019 es perfecto para aquellos que buscan aventuras extremas en el monte.",
-      "Material": "Madera"
+      "tipo": "Mountainboard",
+      "modelo": "Mountainboard - MSB 2019",
+      "precio": 28.000,
+      "talla": "S",
+      "color": "Azul",
+      "imagen": "mountain_msb_ID7.jpg",
+      "descripcion": "El Mountainboard MSB 2019 es la elecci\u00f3n ideal para skaters que buscan una experiencia robusta y confiable en terrenos dif\u00edciles. Su dise\u00f1o est\u00e1 optimizado para ofrecer un excelente rendimiento en rutas accidentadas, gracias a su construcci\u00f3n en madera que proporciona una combinaci\u00f3n perfecta de resistencia y flexibilidad. Con su tama\u00f1o compacto y su capacidad para enfrentar diversos desaf\u00edos, el MSB 2019 es perfecto para aquellos que buscan aventuras extremas en el monte.",
+      "material": "Madera"
     },
-    "Trampa": {
+    "trampa": {
       "id": 8,
-      "Tipo": "Mountainboard",
-      "Modelo": "Mountainboard - Trampa 2019",
-      "Precio": 20.000,
-      "Talla": "M",
-      "Color": "Gris y blanco",
-      "Imagen": "mountain_trampa_ID8.jpg",
-      "Descripcion": "El Mountainboard Trampa 2019 es conocido por su capacidad para adaptarse a una amplia gama de condiciones y estilos de conducci\u00f3n. Dise\u00f1ado especialmente para principiantes, este modelo ofrece una plataforma estable y f\u00e1cil de manejar, ideal para aprender y perfeccionar tus habilidades en el mountainboarding. ",
-      "Material": "Madera"
+      "tipo": "Mountainboard",
+      "modelo": "Mountainboard - Trampa 2019",
+      "precio": 20.000,
+      "talla": "M",
+      "color": "Gris y blanco",
+      "imagen": "mountain_trampa_ID8.jpg",
+      "descripcion": "El Mountainboard Trampa 2019 es conocido por su capacidad para adaptarse a una amplia gama de condiciones y estilos de conducci\u00f3n. Dise\u00f1ado especialmente para principiantes, este modelo ofrece una plataforma estable y f\u00e1cil de manejar, ideal para aprender y perfeccionar tus habilidades en el mountainboarding. ",
+      "material": "Madera"
     },
-    "Scrub": {
+    "scrub": {
       "id": 9,
-      "Tipo": "Mountainboard",
-      "Modelo": "Mountainboard - Scrub 2019",
-      "Precio": 22.000,
-      "Talla": "L",
-      "Color": "Negro",
-      "Imagen": "mountain_scrub2_ID9.jpg",
-      "Descripcion": "El Mountainboard Scrub 2019 est\u00e1 dise\u00f1ado para aquellos que buscan un rendimiento excepcional en una variedad de terrenos. Con su construcci\u00f3n en madera de alta calidad, el Scrub 2019 ofrece una combinaci\u00f3n \u00fanica de resistencia y flexibilidad, permiti\u00e9ndote enfrentarte a desaf\u00edos con confianza. Este modelo est\u00e1 dise\u00f1ado para manejar tanto descensos empinados como terrenos accidentados, gracias a sus caracter\u00edsticas t\u00e9cnicas avanzadas.",
-      "Material": "Madera"
+      "tipo": "Mountainboard",
+      "modelo": "Mountainboard - Scrub 2019",
+      "precio": 22.000,
+      "talla": "L",
+      "color": "Negro",
+      "imagen": "mountain_scrub2_ID9.jpg",
+      "descripcion": "El Mountainboard Scrub 2019 est\u00e1 dise\u00f1ado para aquellos que buscan un rendimiento excepcional en una variedad de terrenos. Con su construcci\u00f3n en madera de alta calidad, el Scrub 2019 ofrece una combinaci\u00f3n \u00fanica de resistencia y flexibilidad, permiti\u00e9ndote enfrentarte a desaf\u00edos con confianza. Este modelo est\u00e1 dise\u00f1ado para manejar tanto descensos empinados como terrenos accidentados, gracias a sus caracter\u00edsticas t\u00e9cnicas avanzadas.",
+      "material": "Madera"
     }
   },
-  "Longboard": {
+  "longboard": {
     "Sector 9": {
       "id": 10,
-      "Tipo": "Longboard",
-      "Modelo": "Longboard - Sector 9 Bombora",
-      "Precio": 32.000,
-      "Talla": "M",
-      "Color": "Verde",
-      "Imagen": "long_sector92_ID10.jpg",
-      "Descripcion": "El Longboard Sector 9 Bombora es la opci\u00f3n ideal para quienes buscan velocidad y estabilidad en sus desplazamientos. Dise\u00f1ado con precisi\u00f3n para ofrecer un rendimiento sobresaliente en descensos y largas distancias, el Bombora combina un dise\u00f1o aerodin\u00e1mico con materiales de alta calidad. La construcci\u00f3n en fibra de vidrio le proporciona una estructura ligera pero resistente, permitiendo una experiencia de ride suave y \u00e1gil.",
-      "Material": "Fibra de vidrio"
+      "tipo": "Longboard",
+      "modelo": "Longboard - Sector 9 Bombora",
+      "precio": 32.000,
+      "talla": "M",
+      "color": "Verde",
+      "imagen": "long_sector92_ID10.jpg",
+      "descripcion": "El Longboard Sector 9 Bombora es la opci\u00f3n ideal para quienes buscan velocidad y estabilidad en sus desplazamientos. Dise\u00f1ado con precisi\u00f3n para ofrecer un rendimiento sobresaliente en descensos y largas distancias, el Bombora combina un dise\u00f1o aerodin\u00e1mico con materiales de alta calidad. La construcci\u00f3n en fibra de vidrio le proporciona una estructura ligera pero resistente, permitiendo una experiencia de ride suave y \u00e1gil.",
+      "material": "Fibra de vidrio"
     },
-    "Landyachtz": {
+    "landyachtz": {
       "id": 11,
-      "Tipo": "Longboard",
-      "Modelo": "Longboard - Landyachtz Dinghy",
-      "Precio": 22.500,
-      "Talla": "L",
-      "Color": "Azul",
-      "Imagen": "long_Landyachtz_ID11.jpg",
-      "Descripcion": "El Longboard Landyachtz Dinghy es el compa\u00f1ero perfecto para skaters que buscan un board compacto y maniobrable. Este modelo est\u00e1 dise\u00f1ado especialmente para principiantes y riders que valoran la portabilidad sin comprometer la calidad. Su construcci\u00f3n en material compuesto asegura durabilidad y una conducci\u00f3n c\u00f3moda en diferentes tipos de superficies.",
-      "Material": "Compuesto"
+      "tipo": "Longboard",
+      "modelo": "Longboard - Landyachtz Dinghy",
+      "precio": 22.500,
+      "talla": "L",
+      "color": "Azul",
+      "imagen": "long_Landyachtz_ID11.jpg",
+      "descripcion": "El Longboard Landyachtz Dinghy es el compa\u00f1ero perfecto para skaters que buscan un board compacto y maniobrable. Este modelo est\u00e1 dise\u00f1ado especialmente para principiantes y riders que valoran la portabilidad sin comprometer la calidad. Su construcci\u00f3n en material compuesto asegura durabilidad y una conducci\u00f3n c\u00f3moda en diferentes tipos de superficies.",
+      "material": "Compuesto"
     },
-    "Loaded": {
+    "loaded": {
       "id": 12,
-      "Tipo": "Longboard",
-      "Modelo": "Longboard - Loaded Boards",
-      "Precio": 25.000,
-      "Talla": "XL",
-      "Color": "Marr\u00f3n",
-      "Imagen": "long_loaded_ID12.jpg",
-      "Descripcion": "El Longboard Loaded Boards est\u00e1 dise\u00f1ado para skaters experimentados que buscan una experiencia de conducci\u00f3n de alto nivel. Con una construcci\u00f3n en fibra de vidrio, el Loaded Boards ofrece una incre\u00edble combinaci\u00f3n de flexibilidad y resistencia, permitiendo un manejo preciso y una gran capacidad para absorber impactos. ",
-      "Material": "Fibra de vidrio"
+      "tipo": "Longboard",
+      "modelo": "Longboard - Loaded Boards",
+      "precio": 25.000,
+      "talla": "XL",
+      "color": "Marr\u00f3n",
+      "imagen": "long_loaded_ID12.jpg",
+      "descripcion": "El Longboard Loaded Boards est\u00e1 dise\u00f1ado para skaters experimentados que buscan una experiencia de conducci\u00f3n de alto nivel. Con una construcci\u00f3n en fibra de vidrio, el Loaded Boards ofrece una incre\u00edble combinaci\u00f3n de flexibilidad y resistencia, permitiendo un manejo preciso y una gran capacidad para absorber impactos. ",
+      "material": "Fibra de vidrio"
     }
   }
 }
