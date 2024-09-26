@@ -5,6 +5,7 @@ class Snowboard{
     private $length;
     private $width;
     private $Tipo; 
+    private $ruedas; 
 
 
     /**
@@ -103,6 +104,26 @@ class Snowboard{
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ruedas
+     */ 
+    public function getRuedas()
+    {
+        return $this->ruedas;
+    }
+
+    /**
+     * Set the value of ruedas
+     *
+     * @return  self
+     */ 
+    public function setRuedas($ruedas)
+    {
+        $this->ruedas = $ruedas;
 
         return $this;
     }
