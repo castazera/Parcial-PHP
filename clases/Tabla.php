@@ -29,13 +29,13 @@ class Tabla{
 
             $tabla -> id = $key -> id;
             $tabla -> tipo = $key -> tipo;
-            $tabla -> modelo= $key -> Modelo ; 
-            $tabla -> precio= $key -> Precio;
-            $tabla -> talla=  $key -> Talla;
-            $tabla -> color = $key -> Color;
-            $tabla -> imagen= $key -> Imagen;
-            $tabla -> descripcion= $key -> Descripcion;
-            $tabla -> material= $key -> Material;
+            $tabla -> modelo= $key -> modelo ; 
+            $tabla -> precio= $key -> precio;
+            $tabla -> talla=  $key -> talla;
+            $tabla -> color = $key -> color;
+            $tabla -> imagen= $key -> imagen;
+            $tabla -> descripcion= $key -> descripcion;
+            $tabla -> material= $key -> material;
             
             $catalogo[] = $tabla;    
             }}
