@@ -6,7 +6,7 @@
         <div class="row mb-5 d-flex align-items-center">
             
             <div class="col-12 mb-5">
-                <img src="img/banner1.jpg" class="d-block mx-auto img-fluid ">
+                <img src="img/banner1.webp" class="d-block mx-auto img-fluid ">
             </div>
             <div class="col">
                 <div class="fs-4">

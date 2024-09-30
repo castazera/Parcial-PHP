@@ -30,7 +30,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                 <div class="container">
                     <a class="navbar-brand" href="index.php?sec=inicio">
                         <div class="container-fluid">
-                            <img class="logo" src="img/logo1.png" alt="Logo">
+                            <img class="logo" src="img/logo1.webp" alt="Logo">
                             BOARDS
                         </div>
                     </a>
@@ -85,7 +85,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.jpg);
+            background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.webp);
             background-size:cover ;
             background-position: center;">
  <div style="color: #fff;
