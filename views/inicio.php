@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.jpg);
+            background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.webp);
             background-size:cover ;
             background-position: center;">
  <div style="color: #fff;

@@ -1,2 +1,2 @@
 <h1 class="text-center m-5">¡Lo siento Skater! No tiene permisos para ingresar a esta seccion</h1>
-<img style="width:580px; height:580px;" src="img/404img.jpg" alt="¡Ups! Me caí" class="d-block mx-auto mb-5">
+<img style="width:580px; height:580px;" src="img/404img.webp" alt="¡Ups! Me caí" class="d-block mx-auto mb-5">
