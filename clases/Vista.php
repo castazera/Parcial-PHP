@@ -47,6 +47,24 @@ class Vista
                 $activa = true;
                 $restringida = false;
                 break;
+            case 'FormularioDeQuejas':
+                $archivo = $vista;
+                $titulo = 'Formulario de quejas';
+                $activa = true;
+                $restringida = false;
+                break;
+            case 'RespuestaForm':
+                $archivo = $vista;
+                $titulo = 'Respuesta del formulario';
+                $activa = true;
+                $restringida = false;
+                break;
+            case 'QuejaConfirmada':
+                $archivo = $vista;
+                $titulo = 'Confirmacion de la queja';
+                $activa = true;
+                $restringida = false;
+                break;
             default:
                 $archivo = '404';
                 $titulo = 'Página no encontrada';

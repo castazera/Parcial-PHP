@@ -53,6 +53,9 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                             <li class="nav-item">
                                 <a class="nav-link" href= "index.php?sec=OfertasDisponibles">Ofertas disponibles</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href= "index.php?sec=FormularioDeQuejas">Contacto</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categorias</a>
@@ -101,12 +104,13 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             <?php }?>
         </main>
         <footer>
-            <div class="sticky-bottom"></div>
+        <div class="sticky-bottom">
             <div class="card">
-            <div class="card-body text-center">
+            <div class="card-body text-center" style="margin-top: auto;">
                 <span class="card-title">Web realizada por Brian Fernandez</span>
                 </div>
             </div>
+        </div>
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
         <script
