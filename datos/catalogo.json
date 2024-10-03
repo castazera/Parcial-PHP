@@ -1,6 +1,6 @@
 { 
   "snowboard": {
-    "Burton": {
+    "burton": {
       "id": 1,
       "tipo": "Snowboard",
       "modelo": " Snowboard - Burton Custom",
@@ -171,7 +171,7 @@
     }
   },
   "longboard": {
-    "Sector 9": {
+    "sector_9": {
       "id": 16,
       "tipo": "Longboard",
       "modelo": "Longboard - Sector 9 Bombora",
