@@ -19,8 +19,8 @@ $catalogo = Tabla::CatalogoCompleto();
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
-                    <p class="card-text">Descripción: <?= $detalles->recortar_descripcion(80) ?></p>
-                    <p class="card-text text-end"><?= $detalles->PrecioUnidad() ?></p>
+                    <p class="card-text">Descripción: <?= $detalles->recortar_descripcion(30) ?></p>
+                    <p class="card-text text-end"><?= $detalles->precioUnidad() ?></p>
                     <a href="index.php?sec=prod&id=<?= $detalles->getId()?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x
                     mb-2">Ver más</a>
                  </div>

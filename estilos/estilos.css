@@ -9,12 +9,14 @@
     
 }
 
-body{
-    height: 100vh;
+html, body{
+    min-height: 100vh;
 }
 
 .contenedor{
-    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main{
@@ -34,6 +36,44 @@ main{
 .text-justify{
     text-align: justify;
 }
+
+.form-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+.form-title {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.h-rest{
+    height: 87vh;
+    display: flex;
+    align-items: center;
+}
+
+.square{
+    border: 2px solid rgb(65, 64, 64);
+    max-width: max-content;
+    padding: 8px;
+}
+
 
 @media screen and (max-width:767px) {
     .brand-responsive{

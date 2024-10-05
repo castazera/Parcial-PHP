@@ -22,10 +22,10 @@ $Catalogo_Tabla = Tabla::catalogo_tabla($board);
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial() ?></p>
-                    <p class="card-text">Descripción: <?= $detalles->recortar_descripcion(80) ?></p>
-                    <p class="card-text text-end">$<?= $detalles->PrecioUnidad() ?></p>
+                    <p class="card-text">Descripción: <?= $detalles->recortar_descripcion(30) ?></p>
+                    <p class="card-text text-end"><?= $detalles->precioUnidad() ?></p>
                     <div class="d-flex w-100 justify-content-center">
-                        <a href="#" class="btn btn-primary w-50 mx-auto">Comprar</a>
+                        <a href="index.php?sec=prod&id=<?= $detalles->getId()?>" class="btn btn-primary w-50 mx-auto">Ver más</a>
                     </div>
                  </div>
             </div>

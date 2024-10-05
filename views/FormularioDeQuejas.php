@@ -1,30 +1,6 @@
 <?php 
 $catalogo = Tabla::CatalogoCompleto();
 ?>
-    <style>
-        .form-container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 30px;
-        }
-        .form-title {
-            color: #007bff;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-        .btn-submit {
-            background-color: #007bff;
-            border: none;
-            padding: 10px 30px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .btn-submit:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-    </style>
     <div class="container d-flex justify-content-center">
         <div class="row justify-content-center m-4 w-75">
             <div class="col-md-8 form-container">
