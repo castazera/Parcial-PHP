@@ -120,16 +120,15 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
  */
     public function recortar_descripcion( int $cantidad = 10 ):string{
 
-    $texto = $this->descripcion;    
-    $seleccionDePalabras = explode(" ", $texto);
-    
-    if(count($seleccionDePalabras) <= 10){
-        return $texto;
-    }else{
-        $recortado = array_slice($seleccionDePalabras,0,$cantidad);
-        $resultado = implode(" ", $recortado) . "...";
-        return $resultado;
-    }}
+        $texto = $this->descripcion;    
+        if (strlen($texto) <= $cantidad) {
+            return $texto;
+        } else {
+            $recortado = substr($texto, 0, $cantidad);
+            $resultado = $recortado . "...";
+            return $resultado;
+        }
+    }
 
     /**
      * Devuelve el precio de la unidad, formateado correctamente
