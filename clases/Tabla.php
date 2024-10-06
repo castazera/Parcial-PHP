@@ -66,7 +66,7 @@ class Tabla{
      * Devuleve unidades restantes de stock
      */
     public function porcentajeStock():int{
-        return $this->stock - $this->unidadesVendidas;
+        return ($this->unidades_restantes() / $this->stock) * 100;
     }
 
     /**

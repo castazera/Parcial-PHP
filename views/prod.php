@@ -8,10 +8,10 @@ $table = Tabla::Busca_Producto($id);
     <div class="row">
             <?php 
                 if(!empty($table)){   ?>              
-                <div class="col">
+                <div class="col mb-4">
                     <img class="" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
-                <div class="col">
+                <div class="col d-flex flex-column justify-content-center">
                     <h2 class="font-bold"><?= $table->getModelo() ?></h2>
                     <h3><?= $table->precioUnidad() ?></h3>
                     <hr class="separador">
@@ -22,7 +22,8 @@ $table = Tabla::Busca_Producto($id);
 
                     <p>Color: <?= $table->getColor() ?></p>
                     <p>Material: <?= $table->getMaterial() ?></p>
-                    <button class="btn btn-primary">Agregar al carrito</button>
+                    <p>Unidades en stock: <span class="text-success"><?= $table->unidades_restantes() ?></span></p>
+                    <button class="btn btn-primary w-100">Agregar al carrito</button>
                 </div>
 
                 <div class="accordion" id="accordionDescription">
