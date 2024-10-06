@@ -4,12 +4,12 @@ $id = $_GET['id'] ?? 0; //null coalcese - Operar
 $table = Tabla::Busca_Producto($id);
 ?>
 
-<div class="container h-rest">
+<div class="container d-flex justify-content-center h-rest">
     <div class="row">
             <?php 
                 if(!empty($table)){   ?>              
                 <div class="col mb-4">
-                    <img class="" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
+                    <img class="img-width" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="col d-flex flex-column justify-content-center container-prod">
                     <h2 class="font-bold"><?= $table->getModelo() ?></h2>

@@ -122,10 +122,13 @@ main{
 }
 
 .circle{
-    background-image: url('../img/brian-fernandez.webp');
     border-radius: 50%;
     display: block;
     background-size: cover;
+}
+
+.max-width-250{
+    max-width: 250px;
 }
 
 .datosDev{
@@ -136,7 +139,9 @@ main{
 }
 
 
-
+.img-width{
+    max-width: 30vw;
+}
 
 @media screen and (max-width:767px) {
     .brand-responsive{
