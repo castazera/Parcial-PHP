@@ -10,7 +10,8 @@ class Tabla{
     private $imagen;
     private $descripcion;
     private $material;
-
+    private $stock;
+    private $unidadesVendidas;
 
     /**
      * Devuelve el catalogo completo
@@ -36,6 +37,8 @@ class Tabla{
             $tabla -> imagen= $key -> imagen;
             $tabla -> descripcion= $key -> descripcion;
             $tabla -> material= $key -> material;
+            $tabla -> stock= $key -> stock;
+            $tabla -> unidadesVendidas= $key -> unidadesVendidas;
             
             $catalogo[] = $tabla;    
             }}
@@ -50,6 +53,20 @@ class Tabla{
     public function nombre_tabla():string{
 
         return $this->modelo . " de Talla " . $this->talla . " ,color " .  $this->color . " realizado con " . $this->material;
+    }
+
+    /**
+     * Devuleve unidades restantes de stock
+     */
+    public function unidades_restantes():int{
+        return $this->stock - $this->unidadesVendidas;
+    }
+
+    /**
+     * Devuleve unidades restantes de stock
+     */
+    public function porcentajeStock():int{
+        return ($this->unidades_restantes() / $this->stock) * 100;
     }
 
     /**
@@ -120,21 +137,20 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
  */
     public function recortar_descripcion( int $cantidad = 10 ):string{
 
-    $texto = $this->descripcion;    
-    $seleccionDePalabras = explode(" ", $texto);
-    
-    if(count($seleccionDePalabras) <= 10){
-        return $texto;
-    }else{
-        $recortado = array_slice($seleccionDePalabras,0,$cantidad);
-        $resultado = implode(" ", $recortado) . "...";
-        return $resultado;
-    }}
+        $texto = $this->descripcion;    
+        if (strlen($texto) <= $cantidad) {
+            return $texto;
+        } else {
+            $recortado = substr($texto, 0, $cantidad);
+            $resultado = $recortado . "...";
+            return $resultado;
+        }
+    }
 
     /**
      * Devuelve el precio de la unidad, formateado correctamente
      */
-    public function PrecioUnidad(): string{
+    public function precioUnidad(): string{
         return "$" . number_format($this->precio, 2, ',', '.');
     }
 
@@ -316,6 +332,46 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stock
+     */ 
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set the value of stock
+     *
+     * @return  self
+     */ 
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of unidadesVendidas
+     */ 
+    public function getUnidadesVendidas()
+    {
+        return $this->unidadesVendidas;
+    }
+
+    /**
+     * Set the value of unidadesVendidas
+     *
+     * @return  self
+     */ 
+    public function setUnidadesVendidas($unidadesVendidas)
+    {
+        $this->unidadesVendidas = $unidadesVendidas;
 
         return $this;
     }

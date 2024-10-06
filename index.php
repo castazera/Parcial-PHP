@@ -25,55 +25,90 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
     </head>
 
     <body>
-        <header>
-            <nav class="  navbar navbar-expand-md navbar-dark bg-dark ">
-                <div class="container">
-                    <a class="navbar-brand" href="index.php?sec=inicio">
-                        <div class="container-fluid">
-                            <img class="logo" src="img/logo1.webp" alt="Logo">
-                            BOARDS
+        <div class="contenedor">
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+                    <div class="container">
+                        <a class="navbar-brand logo-responsive" href="index.php?sec=inicio">
+                            <div class="container-fluid logoContainer">
+                                <img class="logo" src="img/logo1.webp" alt="Logo">
+                                <span class="brand-responsive">BOARDS</span>
+                            </div>
+                        </a>
+                        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse " id="collapsibleNavId">
+                            <ul class="justify-content-center navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive active" href="index.php?sec=inicio" aria-current="page"
+                                        >Inicio
+                                        <span class="visually-hidden">(current)</span><a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href="index.php?sec=quienes_somos">¿Quiénes somos?</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href= "index.php?sec=catalogo_completo">Catalogo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href= "index.php?sec=OfertasDisponibles">Ofertas disponibles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href= "index.php?sec=FormularioDeQuejas">Contacto</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link font-responsive dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categorias</a>
+                                    <div
+                                        class="dropdown-menu"
+                                        aria-labelledby="dropdownId">
+                                        <a class="dropdown-item" href="index.php?sec=categorias&board=Snowboard"
+                                            >Snowboard</a>
+                                        <a class="dropdown-item" href="index.php?sec=categorias&board=Skateboard"
+                                            >Skateboard</a>
+                                        <a class="dropdown-item" href="index.php?sec=categorias&board=Mountainboard"
+                                            >Mountainboard</a>
+                                        <a class="dropdown-item" href="index.php?sec=categorias&board=Longboard"
+                                            >Longboard</a>
+                                    </div>
+                                </li>
+                            </ul>
+    
                         </div>
-                    </a>
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse " id="collapsibleNavId">
-                        <ul class="justify-content-center navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.php?sec=inicio" aria-current="page"
-                                    >Inicio
-                                    <span class="visually-hidden">(current)</span><a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?sec=quienes_somos">¿Quiénes somos?</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href= "index.php?sec=catalogo_completo">Catalogo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href= "index.php?sec=OfertasDisponibles">Ofertas disponibles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href= "index.php?sec=FormularioDeQuejas">Contacto</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categorias</a>
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" href="index.php?sec=categorias&board=Snowboard"
-                                        >Snowboard</a>
-                                    <a class="dropdown-item" href="index.php?sec=categorias&board=Skateboard"
-                                        >Skateboard</a>
-                                    <a class="dropdown-item" href="index.php?sec=categorias&board=Mountainboard"
-                                        >Mountainboard</a>
-                                    <a class="dropdown-item" href="index.php?sec=categorias&board=Longboard"
-                                        >Longboard</a>
-                                </div>
-                            </li>
-                        </ul>
-
+                    </div>
+                </nav>
+            </header>
+            <main>
+    
+                <?php if($_GET['sec'] ?? null){
+                    require_once "views/{$vista['archivo']}.php";
+                }else { ?>
+    
+    <div style="height: 100vh; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.webp);
+                background-size:cover ;
+                background-position: center;">
+     <div style="color: #fff;
+                text-align: center;
+                width:50%;">
+     <h1 style="font-family:Oswald;
+                font-size:6em;">BOARDS</h1>
+     <p style="font-family:Oswald;
+                font-size:1.5em;">Explora nuestra selección de skateboards, longboards, mountainboards y snowboards de alta calidad. Ya sea que estés buscando adrenalina en la montaña, deslizarte por la ciudad, o conquistar nuevos terrenos, tenemos el equipo perfecto para ti.<br> ¡Encuentra tu tabla ideal y comienza la aventura!</p>
+     </div>
+    </div>
+    
+                <?php }?>
+            </main>
+            <footer>
+            <div class="sticky-bottom">
+                <div class="card">
+                <div class="card-body text-center" style="margin-top: auto;">
+                    <span class="card-title">Web realizada por <a href="index.php?sec=datos&dev=Brian_Fernandez">Brian Fernandez</a> & <a href="index.php?sec=datos&dev=Bruno_de_Renzis">Bruno de Renzis</a></span>
                     </div>
                 </div>
             </nav>
@@ -94,15 +129,16 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             <?php }?>
         </main>
         <footer class="footer-form">
-        <div class="sticky-bottom">
-            <div class="card">
-            <div class="card-body text-center footer-margin">
-                <footer></footer>
-                <span class="card-title">Web realizada por Brian Fernandez</span>
+            <div class="sticky-bottom">
+                <div class="card">
+                    <div class="card-body text-center footer-margin">
+                        <span class="card-title">Web realizada por Brian Fernandez</span>
+                    </div>
                 </div>
             </div>
-        </div>
         </footer>
+
+        <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

@@ -16,61 +16,77 @@ class Vista
                 $titulo = 'Bienvenido a Boards';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'catalogo_completo':
                 $archivo = $vista;
                 $titulo = 'Catalogo Completo';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'quienes_somos':
                 $archivo = $vista;
                 $titulo = 'About Us';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'categorias':
                 $archivo = $vista;
                 $titulo = 'Tablas';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'prod':
                 $archivo = $vista;
                 $titulo = 'Detalles del producto' ;
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'OfertasDisponibles':
                 $archivo = $vista;
                 $titulo = 'Ofertas imperdibles';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'FormularioDeQuejas':
                 $archivo = $vista;
                 $titulo = 'Formulario de quejas';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'RespuestaForm':
                 $archivo = $vista;
                 $titulo = 'Respuesta del formulario';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
             case 'QuejaConfirmada':
                 $archivo = $vista;
                 $titulo = 'Confirmacion de la queja';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
+
+            case 'datos':
+                $archivo = $vista;
+                $titulo = 'Datos del developer';
+                $activa = true;
+                $restringida = false;
+            break;
+
             default:
                 $archivo = '404';
                 $titulo = 'Página no encontrada';
                 $activa = true;
                 $restringida = false;
-                break;
+            break;
         }
         if(!$activa){
             $resultado =[
