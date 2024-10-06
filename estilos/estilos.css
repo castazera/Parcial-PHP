@@ -72,7 +72,24 @@ main{
     border: 2px solid rgb(65, 64, 64);
     max-width: max-content;
     padding: 8px;
+
 }
+
+.circle{
+    background-image: url('../img/brian-fernandez.webp');
+    border-radius: 50%;
+    display: block;
+    background-size: cover;
+}
+
+.datosDev{
+    background-color: #1F2429;
+    width: 100%;
+    height: 88vh;
+    display: flex;
+}
+
+
 
 
 @media screen and (max-width:767px) {

@@ -74,9 +74,9 @@ class Vista
                 $restringida = false;
             break;
 
-            case 'datos':
+            case 'datos_devs':
                 $archivo = $vista;
-                $titulo = 'Datos del developer';
+                $titulo = 'Datos de developers';
                 $activa = true;
                 $restringida = false;
             break;

@@ -108,7 +108,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             <div class="sticky-bottom">
                 <div class="card">
                 <div class="card-body text-center" style="margin-top: auto;">
-                    <span class="card-title">Web realizada por <a href="index.php?sec=datos&dev=Brian_Fernandez">Brian Fernandez</a> & <a href="index.php?sec=datos&dev=Bruno_de_Renzis">Bruno de Renzis</a></span>
+                    <span class="card-title">Web realizada por <a href="index.php?sec=datos_devs">Brian Fernandez & Bruno de Renzis</a></span>
                     </div>
                 </div>
             </div>
