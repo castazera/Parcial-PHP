@@ -85,22 +85,12 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                     require_once "views/{$vista['archivo']}.php";
                 }else { ?>
     
-    <div style="height: 100vh; 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(to right,rgb(0 0 0 / 4), rgb(0 0 0 / .1)), url(img_productos/background_inicio.webp);
-                background-size:cover ;
-                background-position: center;">
-     <div style="color: #fff;
-                text-align: center;
-                width:50%;">
-     <h1 style="font-family:Oswald;
-                font-size:6em;">BOARDS</h1>
-     <p style="font-family:Oswald;
-                font-size:1.5em;">Explora nuestra selección de skateboards, longboards, mountainboards y snowboards de alta calidad. Ya sea que estés buscando adrenalina en la montaña, deslizarte por la ciudad, o conquistar nuevos terrenos, tenemos el equipo perfecto para ti.<br> ¡Encuentra tu tabla ideal y comienza la aventura!</p>
-     </div>
-    </div>
+<div class="container-index">
+ <div class="container-index-1">
+ <h1>BOARDS</h1>
+ <p>Explora nuestra selección de skateboards, longboards, mountainboards y snowboards de alta calidad. Ya sea que estés buscando adrenalina en la montaña, deslizarte por la ciudad, o conquistar nuevos terrenos, tenemos el equipo perfecto para ti.<br> ¡Encuentra tu tabla ideal y comienza la aventura!</p>
+ </div>
+</div>
     
                 <?php }?>
             </main>
@@ -115,28 +105,6 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
         </header>
         <main>
 
-            <?php if($_GET['sec'] ?? null){
-                require_once "views/{$vista['archivo']}.php";
-            }else { ?>
-
-<div class="container-index">
- <div class="container-index-1">
- <h1>BOARDS</h1>
- <p>Explora nuestra selección de skateboards, longboards, mountainboards y snowboards de alta calidad. Ya sea que estés buscando adrenalina en la montaña, deslizarte por la ciudad, o conquistar nuevos terrenos, tenemos el equipo perfecto para ti.<br> ¡Encuentra tu tabla ideal y comienza la aventura!</p>
- </div>
-</div>
-
-            <?php }?>
-        </main>
-        <footer class="footer-form">
-            <div class="sticky-bottom">
-                <div class="card">
-                    <div class="card-body text-center footer-margin">
-                        <span class="card-title">Web realizada por Brian Fernandez</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
         <!-- Bootstrap JavaScript Libraries -->
         <script
