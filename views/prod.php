@@ -11,7 +11,7 @@ $table = Tabla::Busca_Producto($id);
                 <div class="col mb-4">
                     <img class="" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
-                <div class="col d-flex flex-column justify-content-center">
+                <div class="col d-flex flex-column justify-content-center container-prod">
                     <h2 class="font-bold"><?= $table->getModelo() ?></h2>
                     <h3><?= $table->precioUnidad() ?></h3>
                     <hr class="separador">

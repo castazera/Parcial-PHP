@@ -6,7 +6,7 @@ $prod = $_POST['producto'];
 $comentario = $_POST['comentario'];
 ?>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center form-f-2">
         <div class="row justify-content-center m-4 w-75">
             <div class="col-md-8 form-container">
                 <h2 class="text-center form-title mt-2">🛹 - Confirmar Queja - 🛹</h2>
