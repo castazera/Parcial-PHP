@@ -10,7 +10,7 @@ $table = Tabla::Busca_Producto($id);
             <?php 
                 if(!empty($table)){   ?> 
                     <h1 class="text-center m-5">Detalle del producto</h1>
-                    <div class="card" style="width: 21rem; margin-right :40px;">
+                    <div class="card container-prod">
                 <div class="container mt-3">
                     <img class="card-img-top" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
