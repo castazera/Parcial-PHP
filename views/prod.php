@@ -5,18 +5,18 @@ $table = Tabla::Busca_Producto($id);
 ?>
 
 <div class="container d-flex justify-content-center h-rest">
-    <div class="row">
+    <div class="row middle-tablet-cel">
             <?php 
                 if(!empty($table)){   ?>              
-                <div class="col mb-4">
+                <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
                     <img class="img-width" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
-                <div class="col d-flex flex-column justify-content-center container-prod">
+                <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex flex-column justify-content-center container-prod">
                     <h2 class="font-bold"><?= $table->getModelo() ?></h2>
                     <h3><?= $table->precioUnidad() ?></h3>
                     <hr class="separador">
                         <div class="d-flex flex-column">
-                            <span>Medidas: </span><button class="square btn "><a><?= $table->getTalla() ?></a></button>
+                            <span>Medidas: </span><button class="text-start square-size btn"><a><?= $table->getTalla() ?></a></button>
                         </div>
                     <hr class="separador">
 
@@ -26,13 +26,13 @@ $table = Tabla::Busca_Producto($id);
                     <button class="btn btn-primary w-100">Agregar al carrito</button>
                 </div>
 
-                <div class="accordion" id="accordionDescription">
+                <div class="accordion mt-4" id="accordionDescription">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingDescription">
+                        <p class="accordion-header" id="headingDescription">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescription" aria-expanded="false" aria-controls="collapseDescription">
                                 Descripción
                             </button>
-                        </h2>
+                        </p>
                         <div id="collapseDescription" class="accordion-collapse collapse" aria-labelledby="headingDescription" data-bs-parent="#accordionDescription">
                             <div class="accordion-body">
                                 <?= $table->getDescripcion() ?>
