@@ -111,6 +111,19 @@ main{
     width: 21rem; 
     margin-right :40px;
 }
+.ancho{
+    width: 21rem;
+}
+
+/*Estilos de 403 y 404*/
+.contenedor-404{
+    text-align: center;
+}
+.img-404{
+    width:580px; 
+    height:580px;    
+}
+
 
 .h-rest{
     height: 87vh;

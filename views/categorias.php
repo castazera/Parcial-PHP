@@ -13,7 +13,7 @@ $Catalogo_Tabla = Tabla::catalogo_tabla($board);
             <div class="row d-flex justify-content-center">
                 <?php foreach($Catalogo_Tabla as $marca => $detalles) { ?>
 
-            <div class="card mx-2 my-2 col-sm-12 col-md-4 col-lg-3 col-xl-3" style="width: 21rem;">
+            <div class="card mx-2 my-2 col-sm-12 col-md-4 col-lg-3 col-xl-3 ancho">
                 <div class="container mt-3">
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
