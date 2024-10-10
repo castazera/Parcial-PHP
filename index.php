@@ -101,7 +101,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                     <span class="card-title">Web realizada por <a href="index.php?sec=datos_devs">Brian Fernandez & Bruno de Renzis</a></span>
                     </div>
                 </div>
-            </nav>
+            </footer>
         </header>
         <main>
 
