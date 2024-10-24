@@ -8,6 +8,16 @@
 
         private PDO $db;
 
+        public function __construct()
+        {
+            try{
+                echo "ESTA ES LA FUNCIÓN CONSTRUCTORA QUE SE LLAMA APENAS SE INSTANCIA UN OBJETO";
+                $this->db = new PDO(self::DB_DSN,self::DB_USER,self::DB_PASS);
+            } catch (Exception $e){
+                die("Error al conectar con sql");
+            }
+        }
+
         public function getConexion():PDO{
             try{
                 $this->db = new PDO(self::DB_DSN,self::DB_USER,self::DB_PASS);

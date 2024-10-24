@@ -46,13 +46,30 @@
         print_r($datos);
         echo "</pre>";
     }
-    //Otra manera más fácil de traer todos los datos en un array multidimensional
+    //Otra manera más fácil de traer todos los datos en un array multidimensional, trayendo todos los resultados.
     $usuarios = $PDOStatement->fetchAll();
     foreach($usuarios as $value){
         echo "<pre>";
         print_r($value);
         echo "</pre>";
     }
+
+    /*
+    Ejemplo de holder, en los holder, la función execute reemplaza el ?
+    public function get_x_id($id): ?Serie
+    {
+        $conexion = (new Conexion())->getConexion();
+        $query = "SELECT * FROM series WHERE id = ?";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute([$id]);
+
+        $result = $PDOStatement->fetch();
+
+        return $result ?? null;
+    }
+    */
 
 
 ?>
