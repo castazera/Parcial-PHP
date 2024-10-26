@@ -1,4 +1,5 @@
 <?php 
+require_once 'clases/conexionDB.php';
 require_once 'clases/Vista.php';
 require_once 'clases/Tabla.php';
 

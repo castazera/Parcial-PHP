@@ -1,4 +1,5 @@
 <?php 
+
 class Tabla{
 
     private $id;
@@ -7,7 +8,7 @@ class Tabla{
     private $precio;
     private $talla;
     private $color;
-    private $imagen;
+    private $imagen_url;
     private $descripcion;
     private $material;
     private $stock;
@@ -18,32 +19,43 @@ class Tabla{
      * @return Tabla[] Un array de objetos Tabla
      */
     public static function CatalogoCompleto():array{
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT * FROM tabla_1";
 
-        $catalogo = [];
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $lista_boards = $PDOStatement->fetchAll();
+
+        
+
+        // $catalogo = [];
             
-        $datosJson = file_get_contents("datos/catalogo.json");
-        $JsonData = json_decode($datosJson);
-        foreach($JsonData as $value){
-            foreach($value as $key){
+        // $datosJson = file_get_contents("datos/catalogo.json");
+        // $JsonData = json_decode($datosJson);
+        // foreach($JsonData as $value){
+        //     foreach($value as $key){
                 
-            $tabla = new self();
+        //     $tabla = new self();
 
-            $tabla -> id = $key -> id;
-            $tabla -> tipo = $key -> tipo;
-            $tabla -> modelo= $key -> modelo ; 
-            $tabla -> precio= $key -> precio;
-            $tabla -> talla=  $key -> talla;
-            $tabla -> color = $key -> color;
-            $tabla -> imagen= $key -> imagen;
-            $tabla -> descripcion= $key -> descripcion;
-            $tabla -> material= $key -> material;
-            $tabla -> stock= $key -> stock;
-            $tabla -> unidadesVendidas= $key -> unidadesVendidas;
+        //     $tabla -> id = $key -> id;
+        //     $tabla -> tipo = $key -> tipo;
+        //     $tabla -> modelo= $key -> modelo ; 
+        //     $tabla -> precio= $key -> precio;
+        //     $tabla -> talla=  $key -> talla;
+        //     $tabla -> color = $key -> color;
+        //     $tabla -> imagen= $key -> imagen;
+        //     $tabla -> descripcion= $key -> descripcion;
+        //     $tabla -> material= $key -> material;
+        //     $tabla -> stock= $key -> stock;
+        //     $tabla -> unidadesVendidas= $key -> unidadesVendidas;
             
-            $catalogo[] = $tabla;    
-            }}
+        //     $catalogo[] = $tabla;    
+        //     }}
 
-        return $catalogo;
+        return $lista_boards;
     }
 
 
@@ -76,17 +88,37 @@ class Tabla{
      * @return Tabla[] Un array lleno de instancias del objeto Tabla.     
      */
     public static function catalogo_tabla(string $TipoTabla): array{
-        $resultado = [];
-        $catalogo = self::CatalogoCompleto();
-        foreach($catalogo as $tabla){
-            if($tabla->tipo == $TipoTabla){
-                $resultado[] = $tabla;
+        $lista_boards = [];
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT * FROM tabla_1 JOIN tipo ON tabla_1.tipo_id = tipo.tipo_id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $catalogo_tabla = $PDOStatement->fetchAll();
+
+        // echo "<pre>";
+        // echo print_r($catalogo_tabla);
+        // echo "</pre>";
+
+        foreach($catalogo_tabla as $tabla){
+
+
+
+            if($tabla->nombre_tipo == $TipoTabla){
+                $lista_boards[] = $tabla;
+        //                 echo "<pre>";
+        // echo print_r($tabla);
+        // echo "</pre>";
             }
+            // if($tabla->tipo == $TipoTabla){
+            //     $resultado[] = $tabla;
+            // }
         }
-
-
-
-        return $resultado;
+        return $lista_boards;
+ // NO ENTENDI LO DE LOS HOLDERS EN SQL MINUTO 1:15HS.
     }
 
 
@@ -279,7 +311,7 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      */ 
     public function getImagen()
     {
-        return $this->imagen;
+        return $this->imagen_url;
     }
 
     /**
@@ -287,9 +319,9 @@ public static function Busca_Precio(int $PrecioMin = 15000): array{
      *
      * @return  self
      */ 
-    public function setImagen($imagen)
+    public function setImagen($imagen_url)
     {
-        $this->imagen = $imagen;
+        $this->imagen_url = $imagen_url;
 
         return $this;
     }
