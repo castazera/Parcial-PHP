@@ -29,6 +29,10 @@ class Tabla{
 
         $lista_boards = $PDOStatement->fetchAll();
 
+                 echo "<pre>";
+        echo print_r($lista_boards);
+        echo "</pre>";
+
         
 
         // $catalogo = [];
@@ -104,7 +108,11 @@ class Tabla{
         // echo "</pre>";
 
         foreach($catalogo_tabla as $tabla){
+        //       echo "<pre>";
+        // echo print_r($tabla->nombre_tipo);
+        // echo "</pre>";
 
+            
 
 
             if($tabla->nombre_tipo == $TipoTabla){
@@ -145,19 +153,47 @@ class Tabla{
  * Si no se provee un precio minimo, el minimo obligatorio sera 15.000
  * @return Tabla[] Un array lleno de instancias de objeto Tabla
  */
-public static function Busca_Precio(int $PrecioMin = 15000): array{
+public static function Busca_Precio(int $PrecioMin = 25000): array{
 
     $resultado = [];
-    
-    $catalogo = self::CatalogoCompleto();
 
-    foreach($catalogo as $tabla){
-        if($tabla->precio <= $PrecioMin){
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "SELECT * FROM tabla_1";
+
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatement->execute();
+    $catalogo_tabla = $PDOStatement->fetchAll();
+
+    // echo "<pre>";
+    // echo print_r($catalogo_tabla);
+    // echo "</pre>";
+
+    foreach($catalogo_tabla as $tabla){
+
+        if ($tabla->getPrecio() <= $PrecioMin) {
             $resultado[] = $tabla;
         }
+
+        // if($tabla->precio <= $PrecioMin){
+        //      $resultado[] = $tabla;
+        // }else{
+        //     echo "<pre>";
+        //     echo print_r("no entra pa");
+        //     echo "</pre>";
+        // }
     }
     return $resultado;
 }
+
+// /**
+//  * Toma el catalogo completo y filtra solo los modelos para colocarnos en el select del form. 
+//  * @return Tabla[] de objetos tabla
+//  */
+// public static function Busca_modelo(): array{
+//     $resultado = [];
+// }
 
 
     /**
