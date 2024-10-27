@@ -1,5 +1,5 @@
 <?php 
-$catalogo = Tabla::Busca_Precio(20.000);
+$catalogo = Tabla::Busca_Precio();
 
 ?>
 
