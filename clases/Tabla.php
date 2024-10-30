@@ -29,9 +29,9 @@ class Tabla{
 
         $lista_boards = $PDOStatement->fetchAll();
 
-                 echo "<pre>";
-        echo print_r($lista_boards);
-        echo "</pre>";
+        //          echo "<pre>";
+        // echo print_r($lista_boards);
+        // echo "</pre>";
 
         
 
@@ -221,6 +221,40 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
     public function precioUnidad(): string{
         return "$" . number_format($this->precio, 2, ',', '.');
     }
+
+    /**
+     * Devuelve las tablas en un determinado rango de precio colocado
+     * @param int $minimo Es el precio minimo. De no darlo se asumira como 0
+     * @param int $maximo Es el precio maximo. De no darlo se asumira como infinito
+     * 
+     * @return Tabla[] Un array de objetos Tabla
+     */
+
+    public function tabla_x_rango(int $minimo = 0, int $maximo = 0)
+    {
+        $conexion = (new conexion())->getConexion();
+        if($maximo){
+            $query = "SELECT * FROM tabla_1 WHERE precio BETWEEN :minimo AND :maximo;";
+            $valores = [
+                'minimo' => $minimo,
+                'maximo' => $maximo                    
+            ];
+        }else{
+            $query = "SELECT * FROM tabla_1 WHERE precio BETWEEN :minimo";
+            $valores = [
+                'minimo' => $minimo
+            ];
+        }
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute($valores);
+        $resultado = $PDOStatement->fetchAll();
+
+        return $resultado;
+    }
+
+    //TERMINO DE BUSQUEDA EN MINUTO 35 CLASE DEL 25/10
+
 
     /**
      * Get the value of id
