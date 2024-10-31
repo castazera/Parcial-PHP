@@ -1,5 +1,7 @@
 <?php 
-$catalogo = Tabla::CatalogoCompleto();
+#$catalogo = Tabla::CatalogoCompleto();
+
+$catalogo = Tabla::Catalogo_Modelo();
 ?>
     <div class="container d-flex justify-content-center form-f">
         <div class="row justify-content-center m-4 w-75">
@@ -30,8 +32,8 @@ $catalogo = Tabla::CatalogoCompleto();
                         <label for="producto" class="form-label">¿Con cual producto tuviste incovenientes?</label>
                         <select class="form-select" name="producto" required>
                         <option disabled selected>Seleccione un producto</option>
-                        <?php foreach($catalogo as $marca => $detalles) { ?>
-                        <option><?=$detalles->getModelo()?></option>
+                        <?php foreach($catalogo as $modelo) { ?>
+                        <option><?=$modelo?></option>
                         <?php } ?>
                         </select>
                     </div>

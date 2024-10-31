@@ -23,11 +23,11 @@ $PDOStatement = $conexion->prepare($query);
 $PDOStatement->setFetchMode(PDO::FETCH_CLASS, "tipo");
 $PDOStatement->execute();
 
-while($datos = $PDOStatement->fetch()){
+/*while($datos = $PDOStatement->fetch()){
     echo "<pre>";
     echo print_r($datos);
     echo "</pre>";
-}
+}*/
 
 ?>
 

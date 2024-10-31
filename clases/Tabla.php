@@ -29,6 +29,9 @@ class Tabla{
 
         $lista_boards = $PDOStatement->fetchAll();
 
+        return $lista_boards;
+
+
         //          echo "<pre>";
         // echo print_r($lista_boards);
         // echo "</pre>";
@@ -59,7 +62,6 @@ class Tabla{
         //     $catalogo[] = $tabla;    
         //     }}
 
-        return $lista_boards;
     }
 
 
@@ -127,6 +129,26 @@ class Tabla{
         }
         return $lista_boards;
  // NO ENTENDI LO DE LOS HOLDERS EN SQL MINUTO 1:15HS.
+    }
+
+    public static function Catalogo_Modelo():array{
+        $listaModelos = [];
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT * FROM tabla_1 JOIN modelo ON tabla_1.modelo_id = modelo.modelo_id";
+
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $catalogo_modelos = $PDOStatement->fetchAll();
+
+        foreach ($catalogo_modelos as $modelo) {
+            $listaModelos[] = $modelo->nombre_modelo;
+        }
+
+        return $listaModelos;
     }
 
 

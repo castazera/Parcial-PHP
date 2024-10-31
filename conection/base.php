@@ -42,9 +42,9 @@
     //fetch trae el primer resultado y pasa al siguiente. Funciona como un foreach de los datos e la tabla resultado. Si no devuelve nada, fetch devolverá false. Por lo cual un bucle while es una buena opción para recorrer el fetch.
     $datos = $PDOStatement->fetch();
     while($datos = $PDOStatement->fetch()){
-        echo "<pre>";
+        /*echo "<pre>";
         print_r($datos);
-        echo "</pre>";
+        echo "</pre>";*/
     }
     //Otra manera más fácil de traer todos los datos en un array multidimensional, trayendo todos los resultados.
     $usuarios = $PDOStatement->fetchAll();
