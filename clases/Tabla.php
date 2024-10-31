@@ -131,6 +131,13 @@ class Tabla{
  // NO ENTENDI LO DE LOS HOLDERS EN SQL MINUTO 1:15HS.
     }
 
+
+
+    /**
+     * Devuelve el catalogo de modelos de tablas
+     * 
+     * @return Tabla[] Un array lleno de instancias del objeto Tabla.     
+     */
     public static function Catalogo_Modelo():array{
         $listaModelos = [];
         $OBJconexion = new conexion();
