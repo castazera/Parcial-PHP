@@ -129,6 +129,31 @@ class Tabla{
  // NO ENTENDI LO DE LOS HOLDERS EN SQL MINUTO 1:15HS.
     }
 
+/**
+ * Funcion que solo trae el tipo de tabla.
+ */
+
+ public static function tipo_tabla(): array{
+    $lista_tipo = [];
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "SELECT * FROM tabla_1 JOIN tipo ON tabla_1.tipo_id = tipo.tipo_id";
+
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatement->execute();
+
+    $catalogo_tabla = $PDOStatement->fetchAll();
+
+
+
+   foreach ($catalogo_tabla as $B) {
+    $lista_tipo == $B->nombre_tipo;
+   }
+
+
+    return $lista_tipo;
+ }
 
     /**
      * Devuelve los datos de un producto en particular

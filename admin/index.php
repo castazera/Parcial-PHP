@@ -30,7 +30,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
             <header>
                 <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
                     <div class="container">
-                        <a class="navbar-brand logo-responsive" href="index.php?sec=inicio">
+                        <a class="navbar-brand logo-responsive" href="index.php?sec=dashboard">
                             <div class="container-fluid logoContainer">
                                 <span class="brand-responsive">PANEL DE ADMIN</span>
                             </div>
