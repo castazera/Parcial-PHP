@@ -1,0 +1,52 @@
+table {
+    width: 75%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+h1{
+    text-align: center;
+    margin: 1%;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+.button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.edit {
+    background-color: #127619;
+}
+.delete {
+    background-color: #f44336;
+}
+.add-button {
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    height: 40px;
+    background-color: #008CBA; /* Azul */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.div_button{
+    margin: 50px;
+}
+.box_img{
+    text-align: center;
+}
+
+.img_admin{
+    width: 35%;
+}
