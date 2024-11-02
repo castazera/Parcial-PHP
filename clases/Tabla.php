@@ -261,7 +261,7 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
 
     public function tabla_x_rango(int $minimo = 0, int $maximo = 0)
     {
-        $conexion = (new conexion())->getConexion();
+        $conexion = Conexion::getConexion();
         if($maximo){
             $query = "SELECT * FROM tabla_1 WHERE precio BETWEEN :minimo AND :maximo;";
             $valores = [

@@ -1,6 +1,6 @@
 <?php 
 require_once "clases/tipo.php";
-require_once "clases/conexionDB.php";
+require_once "clases/Conexion.php";
 // try {
 //     $conexion = new PDO(DB_DSN, DB_USER, DB_PASS);
 // } catch (Exception $e) {
@@ -14,7 +14,7 @@ require_once "clases/conexionDB.php";
 
 //     die("<p>Hubo un error al intentar realizar la conexion</p>");
 // }
-$conexion = (new Conexion())->getConexion();
+$conexion = Conexion::getConexion();
 
 $query = "SELECT * FROM tipo";
 

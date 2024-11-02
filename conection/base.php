@@ -28,7 +28,7 @@
         //echo "</pre>";
         die('<p>Acá mensajede error personalizado</p>');
     }
-    $conexion = (new Conexion())->getConexion();
+    $conexion = Conexion::getConexion();
     $querySelectUsuarios = "SELECT * FROM usuarios";
 
     //Listo para ser ejecutado, según jorge es un arma cargada, todavía sin gatillar.
@@ -58,7 +58,7 @@
     Ejemplo de holder, en los holder, la función execute reemplaza el ?
     public function get_x_id($id): ?Serie
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM series WHERE id = ?";
 
         $PDOStatement = $conexion->prepare($query);

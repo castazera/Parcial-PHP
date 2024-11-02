@@ -16,7 +16,7 @@ class Vista
     public static function ValidarVista(?string $vista): array
     {
 
-        $conexion = (new conexion())->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM vista WHERE nombre = ?";
     
         $PDOStatement = $conexion->prepare($query);
