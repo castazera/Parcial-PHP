@@ -33,7 +33,7 @@ $tipo_tabla = Tabla::tipo_tabla();
             <td class="box_img">
                 <img src="../img_productos/<?= $board->getImagen()?>" alt="Skateboard" class="img_admin">
             </td>
-            <td><?= $board->getModelo() ?></td>
+            <td><?= $board->getModelo_id() ?></td>
             <td><?= $board->getTipo()?></td>
             <td><?= $board->getTalla() ?></td>
             <td><?= $board->getColor() ?></td>

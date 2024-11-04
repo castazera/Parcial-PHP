@@ -15,7 +15,7 @@ $catalogo = Tabla::CatalogoCompleto();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title"><?= $detalles->getModelo() ?></h2>
+                    <h2 class="card-title"><?= $detalles->getModelo_id() ?></h2>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
@@ -43,7 +43,7 @@ $catalogo = Tabla::CatalogoCompleto();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><?= $detalles->getModelo() ?></h5>
+                    <h5 class="card-title"><?= $detalles->getModelo_id() ?></h5>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
@@ -71,7 +71,7 @@ $catalogo = Tabla::CatalogoCompleto();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><?= $detalles->getModelo() ?></h5>
+                    <h5 class="card-title"><?= $detalles->getModelo_id() ?></h5>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
@@ -99,7 +99,7 @@ $catalogo = Tabla::CatalogoCompleto();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><?= $detalles->getModelo() ?></h5>
+                    <h5 class="card-title"><?= $detalles->getModelo_id() ?></h5>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
