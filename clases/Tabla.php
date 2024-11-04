@@ -3,8 +3,9 @@
 class Tabla{
 
     private $id;
-    private $tipo;
-    private $modelo;
+    private $tipo_id;
+    private $modelo_id;
+    private $marca_id;
     private $precio;
     private $talla;
     private $color;
@@ -70,7 +71,7 @@ class Tabla{
      */
     public function nombre_tabla():string{
 
-        return $this->modelo . " de Talla " . $this->talla . " ,color " .  $this->color . " realizado con " . $this->material;
+        return $this->modelo_id . " de Talla " . $this->talla . " ,color " .  $this->color . " realizado con " . $this->material;
     }
 
     /**
@@ -333,9 +334,9 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
     /**
      * Get the value of Modelo
      */ 
-    public function getModelo()
+    public function getModelo_id()
     {
-        return $this->modelo;
+        return $this->modelo_id;
     }
 
     /**
@@ -343,9 +344,9 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
      *
      * @return  self
      */ 
-    public function setModelo($modelo)
+    public function setModelo($modelo_id)
     {
-        $this->modelo = $modelo;
+        $this->modelo_id = $modelo_id;
 
         return $this;
     }
@@ -477,7 +478,7 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
      */ 
     public function getTipo()
     {
-        return $this->tipo;
+        return $this->tipo_id;
     }
 
     /**
@@ -485,9 +486,9 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
      *
      * @return  self
      */ 
-    public function setTipo($tipo)
+    public function setTipo($tipo_id)
     {
-        $this->tipo = $tipo;
+        $this->tipo_id = $tipo_id;
 
         return $this;
     }
@@ -528,6 +529,26 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
     public function setUnidadesVendidas($unidadesVendidas)
     {
         $this->unidadesVendidas = $unidadesVendidas;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of marca_id
+     */ 
+    public function getMarca_id()
+    {
+        return $this->marca_id;
+    }
+
+    /**
+     * Set the value of marca_id
+     *
+     * @return  self
+     */ 
+    public function setMarca_id($marca_id)
+    {
+        $this->marca_id = $marca_id;
 
         return $this;
     }

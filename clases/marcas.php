@@ -1,5 +1,5 @@
 <?php 
-class marcas{
+class Marcas{
     private $marcas_id;
     private $nombre_marcas;
 

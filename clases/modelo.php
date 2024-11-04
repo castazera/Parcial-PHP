@@ -1,5 +1,5 @@
 <?php 
-class modelo{
+class Modelo{
     private $modelo_id;
     private $nombre_modelo;
  
