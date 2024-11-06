@@ -18,7 +18,7 @@ $Catalogo_Tabla = Tabla::catalogo_tabla($board);
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title"><?= $detalles->getModelo() ?></h2>
+                    <h2 class="card-title"><?= $detalles->getModelo_id() ?></h2>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial() ?></p>
