@@ -20,8 +20,7 @@ class Tabla{
      * @return Tabla[] Un array de objetos Tabla
      */
     public static function CatalogoCompleto():array{
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM tabla_1";
 
         $PDOStatement = $conexion->prepare($query);
@@ -96,8 +95,7 @@ class Tabla{
      */
     public static function catalogo_tabla(string $TipoTabla): array{
         $lista_boards = [];
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM tabla_1 JOIN tipo ON tabla_1.tipo_id = tipo.tipo_id";
 
         $PDOStatement = $conexion->prepare($query);
@@ -137,9 +135,8 @@ class Tabla{
  */
 
  public static function tipo_tabla(): array{
-    $lista_tipo = [];
-    $OBJconexion = new conexion();
-    $conexion = $OBJconexion->getConexion();
+    $lista_tipo = [];        
+    $conexion = Conexion::getConexion();
     $query = "SELECT * FROM tabla_1 JOIN tipo ON tabla_1.tipo_id = tipo.tipo_id";
 
     $PDOStatement = $conexion->prepare($query);
@@ -166,8 +163,7 @@ class Tabla{
      */
     public static function Catalogo_Modelo():array{
         $listaModelos = [];
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM tabla_1 JOIN modelo ON tabla_1.modelo_id = modelo.modelo_id";
 
 
@@ -211,9 +207,7 @@ class Tabla{
 public static function Busca_Precio(int $PrecioMin = 25000): array{
 
     $resultado = [];
-
-    $OBJconexion = new conexion();
-    $conexion = $OBJconexion->getConexion();
+    $conexion = Conexion::getConexion();
     $query = "SELECT * FROM tabla_1";
 
     $PDOStatement = $conexion->prepare($query);

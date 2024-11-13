@@ -15,6 +15,7 @@ $catalogo_modelos = Modelo::Modelo_name();
                 <div class="container mt-3">
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
+
                 <div class="card-body">          
                         <?php            
                         foreach($catalogo_modelos as $modelo) {
@@ -37,3 +38,5 @@ $catalogo_modelos = Modelo::Modelo_name();
         </div>
     </div>
 </div>
+
+
