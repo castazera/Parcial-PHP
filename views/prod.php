@@ -2,6 +2,7 @@
 
 $id = $_GET['id'] ?? 0; //null coalcese - Operar
 $table = Tabla::Busca_Producto($id);
+$catalogo_modelos = Modelo::Modelo_name();
 ?>
 
 <div class="container d-flex justify-content-center h-rest">
@@ -12,7 +13,12 @@ $table = Tabla::Busca_Producto($id);
                     <img class="img-width" src="img_productos/<?= $table->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex flex-column justify-content-center container-prod">
-                    <h2 class="font-bold"><?= $table->getModelo_id() ?></h2>
+                        <?php            
+                        foreach($catalogo_modelos as $modelo) {
+                        if($modelo->getModelo_id() == $table->getModelo_id()){?> 
+                        <h2 class="font_bold"><?= $modelo->getNombre_modelo()?></h2>
+                        <?php break; } ?>
+                        <?php  };    ?>
                     <h3><?= $table->precioUnidad() ?></h3>
                     <hr class="separador">
                         <div class="d-flex flex-column">

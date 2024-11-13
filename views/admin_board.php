@@ -1,6 +1,8 @@
 <?php
 $catalogo = Tabla::CatalogoCompleto();
 $tipo_tabla = Tabla::tipo_tabla();
+$catalogo_modelos = Modelo::Modelo_name();
+$catalogo_tipo = Tipo::Tipo_name();
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +30,30 @@ $tipo_tabla = Tabla::tipo_tabla();
         </tr>
     </thead>
     <tbody>
+    
+        <?php 
+            
+  ?>
+
         <?php foreach ($catalogo as $board){ ?>
         <tr>
             <td class="box_img">
                 <img src="../img_productos/<?= $board->getImagen()?>" alt="Skateboard" class="img_admin">
-            </td>
-            <td><?= $board->getModelo_id() ?></td>
-            <td><?= $board->getTipo()?></td>
+            </td> 
+                
+            <?php
+            foreach($catalogo_modelos as $modelo) {
+            if($modelo->getModelo_id() == $board->getModelo_id()){?> 
+            <td><?= $modelo->getNombre_modelo()?></td>
+            <?php break; } ?>
+            <?php  };    ?>
+
+            <?php
+            foreach($catalogo_tipo as $tipo) {
+            if($tipo->getTipo_id() == $board->getTipo()){?> 
+            <td><?= $tipo->getNombre_tipo()?></td>
+            <?php break; } ?>
+            <?php  };    ?>
             <td><?= $board->getTalla() ?></td>
             <td><?= $board->getColor() ?></td>
             <td><?= $board->getMaterial() ?></td>
@@ -46,11 +65,7 @@ $tipo_tabla = Tabla::tipo_tabla();
                 <button class="button delete">Eliminar</button>
             </td>
         </tr>
-        <?php };
-                         echo "<pre>";
-            //TE QUEDASTE ACA
-        echo print_r($board->getTipo());
-        echo "</pre>";?>
+        <?php }; ?>
     </tbody>
 </table>
 <div class="div_button">
