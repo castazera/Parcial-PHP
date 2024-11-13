@@ -74,6 +74,9 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                                             >Longboard</a>
                                     </div>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href= "admin/index.php">ADMIN</a>
+                                </li> 
                             </ul>
     
                         </div>

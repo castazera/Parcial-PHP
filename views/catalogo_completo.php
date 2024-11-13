@@ -1,5 +1,6 @@
 <?php 
 $catalogo = Tabla::CatalogoCompleto();
+$catalogo_modelos = Modelo::Modelo_name();
 
 ?>
 
@@ -15,7 +16,12 @@ $catalogo = Tabla::CatalogoCompleto();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title"><?= $detalles->getModelo_id() ?></h2>
+                <?php            
+                        foreach($catalogo_modelos as $modelo) {
+                        if($modelo->getModelo_id() == $detalles->getModelo_id()){?> 
+                        <h2 class="card-title"><?= $modelo->getNombre_modelo()?></h2>
+                        <?php break; } ?>
+                        <?php  };    ?>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>

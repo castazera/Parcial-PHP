@@ -1,6 +1,7 @@
 <?php 
 $board = isset($_GET['board']) ? $_GET['board'] : null;
 $Catalogo_Tabla = Tabla::catalogo_tabla($board);
+$catalogo_modelos = Modelo::Modelo_name();
 
 ?>
 
@@ -18,7 +19,12 @@ $Catalogo_Tabla = Tabla::catalogo_tabla($board);
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title"><?= $detalles->getModelo() ?></h2>
+                <?php            
+                        foreach($catalogo_modelos as $modelo) {
+                        if($modelo->getModelo_id() == $detalles->getModelo_id()){?> 
+                        <h2 class="card-title"><?= $modelo->getNombre_modelo()?></h2>
+                        <?php break; } ?>
+                        <?php  };    ?>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
                     <p class="card-text">Material: <?= $detalles->getMaterial() ?></p>

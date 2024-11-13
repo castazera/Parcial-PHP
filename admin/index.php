@@ -51,6 +51,9 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive" href= "index.php?sec=add_boards">Agregar Boards</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive" href="../index.php?sec=inicio">Volver a inicio</a>
+                                </li>
                         </div>
                     </div>
                 </nav>

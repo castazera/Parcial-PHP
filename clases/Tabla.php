@@ -308,8 +308,54 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
         return $resultado;
     }
 
-    //TERMINO DE BUSQUEDA EN MINUTO 35 CLASE DEL 25/10
+   
+/**
+ * Agrega una tabla a la base de datos
+ *  * @param string $imagen
+ * @param string $modelo 
+ * @param string $tipo
+ * @param string $talle
+ * @param string $color
+ * @param string $material
+ * @param string $descripcion
+ * @param float $precio
+ */
 
+ public static function insert_tabla(string $imagen, string $modelo, string $tipo, string $talle, string $color, string $material, string $descripcion,  float $precio ){
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "INSERT INTO tabla_1 (`imagen_url`,`modelo_id`,`tipo_id`,`talla`,`color`,`material`,`descripcion`,`precio`) VALUES (:imagen, :modelo. :tipo, :talla, :color, :material, :descripcion, :precio)";
+
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatement->execute(
+        [
+            `imagen_url` => $imagen,
+            `modelo_id` => $modelo,
+            `tipo_id` => $tipo,
+            `talla` => $talle,
+            `color` => $color,
+            `material` => $material,
+            `descripcion` => $descripcion,
+            `precio` => $precio
+
+        ]
+    );
+ }
+
+ public static function subir_modelo(string $modelo){
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "INSERT INTO tabla_1 (`modelo`) VALUES (:modelo)";
+
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatement->execute(
+        [
+            `modelo` => $modelo,
+        ]
+    );
+ }
 
     /**
      * Get the value of id

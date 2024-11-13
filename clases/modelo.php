@@ -3,7 +3,18 @@ class Modelo{
     private $modelo_id;
     private $nombre_modelo;
  
+    public static function Modelo_name(){
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT * FROM modelo ";
 
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $nombre_modelo = $PDOStatement->fetchAll();
+        return $nombre_modelo;
+    }
 
     /**
      * Get the value of modelo_id
