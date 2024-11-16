@@ -1,33 +1,32 @@
 <?php 
 require_once "../../clases/Conexion.php";
 require_once "../../clases/Tabla.php";
+require_once "../../clases/Imagen.php";
 
 $postData = $_POST;
-$fileData = $_FILES;
+$fileData = $_FILES['imagen_url'];
 
-        // echo "<pre>";
-        // echo print_r($postData);
-        // echo "</pre>";
+        try {
+            $marcas_id = Tabla::insertar_o_actualizar_marca($postData['marcas_id']);
+            $modelo_id = Tabla::insertar_o_actualizar_modelo($postData['modelo_id']);
+            $tipo_id = Tabla::insertar_o_actualizar_tipo($postData['tipo_id']);
+            $imagen = Imagen::SubirImagen("../../img_productos", $fileData);
+        
+            Tabla::insert_tabla(
+                $tipo_id,
+                $marcas_id,
+                $modelo_id,
+                $postData['talla'],
+                $postData['publicacion'],
+                $postData['color'],
+                $imagen,    
+                $postData['descripcion'],
+                $postData['material'],
+                $postData['precio']
+            );
+        } catch (Exception $e) {
+            die("No se pudo cargar: $e");
+        }
 
-        // echo "<pre>";
-        // echo print_r($fileData);
-        // echo "</pre>";
-
-try{
-    Tabla::insert_tabla(
-        'logo1.webp',
-        $postData['modelo'],
-        $postData['tipo'],
-        $postData['talle'],
-        $postData['color'],
-        $postData['material'],
-        $postData['descripcion'],
-        $postData['precio'],
-    );
-}catch(Exception $e){
-    die("No se pudo cargar $e");
-}
- //CORREGIR ACA
- 
-echo "Funciono";
+header('Location: ../index.php?sec=admin_board');
 ?>

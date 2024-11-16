@@ -1,15 +1,23 @@
+<?php 
+$id = $_GET['id'] ?? 0;
+$table = Tabla::Busca_Producto($id);
+
+     echo "<pre>";
+            echo print_r($table);
+            echo "</pre>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar una nueva tabla</title>
+    <title>Editar tabla</title>
     <link rel="stylesheet" href="../estilos/style_admin.css">
 </head>
 <body>
 <div class="form-container">
-    <h2>Agregar Nueva Tabla</h2>
-    <form action="actions/add_board_acc.php" method="POST" enctype="multipart/form-data">
+    <h2>Editar una tabla</h2>
+    <form action="actions/edit_board_acc.php" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
             <label for="imagen_url">Imagen del Producto:</label>
@@ -64,7 +72,7 @@
             <input type="number" id="precio" name="precio" placeholder="Precio" step="0.01" required>
         </div>
 
-        <button type="submit" class="btn">Agregar Producto</button>
+        <button type="submit" class="btn">Finalizar edición</button>
     </form>
 </div>
 </body>

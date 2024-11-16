@@ -60,9 +60,9 @@ $catalogo_tipo = Tipo::Tipo_name();
             <td><?= $board->getDescripcion() ?></td>
             <td><?= $board->getPrecio() ?></td>
 
-            <td>
-                <button class="button edit">Editar</button>
-                <button class="button delete">Eliminar</button>
+            <td class="TDbutton">
+                <a href="index.php?sec=edit_board&id=<?=$board->getId()?>" role="button" class="button edit">Editar</a>
+                <a href="" role="button" class="button delete">Eliminar</a>
             </td>
         </tr>
         <?php }; ?>
