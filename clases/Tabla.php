@@ -315,41 +315,103 @@ public static function Busca_Precio(int $PrecioMin = 25000): array{
  * @param float $precio
  */
 
- public static function insert_tabla(string $imagen, string $modelo, string $tipo, string $talle, string $color, string $material, string $descripcion,  float $precio ){
+ public static function insertar_o_actualizar_marca($nombre_marca) {
     $OBJconexion = new conexion();
     $conexion = $OBJconexion->getConexion();
-    $query = "INSERT INTO tabla_1 (`imagen_url`,`modelo_id`,`tipo_id`,`talla`,`color`,`material`,`descripcion`,`precio`) VALUES (:imagen, :modelo. :tipo, :talla, :color, :material, :descripcion, :precio)";
 
+    // Verificar si la marca ya existe
+    $query = "SELECT marcas_id FROM marcas WHERE marcas_nombre = :nombre_marca";
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->execute(['nombre_marca' => $nombre_marca]);
+    $marca = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($marca) {
+        // Si existe, devolver el ID
+        return $marca['marcas_id'];
+    } else {
+        // Si no existe, insertar nueva marca
+        $query = "INSERT INTO marcas (marcas_nombre) VALUES (:nombre_marca)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_marca' => $nombre_marca]);
+        return $conexion->lastInsertId(); // Retornar el nuevo ID
+    }
+}
+
+public static function insertar_o_actualizar_modelo($nombre_modelo) {
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+
+    // Verificar si el modelo ya existe
+    $query = "SELECT modelo_id FROM modelo WHERE nombre_modelo = :nombre_modelo";
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
+    $modelo = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($modelo) {
+        // Si existe, devolver el ID
+        return $modelo['modelo_id'];
+    } else {
+        // Si no existe, insertar nuevo modelo
+        $query = "INSERT INTO modelo (nombre_modelo) VALUES (:nombre_modelo)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
+        return $conexion->lastInsertId(); // Retornar el nuevo ID
+    }
+}
+public static function insertar_o_actualizar_tipo($nombre_tipo) {
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+
+    // Verificar si el modelo ya existe
+    $query = "SELECT tipo_id FROM tipo WHERE nombre_tipo = :nombre_tipo";
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->execute(['nombre_tipo' => $nombre_tipo]);
+    $modelo = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($modelo) {
+        // Si existe, devolver el ID
+        return $modelo['tipo_id'];
+    } else {
+        // Si no existe, insertar nuevo modelo
+        $query = "INSERT INTO tipo (nombre_tipo) VALUES (:nombre_tipo)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_tipo' => $nombre_tipo]);
+        return $conexion->lastInsertId(); // Retornar el nuevo ID
+    }
+}
+
+
+
+public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio) {
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "INSERT INTO tabla_1 (tipo_id, marca_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->execute([
+        'tipo_id' => $tipo_id,
+        'marca_id' => $marca_id,
+        'modelo_id' => $modelo_id,
+        'talla' => $talla,
+        'publicacion' => $publicacion,
+        'color' => $color,
+        'imagen_url' => $imagen_url,
+        'descripcion' => $descripcion,
+        'material' => $material,
+        'precio' => $precio,
+    ]);
+}
+ public static function subir_modelo(string $nombre_modelo){
+    $OBJconexion = new conexion();
+    $conexion = $OBJconexion->getConexion();
+    $query = "INSERT INTO modelo (nombre_modelo) VALUES (:nombre_modelo)";
     $PDOStatement = $conexion->prepare($query);
     $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
     $PDOStatement->execute(
-        [
-            `imagen_url` => $imagen,
-            `modelo_id` => $modelo,
-            `tipo_id` => $tipo,
-            `talla` => $talle,
-            `color` => $color,
-            `material` => $material,
-            `descripcion` => $descripcion,
-            `precio` => $precio
-
-        ]
+    [
+    'nombre_modelo' => $nombre_modelo, 
+    ]
     );
- }
-
- public static function subir_modelo(string $modelo){
-    $OBJconexion = new conexion();
-    $conexion = $OBJconexion->getConexion();
-    $query = "INSERT INTO tabla_1 (`modelo`) VALUES (:modelo)";
-
-    $PDOStatement = $conexion->prepare($query);
-    $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
-    $PDOStatement->execute(
-        [
-            `modelo` => $modelo,
-        ]
-    );
- }
+    }
 
     /**
      * Get the value of id

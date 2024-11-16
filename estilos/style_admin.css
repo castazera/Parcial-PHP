@@ -30,6 +30,13 @@ th {
 .delete {
     background-color: #f44336;
 }
+
+.TDbutton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
 .add-button {
     display: block;
     margin: 0 auto;
