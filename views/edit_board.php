@@ -24,23 +24,35 @@ $catalogo_modelos = Modelo::Modelo_name();
     <form action="actions/edit_board_acc.php?id=<?= $table->getId() ?>" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
-            <label for="imagen_url">Imagen del Producto:</label>
-            <input type="file" id="imagen_url" name="imagen_url" required>
+            <div>
+                <label for="imagen_url">Imagen actual del Producto:</label>
+                <input type="file" id="imagen_url" name="imagen_url">
+                <?php if ($table->getImagen()): ?>
+                    <div>
+                        <img src="../img_productos/<?= $table->getImagen() ?>" alt="Imagen del producto" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
+                <input type="hidden" id="imagen_og" name="imagen_og" class="form-control" value="<?= $table->getImagen() ?>">
+            </div>
+
+            <div>
+                <label for="imagen" class="form-label">Reemplazar imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen">
+            </div>
         </div>
         <div class="form-group">
-            <label for="modelo_id">Nombre del modelo:</label>
-            <?php
-                foreach($catalogo_modelos as $modelo) {
-                if($modelo->getModelo_id() == $table->getModelo_id()){?> 
-                <input type="text" id="modelo_id" name="modelo_id" value="<?=$modelo->getNombre_modelo()?>" placeholder="Nombre del modelo" required>
-                <?php break; } ?>
-            <?php  };    ?>
-            
+            <label for="modelo_id">Modelo:</label>
+            <select id="modelo_id" name="modelo_id" required>
+                <?php foreach ($catalogo_modelos as $modelo) { ?>
+                    <option value="<?= $modelo->getModelo_id() ?>" <?= $modelo->getModelo_id() == $table->getModelo_id() ? 'selected' : '' ?>>
+                        <?= $modelo->getNombre_modelo() ?>
+                    </option>
+                <?php } ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="tipo_id">Tipo de Tabla:</label>
             <select id="tipo_id" name="tipo_id" required>
-                <option value="" disabled>Seleccionar</option>
                 <?php foreach ($catalogo_tipo as $tipo) { ?>
                     <option value="<?= $tipo->getTipo_id() ?>" <?= $tipo->getTipo_id() == $table->getTipo() ? 'selected' : '' ?>>
                         <?= $tipo->getNombre_tipo() ?>
@@ -64,7 +76,13 @@ $catalogo_modelos = Modelo::Modelo_name();
         </div>
         <div class="form-group">
             <label for="marcas_id">Marca:</label>
-            <input type="text" id="marcas_id" name="marcas_id" value="<?= $table->getMarca_id() ?>" placeholder="Marca de la tabla" required>
+            <select id="marcas_id" name="marcas_id" required>
+                <?php foreach ($catalogo_marcas as $marca) { ?>
+                    <option value="<?= $marca->getMarcas_id() ?>" <?= $marca->getMarcas_id() == $table->getMarcas_id() ? 'selected' : '' ?>>
+                        <?= $marca->getNombre_marcas() ?>
+                    </option>
+                <?php } ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="publicacion">Publicación:</label>

@@ -5,8 +5,7 @@ class Tipo
     private $nombre_tipo;
 
     public static function Tipo_name(){
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM tipo ";
 
         $PDOStatement = $conexion->prepare($query);

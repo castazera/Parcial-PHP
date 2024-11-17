@@ -4,8 +4,7 @@ class Modelo{
     private $nombre_modelo;
  
     public static function Modelo_name(){
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
         $query = "SELECT * FROM modelo ";
 
         $PDOStatement = $conexion->prepare($query);

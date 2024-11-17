@@ -1,7 +1,9 @@
 <?php 
-require_once "../../clases/Conexion.php";
+/*require_once "../../clases/Conexion.php";
 require_once "../../clases/Tabla.php";
-require_once "../../clases/Imagen.php";
+require_once "../../clases/Imagen.php";*/
+require_once "../../functions/autoload.php";
+
 
 $postData = $_POST;
 $fileData = $_FILES['imagen_url'];
