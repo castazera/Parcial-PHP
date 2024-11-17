@@ -3,7 +3,7 @@
 require_once '../clases/Conexion.php';
 require_once '../clases/Vista.php';
 require_once '../clases/Tabla.php';*/
-require_once "../../functions/autoload.php";
+require_once "../functions/autoload.php";
 
 
 $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
