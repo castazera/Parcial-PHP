@@ -6,6 +6,7 @@ class Tabla{
     private $tipo_id;
     private $modelo_id;
     private $marca_id;
+    private $publicacion;
     private $precio;
     private $talla;
     private $color;
@@ -651,6 +652,26 @@ public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_i
     public function setMarca_id($marca_id)
     {
         $this->marca_id = $marca_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of publicacion
+     */ 
+    public function getPublicacion()
+    {
+        return $this->publicacion;
+    }
+
+    /**
+     * Set the value of publicacion
+     *
+     * @return  self
+     */ 
+    public function setPublicacion($publicacion)
+    {
+        $this->publicacion = $publicacion;
 
         return $this;
     }
