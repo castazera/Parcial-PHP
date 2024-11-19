@@ -43,6 +43,20 @@ class Marcas{
 
         return $this;
     }
+
+    public static function get_x_id(int $marcas_id): ?Marcas
+    {
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM marcas WHERE marcas_id = $marcas_id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $result = $PDOStatement->fetch(); 
+   
+        return $result ?? null;
+    }
 }
 
 ?>

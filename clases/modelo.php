@@ -54,6 +54,20 @@ class Modelo{
 
         return $this;
     }
+
+    public static function get_x_id(int $modelo_id): ?Modelo
+    {
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM modelo WHERE modelo_id = $modelo_id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $result = $PDOStatement->fetch(); 
+   
+        return $result ?? null;
+    }
 }
 
 ?>
