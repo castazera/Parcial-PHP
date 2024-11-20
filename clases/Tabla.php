@@ -2,19 +2,23 @@
 
 class Tabla{
 
-    private $id;
-    private $tipo_id;
-    private $modelo_id;
-    private $marca_id;
+    private int $id;
+    private int $tipo_id;
+    private Tipo $tipo;
+    private int $modelo_id;
+    private Modelo $modelo;
+    private int $marca_id;
+    private Marcas $marcas;
     private $publicacion;
-    private $precio;
-    private $talla;
-    private $color;
-    private $imagen_url;
-    private $descripcion;
-    private $material;
-    private $stock;
-    private $unidadesVendidas;
+    private float $precio;
+    private string $talla;
+    private string $color;
+    private string $imagen_url;
+    private string $descripcion;
+    private string $material;
+    private Evento $evento;
+    private Rider $rider;
+
 
     /**
      * Devuelve el catalogo completo
@@ -74,19 +78,6 @@ class Tabla{
         return $this->modelo_id . " de Talla " . $this->talla . " ,color " .  $this->color . " realizado con " . $this->material;
     }
 
-    /**
-     * Devuleve unidades restantes de stock
-     */
-    public function unidades_restantes():int{
-        return $this->stock - $this->unidadesVendidas;
-    }
-
-    /**
-     * Devuleve unidades restantes de stock
-     */
-    public function porcentajeStock():int{
-        return ($this->unidades_restantes() / $this->stock) * 100;
-    }
 
     /**
      * Devuelve el catalogo de productos de un tipo de tabla en particular
@@ -414,6 +405,53 @@ public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_i
     );
     }
 
+
+    public static function get_x_id(int $id): ?Tabla
+    {
+
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM tabla_1 WHERE id = ?";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+        $PDOStatement->execute([$id]);
+
+        $result = $PDOStatement->fetch();
+
+        return $result ?? null;
+    }
+
+    public function borrar_tabla(){
+        $conexion = Conexion::getConexion();
+        $query = "DELETE FROM tabla_1 WHERE id=?";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            $this->id
+        ]);
+    }
+
+    public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio){
+        $conexion = Conexion::getConexion();
+        $query = "UPDATE tabla_1  SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio) WHERE id = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id,
+            'tipo_id' => $tipo_id,
+            'marca_id' => $marca_id,
+            'modelo_id' => $modelo_id,
+            'talla' => $talla,
+            'publicacion' => $publicacion,
+            'color' => $color,
+            'imagen_url' => $imagen_url,
+            'descripcion' => $descripcion,
+            'material' => $material,
+            'precio' => $precio,
+        ]);
+    }
+
+
+
     /**
      * Get the value of id
      */ 
@@ -596,45 +634,6 @@ public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_i
         return $this;
     }
 
-    /**
-     * Get the value of stock
-     */ 
-    public function getStock()
-    {
-        return $this->stock;
-    }
-
-    /**
-     * Set the value of stock
-     *
-     * @return  self
-     */ 
-    public function setStock($stock)
-    {
-        $this->stock = $stock;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of unidadesVendidas
-     */ 
-    public function getUnidadesVendidas()
-    {
-        return $this->unidadesVendidas;
-    }
-
-    /**
-     * Set the value of unidadesVendidas
-     *
-     * @return  self
-     */ 
-    public function setUnidadesVendidas($unidadesVendidas)
-    {
-        $this->unidadesVendidas = $unidadesVendidas;
-
-        return $this;
-    }
 
     /**
      * Get the value of marca_id

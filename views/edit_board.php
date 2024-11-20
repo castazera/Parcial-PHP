@@ -4,11 +4,8 @@ $table = Tabla::Busca_Producto($id);
 $tipo_tabla = Tabla::tipo_tabla();
 $catalogo_tipo = Tipo::Tipo_name();
 $catalogo_modelos = Modelo::Modelo_name();
+$catalogo_marca = Marcas::Marcas_name();
 
-
-     echo "<pre>";
-            echo print_r($table);
-            echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +20,22 @@ $catalogo_modelos = Modelo::Modelo_name();
     <h2>Editar una tabla</h2>
     <form action="actions/edit_board_acc.php?id=<?= $table->getId() ?>" method="POST" enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label for="imagen_url">Imagen del Producto:</label>
-            <input type="file" id="imagen_url" name="imagen_url" required>
+    <div class="form-group">
+            <div>
+                <label for="imagen_url">Imagen actual del Producto:</label>
+                <input type="file" id="imagen_url" name="imagen_url">
+                <?php if ($table->getImagen()): ?>
+                    <div>
+                        <img src="../img_productos/<?= $table->getImagen() ?>" alt="Imagen del producto" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                <?php endif; ?>
+                <input type="hidden" id="imagen_og" name="imagen_og" class="form-control" value="<?= $table->getImagen() ?>">
+            </div>
+
+            <div>
+                <label for="imagen" class="form-label">Reemplazar imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen">
+            </div>
         </div>
         <div class="form-group">
             <label for="modelo_id">Nombre del modelo:</label>
@@ -59,12 +69,15 @@ $catalogo_modelos = Modelo::Modelo_name();
             </select>
         </div>
         <div class="form-group">
-            <label for="color">Color:</label>
-            <input type="text" id="color" name="color" value="<?= $table->getColor() ?>" placeholder="Color de la tabla" required>
-        </div>
-        <div class="form-group">
-            <label for="marcas_id">Marca:</label>
-            <input type="text" id="marcas_id" name="marcas_id" value="<?= $table->getMarca_id() ?>" placeholder="Marca de la tabla" required>
+            <label for="marca_id">Marca:</label>
+            <select name="marca_id" id="marca_id" required>
+                <option value="" disabled>Seleccionar</option>
+                <?php foreach ($catalogo_marca as $marca) { ?>
+                    <option value="<?= $marca->getMarcas_id() ?>" <?= $marca->getMarcas_id() == $table->getMarca_id() ? 'selected' : '' ?>>
+                        <?= $marca->getMarcas_nombre() ?>
+                    </option>
+                <?php } ?>
+            </select> 
         </div>
         <div class="form-group">
             <label for="publicacion">Publicación:</label>

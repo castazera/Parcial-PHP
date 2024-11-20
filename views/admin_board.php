@@ -62,7 +62,7 @@ $catalogo_tipo = Tipo::Tipo_name();
 
             <td class="TDbutton">
                 <a href="index.php?sec=edit_board&id=<?=$board->getId()?>" role="button" class="button edit">Editar</a>
-                <a href="" role="button" class="button delete">Eliminar</a>
+                <a href="index.php?sec=delete_board&id=<?=$board->getId()?>" role="button" class="button delete">Eliminar</a>
             </td>
         </tr>
         <?php }; ?>

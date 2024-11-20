@@ -3,6 +3,7 @@
 $id = $_GET['id'] ?? 0; //null coalcese - Operar
 $table = Tabla::Busca_Producto($id);
 $catalogo_modelos = Modelo::Modelo_name();
+$catalogo_marca = Marcas::Marcas_name();
 ?>
 
 <div class="container d-flex justify-content-center h-rest">
@@ -28,7 +29,13 @@ $catalogo_modelos = Modelo::Modelo_name();
 
                     <p>Color: <?= $table->getColor() ?></p>
                     <p>Material: <?= $table->getMaterial() ?></p>
-                    <p>Unidades en stock: <span class="text-success"><?= $table->unidades_restantes() ?></span></p>
+                    <?php            
+                        foreach($catalogo_marca as $marca) {
+                        if($marca->getMarcas_id() == $table->getMarca_id()){?> 
+                        <p>Marca: <?=$marca->getMarcas_nombre()?></p>
+                        <?php break; } ?>
+                        <?php  };    ?>
+
                     <button class="btn btn-primary w-100">Agregar al carrito</button>
                 </div>
 

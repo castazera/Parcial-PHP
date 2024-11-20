@@ -1,7 +1,20 @@
 <?php 
 class Marcas{
     private $marcas_id;
-    private $nombre_marcas;
+    private $marcas_nombre;
+    
+    public static function Marcas_name(){
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT * FROM marcas";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $nombre_marca = $PDOStatement->fetchAll();
+        return $nombre_marca;
+    }
 
 
     /**
@@ -25,21 +38,21 @@ class Marcas{
     }
 
     /**
-     * Get the value of nombre_marcas
+     * Get the value of marcas_nombre
      */ 
-    public function getNombre_marcas()
+    public function getMarcas_nombre()
     {
-        return $this->nombre_marcas;
+        return $this->marcas_nombre;
     }
 
     /**
-     * Set the value of nombre_marcas
+     * Set the value of marcas_nombre
      *
      * @return  self
      */ 
-    public function setNombre_marcas($nombre_marcas)
+    public function setMarcas_nombre($marcas_nombre)
     {
-        $this->nombre_marcas = $nombre_marcas;
+        $this->marcas_nombre = $marcas_nombre;
 
         return $this;
     }
