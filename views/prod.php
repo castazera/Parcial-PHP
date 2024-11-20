@@ -3,6 +3,9 @@
 $id = $_GET['id'] ?? 0; //null coalcese - Operar
 $table = Tabla::Busca_Producto($id);
 $catalogo_modelos = Modelo::Modelo_name();
+echo "<pre>";
+print_r($table);
+echo "</pre>";
 ?>
 
 <div class="container d-flex justify-content-center h-rest">

@@ -2,6 +2,10 @@
 $catalogo = Tabla::CatalogoCompleto();
 $catalogo_modelos = Modelo::Modelo_name();
 
+echo "<pre>";
+print_r($catalogo);
+echo "</pre>";
+
 ?>
 
 <div class=" d-flex justify-content-center p-5">

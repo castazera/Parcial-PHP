@@ -2,19 +2,23 @@
 
 class Tabla{
 
-    private $id;
-    private $tipo_id;
-    private $modelo_id;
-    private $marcas_id;
+    private int $id;
+    private int $tipo_id;
+    private Tipo $tipo;
+    private int $modelo_id;
+    private Modelo $modelo;
+    private int $marcas_id;
+    private Marcas $marcas;
     private $publicacion;
-    private $precio;
-    private $talla;
-    private $color;
-    private $imagen_url;
-    private $descripcion;
-    private $material;
-    private $stock;
-    private $unidadesVendidas;
+    private float $precio;
+    private string $talla;
+    private string $color;
+    private string $imagen_url;
+    private string $descripcion;
+    private string $material;
+    private int $stock;
+    private int $unidadesVendidas;
+    //pensar un array para relación muchos a muchos
 
     /**
      * Devuelve el catalogo completo
@@ -23,6 +27,7 @@ class Tabla{
     public static function CatalogoCompleto():array{
         $conexion = Conexion::getConexion();
         $query = "SELECT * FROM tabla_1";
+        //$query = "SELECT tabla_1.*, GROUP_CONCAT(mxb.marca_id) AS marcas_board FROM tabla_1 LEFT JOIN marcas_x_board AS mxb ON tabla_1.id = mxb.tabla_id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
@@ -385,14 +390,14 @@ public static function insertar_o_actualizar_tipo($nombre_tipo) {
     }
 }
 
-public function editar_tabla(int $tipo_id, int  $marcas_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio){
+public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio){
     $conexion = Conexion::getConexion();
-    $query = "UPDATE tabla_1  SET tipo_id = :tipo_id, marcas_id = :marcas_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio) WHERE id = :id";
+    $query = "UPDATE tabla_1  SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio) WHERE id = :id";
     $PDOStatement = $conexion->prepare($query);
     $PDOStatement->execute([
         'id' => $this->id,
         'tipo_id' => $tipo_id,
-        'marcas_id' => $marcas_id,
+        'marca_id' => $marca_id,
         'modelo_id' => $modelo_id,
         'talla' => $talla,
         'publicacion' => $publicacion,
@@ -413,13 +418,13 @@ public function borrar_tabla(){
     ]);
 }
 
-public static function insert_tabla(int $tipo_id, int  $marcas_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio) {
+public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio) {
     $conexion = Conexion::getConexion();
-    $query = "INSERT INTO tabla_1 (tipo_id, marcas_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marcas_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+    $query = "INSERT INTO tabla_1 (tipo_id, marca_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
     $PDOStatement = $conexion->prepare($query);
     $PDOStatement->execute([
         'tipo_id' => $tipo_id,
-        'marcas_id' => $marcas_id,
+        'marca_id' => $marca_id,
         'modelo_id' => $modelo_id,
         'talla' => $talla,
         'publicacion' => $publicacion,
