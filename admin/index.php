@@ -39,10 +39,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
                         <div class="collapse navbar-collapse " id="collapsibleNavId">
                             <ul class="justify-content-center navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link font-responsive active" href="index.php?sec=dashboard">Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link font-responsive" href= "index.php?sec=admin_board">Admin Boards</a>
+                                    <a class="nav-link font-responsive active" href= "index.php?sec=admin_board">Admin Boards</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive" href= "index.php?sec=add_boards">Agregar Boards</a>

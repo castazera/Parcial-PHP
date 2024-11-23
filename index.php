@@ -72,7 +72,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-responsive" href= "admin/index.php">ADMIN</a>
+                                    <a class="nav-link font-responsive" href= "admin/index.php?sec=admin_board">ADMIN</a>
                                 </li> 
                             </ul>
     
