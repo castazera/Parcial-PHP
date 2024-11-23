@@ -1,6 +1,6 @@
 <?php 
 
-$id = $_GET['id'] ?? 0; //null coalcese - Operar
+$id = $_GET['id'] ?? 0;
 $table = Tabla::Busca_Producto($id);
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_marca = Marcas::Marcas_name();

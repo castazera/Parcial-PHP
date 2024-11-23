@@ -1,6 +1,4 @@
 <?php 
-#$catalogo = Tabla::CatalogoCompleto();
-
 $catalogo = Tabla::Catalogo_Modelo();
 ?>
     <div class="container d-flex justify-content-center form-f">

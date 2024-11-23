@@ -2,7 +2,12 @@
 class Marcas{
     private $marcas_id;
     private $marcas_nombre;
-    
+
+
+    /**
+     * Obtiene los valores de la tabla marcas
+     * @return Marcas[] devuelve la colección del objeto marca
+     */
     public static function Marcas_name(){
         $OBJconexion = new conexion();
         $conexion = $OBJconexion->getConexion();
@@ -12,8 +17,8 @@ class Marcas{
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute();
 
-        $nombre_marca = $PDOStatement->fetchAll();
-        return $nombre_marca;
+        $marca = $PDOStatement->fetchAll();
+        return $marca;
     }
 
 

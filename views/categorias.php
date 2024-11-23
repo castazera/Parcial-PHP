@@ -6,7 +6,6 @@ $catalogo_modelos = Modelo::Modelo_name();
 ?>
 
 <div class=" d-flex justify-content-center p-5">
-                <!-- Si se encontro el personaje -->
 <?php if($board){?>
     <div>
         <h1 class="text-center mb-5 fw-bold">¡Elige un <?= $board ?> y empezá a andar!</h1>

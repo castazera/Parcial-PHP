@@ -1,6 +1,11 @@
 <?php 
 class Imagen 
 {
+    /**
+     * Prepara el buffer de la imagen a subir
+     * @param $directorio Es el acceso a donde se aloja la imagen para subir
+     * @param $fileData Es el objeto de imagen a subir.
+     */
     public static function SubirImagen($directorio, $fileData ):string{
 
         $name_img = explode(".", $fileData["name"]);
