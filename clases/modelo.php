@@ -3,6 +3,10 @@ class Modelo{
     private $modelo_id;
     private $nombre_modelo;
  
+    /**
+     * Obtiene los valores de la tabla modelo
+     * @return Modelo[] devuelve la colección del objeto modelo
+     */
     public static function Modelo_name(){
         $OBJconexion = new conexion();
         $conexion = $OBJconexion->getConexion();

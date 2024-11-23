@@ -7,10 +7,13 @@ class Conexion
     private const DB_PASS = "";
     private const DB_DSN = "mysql:host=" . self::DB_SERVER . ";dbname=" . self::DB_NAME . ";charsetn=utf8mb4";
 
-    //A las propiedades podemos, de asi quererlo, definirles el tipo de dato que deben tener. 
-
     private static ?PDO $db = null;
 
+
+    /**
+     * Metodo que prepara una conexion para ser utilizada
+     * @return PDO
+     */
     public static function conectar()
     {
         try {

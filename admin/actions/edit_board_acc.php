@@ -5,19 +5,6 @@ $id = $_GET['id'] ?? false;
 $postData = $_POST;
 $fileData = $_FILES['imagen_url'];
 
-// echo "<pre>";
-// print_r($postData);
-// echo "</pre>";
-// echo "<pre>";
-// print_r($fileData);
-// echo "</pre>";
-// echo "<pre>";
-// print_r($id);
-// echo "</pre>";
-// echo "<pre>";
-// print_r(Tabla::get_x_id($id));
-// echo "</pre>";
-
 try{
 
     $board = Tabla::get_x_id($id);

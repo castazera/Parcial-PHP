@@ -4,6 +4,12 @@ Class Rider {
     private string $nombre_rider;
 
 
+    /**
+     * trae un Rider desde la base de datos a través del id
+     * @param int $id para identificar al producto en la tabla principal
+     * @return Rider Retorna un objeto Rider
+     * 
+     */
     public static function get_x_id(int $id): ?Rider
     {
         $conexion = Conexion::getConexion();

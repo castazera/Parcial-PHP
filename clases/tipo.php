@@ -4,6 +4,11 @@ class Tipo
     private $tipo_id;
     private $nombre_tipo;
 
+
+    /**
+     * Obtiene los valores de la tabla Tipo
+     * @return Tipo[] devuelve la colección del objeto Tipo
+     */
     public static function Tipo_name(){
         $OBJconexion = new conexion();
         $conexion = $OBJconexion->getConexion();
