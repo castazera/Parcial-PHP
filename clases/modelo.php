@@ -5,7 +5,7 @@ class Modelo{
  
     /**
      * Obtiene los valores de la tabla modelo
-     * @return Modelo[] devuelve la colección del objeto modelo
+     * @return Modelo[] 
      */
     public static function Modelo_name(){
         $OBJconexion = new conexion();
@@ -28,7 +28,7 @@ class Modelo{
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
         
-        return $PDOStatement->fetchObject(self::class); // Devuelve el objeto del modelo o null
+        return $PDOStatement->fetchObject(self::class); 
     }
 
     public static function Agregar_Modelo($nombre_modelo) {
@@ -39,7 +39,7 @@ class Modelo{
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
         
-        return $conexion->lastInsertId(); // Devuelve el ID del nuevo modelo
+        return $conexion->lastInsertId();
     }
     
 

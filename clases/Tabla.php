@@ -407,8 +407,6 @@ class Tabla
      * @param string $descripcion La descripción de la tabla.
      * @param string $material El material de la tabla.
      * @param float $precio El precio de la tabla.
-     * 
-     * @return void No retorna ningún valor.
      */
     
         public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, int $rider_id, int $evento_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio){

@@ -6,9 +6,6 @@ $catalogo_tipo = Tipo::Tipo_name();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_marca = Marcas::Marcas_name();
 
-foreach ($catalogo_modelos as $modelo) { echo "<pre>";
-    echo print_r($modelo->getNombre_modelo());
-    echo "</pre>";}
                 
 
 ?>

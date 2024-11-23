@@ -7,25 +7,18 @@ $fileData = $_FILES['imagen'];
 
 try{
     $board = Tabla::get_x_id($id);
-    
-    // Convertir los datos a los tipos correctos
-    $tipo_id = (int)$postData['tipo_id']; // Convertir a int
-    $marca_id = (int)$postData['marca_id']; // Convertir a int
-            // Obtener el nombre del modelo ingresado
+    $tipo_id = (int)$postData['tipo_id']; 
+    $marca_id = (int)$postData['marca_id']; 
             $nombre_modelo = $postData['modelo_id'];
-
-            // Verificar si el modelo ya existe
-            $modeloExistente = Modelo::Busca_Modelo($nombre_modelo); // Método que debes implementar
+            $modeloExistente = Modelo::Busca_Modelo($nombre_modelo); 
         
             if (!$modeloExistente) {
-                // Si no existe, agregar el nuevo modelo
-                $nuevoModeloId = Modelo::Agregar_Modelo($nombre_modelo); // Método que debes implementar
+                $nuevoModeloId = Modelo::Agregar_Modelo($nombre_modelo); 
             } else {
-                // Si existe, obtener su ID
                 $nuevoModeloId = $modeloExistente->getModelo_id();
             }
-    $rider_id = (int)$postData['rider_id']; // Convertir a int
-    $evento_id = (int)$postData['evento_id']; // Convertir a int
+    $rider_id = (int)$postData['rider_id']; 
+    $evento_id = (int)$postData['evento_id']; 
     $talla = $postData['talla'];
     $publicacion = $postData['publicacion'];
     $color = $postData['color'];
@@ -37,27 +30,7 @@ try{
     }
     $descripcion = $postData['descripcion'];
     $material = $postData['material'];
-    $precio = (float)$postData['precio']; // Asegúrate de que sea float
-
-
-    
-
-    echo "<pre>";
-    print_r([
-        'id' => $id,
-        'tipo_id' => $tipo_id,
-        'marca_id' => $marca_id,
-        'modelo_id' => $nuevoModeloId,
-        'talla' => $talla,
-        'publicacion' => $publicacion,
-        'color' => $color,
-        'imagen_url' => $imagen_url,
-        'descripcion' => $descripcion,
-        'material' => $material,
-        'precio' => $precio,
-    ]);
-    echo "</pre>";
-
+    $precio = (float)$postData['precio']; 
 
     $board->editar_tabla(
         $tipo_id,
