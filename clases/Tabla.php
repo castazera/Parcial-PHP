@@ -37,9 +37,6 @@ class Tabla{
         return $lista_boards;
 
 
-        //          echo "<pre>";
-        // echo print_r($lista_boards);
-        // echo "</pre>";
 
         
 
@@ -431,15 +428,18 @@ public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_i
         ]);
     }
 
-    public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio){
+    public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, int $rider_id, int $evento_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio){
         $conexion = Conexion::getConexion();
-        $query = "UPDATE tabla_1  SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio) WHERE id = :id";
+        $query = "UPDATE tabla_1  
+        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, rider_id = :rider_id, evento_id = :evento_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             'id' => $this->id,
             'tipo_id' => $tipo_id,
             'marca_id' => $marca_id,
             'modelo_id' => $modelo_id,
+            'rider_id' => $rider_id,
+            'evento_id' => $evento_id,
             'talla' => $talla,
             'publicacion' => $publicacion,
             'color' => $color,

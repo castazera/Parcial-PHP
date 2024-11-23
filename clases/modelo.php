@@ -16,6 +16,29 @@ class Modelo{
         return $nombre_modelo;
     }
 
+    public static function Busca_Modelo($nombre_modelo) {
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        
+        $query = "SELECT * FROM modelo WHERE nombre_modelo = :nombre_modelo";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
+        
+        return $PDOStatement->fetchObject(self::class); // Devuelve el objeto del modelo o null
+    }
+
+    public static function Agregar_Modelo($nombre_modelo) {
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        
+        $query = "INSERT INTO modelo (nombre_modelo) VALUES (:nombre_modelo)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_modelo' => $nombre_modelo]);
+        
+        return $conexion->lastInsertId(); // Devuelve el ID del nuevo modelo
+    }
+    
+
     /**
      * Get the value of modelo_id
      */ 

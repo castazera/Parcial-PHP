@@ -16,6 +16,22 @@ class Imagen
         };
 
     }
+
+    public static function BorrarImagen($archivo): bool{
+        if(file_exists($archivo)){
+            $fileDelete = unlink($archivo);
+
+            if(!$fileDelete){
+                throw new Exception("No se puede borrar la imagen");
+            }else{
+                return true;
+            }
+    }else{
+        return false;
+    }
+
+
+}
 }
 
 ?>
