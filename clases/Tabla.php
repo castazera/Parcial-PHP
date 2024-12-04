@@ -70,8 +70,8 @@ class Tabla
             if ($tabla->nombre_tipo == $TipoTabla) {
                 $lista_boards[] = $tabla;
             }
-            return $lista_boards;
         }
+        return $lista_boards;
     }
 
     /**
