@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="form-container">
+    <h1>Administrador nuevo evento</h1>
     <h2>Agregar Nuevo Evento</h2>
     <form action="actions/add_evento_acc.php" method="POST" enctype="multipart/form-data">
 

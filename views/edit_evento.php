@@ -18,7 +18,8 @@ $catalogo_eventos = Evento::CatalogoCompleto();
 
 <body>
     <div class="form-container">
-        <h2>Editar una Evento</h2>
+        <h1>Editor eventos</h1>
+        <h2>Editar un Evento</h2>
         <form action="actions/edit_evento_acc.php?id=<?= $evento->getEvento_id() ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="evento_id">Nombre del Evento:</label>

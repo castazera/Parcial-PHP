@@ -15,7 +15,8 @@ $catalogo_riders = Rider::CatalogoCompleto();
 
 <body>
     <div class="form-container">
-        <h2>Editar una Rider</h2>
+        <h1>Administrador Editor rider</h1>
+        <h2>Editar un Rider</h2>
         <form action="actions/edit_rider_acc.php?id=<?= $rider->getRider_id() ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="rider_id">Nombre del Rider:</label>

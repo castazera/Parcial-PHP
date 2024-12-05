@@ -19,7 +19,8 @@ $catalogo_marca = Marcas::Marcas_name();
 </head>
 <body>
 <div class="form-container">
-    <h2>Editar una tabla</h2>
+    <h1>Administrador Editor tabla</h1>
+    <h2>Edita los datos de una tabla</h2>
     <form action="actions/edit_board_acc.php?id=<?= $table->getId() ?>" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">

@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="form-container">
+    <h1>Administrador nuevo rider</h1>
     <h2>Agregar Nuevo rider</h2>
     <form action="actions/add_rider_acc.php" method="POST" enctype="multipart/form-data">
 

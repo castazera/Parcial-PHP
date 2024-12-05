@@ -14,7 +14,8 @@
 
 <body>
     <div class="form-container">
-        <h2>Agregar Nueva Tabla</h2>
+        <h1>Administrador nueva tabla</h1>
+        <h2>Introducí a continuación los detalles de tu tabla</h2>
         <form action="actions/add_board_acc.php" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
