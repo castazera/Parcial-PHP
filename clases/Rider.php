@@ -141,6 +141,19 @@ Class Rider {
         }
         return null;
     }
+
+            /**
+     * Borra un objeto Evento de la base de datos
+     */
+    public function borrar_rider()
+    {
+        $conexion = Conexion::getConexion();
+        $query = "DELETE FROM rider WHERE rider_id=?";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            $this->rider_id
+        ]);
+    }
 }
 
 ?>
