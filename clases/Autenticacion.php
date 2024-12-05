@@ -9,9 +9,6 @@ class Autenticacion{
     public static function log_in(string $usuario, string $password){
         $datosUsuario = Usuarios::usuario_x_username($usuario);
 
-        // echo "<pre>";
-        // print_r($datosUsuario);
-        // echo "</pre>";
 
         if($datosUsuario){
             if(password_verify($password, $datosUsuario->getPassword())){
@@ -49,12 +46,10 @@ class Autenticacion{
     public static function verify($nivel = 0): bool
     {
         if (!$nivel) {
-            // Acceso público
             return TRUE;
         }
     
         if (isset($_SESSION['loggedIn'])) {
-            // Nivel 1 o más
             if ($nivel > 1) {
                 if ($_SESSION['loggedIn']['rol'] == "admin" || $_SESSION['loggedIn']['rol'] == "superadmin") {
                     return TRUE; 
@@ -65,7 +60,6 @@ class Autenticacion{
                     exit; 
                 }
             } else {
-                // Rebote
                 $routeMod = $nivel > 1 ? "/admin" : "";
                 header("location: {$routeMod}index.php?sec=iniciarSesion");
                 exit; 

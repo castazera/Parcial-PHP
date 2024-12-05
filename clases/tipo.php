@@ -61,5 +61,27 @@ class Tipo
 
         return $this;
     }
+
+        /**
+     * trae un tipo desde la base de datos a través del id
+     * @param int $id para identificar al producto en la Tipo principal
+     * @return Tipo Retorna un objeto Tipo
+     * 
+     */
+    public static function get_x_id(int $id): ?Tipo
+    {
+
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM tipo WHERE tipo_id = ?";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+        $PDOStatement->execute([$id]);
+
+        $result = $PDOStatement->fetch();
+
+        return $result ?? null;
+    }
 }
 ?>

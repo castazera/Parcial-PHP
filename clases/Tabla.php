@@ -17,9 +17,44 @@ class Tabla
     private string $imagen_url;
     private string $descripcion;
     private string $material;
-    private Evento $evento;
+    private Array $eventos;
     private Rider $rider;
 
+    private static $createValues = ['id','publicacion','precio', 'talla', 'color', 'imagen_url', 'descripcion','material'];
+
+    /**
+     * Devuelve una instancia del objeto Comic, con todos sus propiedades configurados
+     * @return Tabla
+     * 
+     */
+
+    private static function crearBoard($boardData): Tabla {
+        $tabla = new self();
+
+        foreach (self::$createValues as $value) {
+            $tabla->{$value} = $boardData[$value];
+        }
+
+        $tabla->tipo = Tipo::get_x_id($boardData['tipo_id']);
+        $tabla->modelo = Modelo::get_x_id($boardData['modelo_id']);
+        
+        $tabla->marcas = Marcas::get_x_id($boardData['marca_id']);
+        //$tabla->rider = Rider::get_x_id($boardData['rider_id']);
+
+        $EventosId =
+            !empty($boardData['eventos']) ?
+            explode(",", $boardData['eventos']) : [];
+
+        $eventos = [];
+
+        foreach ($EventosId as $EventoId) {
+            $eventos[] = Evento::get_x_id($EventoId);
+        }
+
+        $tabla->eventos = $eventos;
+
+        return $tabla;
+    }
 
     /**
      * Devuelve el catalogo completo
@@ -28,14 +63,18 @@ class Tabla
     public static function CatalogoCompleto(): array
     {
         $conexion = Conexion::getConexion();
-        $query = "SELECT * FROM tabla_1";
-
+        $query = "SELECT tabla_1.*, GROUP_CONCAT(exb.evento_id) AS evento FROM tabla_1 LEFT JOIN evento_x_board AS exb ON tabla_1.id = exb.board_id GROUP BY tabla_1.id";
+    
         $PDOStatement = $conexion->prepare($query);
-        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->setFetchMode(PDO::FETCH_ASSOC);
         $PDOStatement->execute();
-
-        $lista_boards = $PDOStatement->fetchAll();
-
+    
+        $lista_boards = [];
+    
+        while ($resultado = $PDOStatement->fetch()) {
+            $lista_boards[] = self::crearBoard($resultado);
+        }
+    
         return $lista_boards;
     }
 
@@ -288,7 +327,7 @@ class Tabla
      * @param string $nombre_tipo Es el nombre de la tipo
      * 
      * @return int Un id de tipo para identificar al producto en la tabla principal
-     */ 
+     */
     public static function insertar_o_actualizar_tipo($nombre_tipo)
     {
         $OBJconexion = new conexion();
@@ -305,7 +344,7 @@ class Tabla
             $query = "INSERT INTO tipo (nombre_tipo) VALUES (:nombre_tipo)";
             $PDOStatement = $conexion->prepare($query);
             $PDOStatement->execute(['nombre_tipo' => $nombre_tipo]);
-            return $conexion->lastInsertId(); // Retornar el nuevo ID
+            return $conexion->lastInsertId();
         }
     }
 
@@ -323,9 +362,8 @@ class Tabla
      */
     public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
     {
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
-        $query = "INSERT INTO tabla_1 (tipo_id, marca_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+        $conexion = Conexion::getConexion();
+        $query = "INSERT INTO tabla_1 /*(tipo_id, marca_id, modelo_id,rider_id, talla, publicacion, color, imagen_url, descripcion, material, precio)*/ VALUES (NULL,:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             'tipo_id' => $tipo_id,
@@ -338,6 +376,17 @@ class Tabla
             'descripcion' => $descripcion,
             'material' => $material,
             'precio' => $precio,
+        ]);
+        return $conexion->lastInsertId();
+    }
+
+    public static function add_eventos(int $board_id, int $evento_id){
+        $conexion = Conexion::getConexion();
+        $query = "INSERT INTO evento_x_board VALUES (NULL,:evento_id,:board_id)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'evento_id' => $evento_id,
+            'board_id' => $board_id
         ]);
     }
 
@@ -408,10 +457,11 @@ class Tabla
      * @param string $material El material de la tabla.
      * @param float $precio El precio de la tabla.
      */
-    
-        public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, /*int $rider_id, int $evento_id,*/ string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio){
+
+    public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio)
+    {
         $query = "UPDATE tabla_1  
-        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, /*rider_id = :rider_id, evento_id = :evento_id,*/ talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
+        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
         Conexion::getConexion();
         $PDOStatement = Conexion::getConexion()->prepare($query);
         $PDOStatement->execute([
@@ -419,8 +469,6 @@ class Tabla
             'tipo_id' => $tipo_id,
             'marca_id' => $marca_id,
             'modelo_id' => $modelo_id,
-            //'rider_id' => $rider_id,
-            //'evento_id' => $evento_id,
             'talla' => $talla,
             'publicacion' => $publicacion,
             'color' => $color,

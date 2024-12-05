@@ -1,16 +1,6 @@
 <?php 
 require_once "../functions/autoload.php";
 
-echo "<pre>" ;
-echo print_r($_SESSION);
-echo  "</pre>";
-
-// $contraseña = "casta1234";
-// $contraseñaHasheada = password_hash($contraseña, PASSWORD_DEFAULT);
-// echo "<pre>";
-// print_r($contraseñaHasheada);
-// echo "</pre>";
-
 $vista = Vista::ValidarVista($_GET['sec'] ?? 'index');
 
 Autenticacion::verify($vista->getRestringida());
@@ -20,10 +10,6 @@ if (!$userData) {
     header("Location: views/iniciarSesion.php");
     exit(); 
 }
-
-
-
-
 
 ?>
 

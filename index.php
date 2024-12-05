@@ -2,14 +2,6 @@
 require_once "functions/autoload.php";
 $vista = Vista::ValidarVista($_GET['sec'] ?? null);
 
-// echo "<pre>" ;
-// echo print_r($_SESSION);
-// echo  "</pre>";
-
-// echo "<pre>" ;
-// echo print_r($vista);
-// echo  "</pre>";
-
 
 Autenticacion::verify($vista->getRestringida());
 $userData = $_SESSION['loggedIn'] ?? FALSE;

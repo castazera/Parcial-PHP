@@ -7,7 +7,7 @@ function autoloadClasses($nombreClase) {
     if (file_exists($archivoClase)) {
         require_once $archivoClase;
     } else {
-        echo "No se pudo cargar la clase"; // Cambié esto para que imprima un mensaje
+        echo "No se pudo cargar la clase";
     }
 }
 

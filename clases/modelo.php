@@ -41,6 +41,28 @@ class Modelo{
         
         return $conexion->lastInsertId();
     }
+
+        /**
+     * trae un modelo desde la base de datos a través del id
+     * @param int $id para identificar al producto en la Modelo principal
+     * @return Modelo Retorna un objeto Modelo
+     * 
+     */
+    public static function get_x_id(int $id): ?Modelo
+    {
+
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM modelo WHERE modelo_id = ?";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+        $PDOStatement->execute([$id]);
+
+        $result = $PDOStatement->fetch();
+
+        return $result ?? null;
+    }
     
 
     /**

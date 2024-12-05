@@ -61,6 +61,28 @@ class Marcas{
 
         return $this;
     }
+
+        /**
+     * trae un modelo desde la base de datos a través del id
+     * @param int $id para identificar al producto en la Marcas principal
+     * @return Tabla Retorna un objeto Marcas
+     * 
+     */
+    public static function get_x_id(int $marcas_id): ?Marcas
+    {
+
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM marcas WHERE marcas_id = ?";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+        $PDOStatement->execute([$marcas_id]);
+
+        $result = $PDOStatement->fetch();
+
+        return $result ?? null;
+    }
 }
 
 ?>

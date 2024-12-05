@@ -67,6 +67,31 @@ Class Rider {
          ]);
      }
 
+         /**
+     * Devuelve el útlimo id instertado o el id de un producto existente a través del rider, si es que lo encuentra. Caso contrario lo crea.
+     * @param string $nombre_rider Es el nombre de la rider
+     * 
+     * @return int Un id de rider para identificar al producto en la tabla principal
+     */
+    public static function insertar_o_actualizar_rider($nombre_rider)
+    {
+        $conexion = Conexion::getConexion();
+
+        $query = "SELECT rider_id FROM rider WHERE nombre_rider = :nombre_rider";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['nombre_rider' => $nombre_rider]);
+        $rider = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+
+        if ($rider) {
+            return $rider['rider_id'];
+        } else {
+            $query = "INSERT INTO rider VALUES (NULL,:nombre_rider)";
+            $PDOStatement = $conexion->prepare($query);
+            $PDOStatement->execute(['nombre_rider' => $nombre_rider]);
+            return $conexion->lastInsertId();
+        }
+    }
+
     /**
      * Get the value of rider_id
      */ 

@@ -19,8 +19,6 @@ try{
             } else {
                 $nuevoModeloId = $modeloExistente->getModelo_id();
             }
-    //$rider_id = (int)$postData['rider_id']; 
-    //$evento_id = (int)$postData['evento_id']; 
     $talla = $postData['talla'];
     $publicacion = $postData['publicacion'];
     $color = $postData['color'];
@@ -38,8 +36,7 @@ try{
         $tipo_id,
         $marca_id,
         $nuevoModeloId,
-        //$rider_id,
-        //$evento_id,
+        $evento_id,
         $talla,
         $publicacion,
         $color,
