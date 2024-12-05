@@ -4,7 +4,9 @@ require_once "../../functions/autoload.php";
 $id = $_GET['id'] ?? false;
 $postData = $_POST;
 $fileData = $_FILES['imagen'];
-
+echo "<pre>";
+echo print_r($postData);
+echo "</pre>";
 try{
     $board = Tabla::get_x_id($id);
     $tipo_id = (int)$postData['tipo_id']; 
@@ -17,8 +19,8 @@ try{
             } else {
                 $nuevoModeloId = $modeloExistente->getModelo_id();
             }
-    $rider_id = (int)$postData['rider_id']; 
-    $evento_id = (int)$postData['evento_id']; 
+    //$rider_id = (int)$postData['rider_id']; 
+    //$evento_id = (int)$postData['evento_id']; 
     $talla = $postData['talla'];
     $publicacion = $postData['publicacion'];
     $color = $postData['color'];
@@ -36,8 +38,8 @@ try{
         $tipo_id,
         $marca_id,
         $nuevoModeloId,
-        $rider_id,
-        $evento_id,
+        //$rider_id,
+        //$evento_id,
         $talla,
         $publicacion,
         $color,
@@ -52,4 +54,6 @@ try{
         echo print_r($e);
         echo "</pre>";
 }
+//header('Location: ../index.php?sec=admin_board');
+
 ?>
