@@ -17,6 +17,5 @@ if($login){
     header('location: ../../index.php?sec=iniciarSesion');
 }
 
-header('location: ../../index.php?sec=iniciarSesion');
 
 ?>
