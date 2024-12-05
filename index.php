@@ -1,13 +1,27 @@
 <?php 
 require_once "functions/autoload.php";
 $vista = Vista::ValidarVista($_GET['sec'] ?? null);
+
+// echo "<pre>" ;
+// echo print_r($_SESSION);
+// echo  "</pre>";
+
+// echo "<pre>" ;
+// echo print_r($vista);
+// echo  "</pre>";
+
+
+Autenticacion::verify($vista->getRestringida());
+$userData = $_SESSION['loggedIn'] ?? FALSE;
+
+
 ?>
 
 
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Boards - <?= $vista['titulo'] ?></title>
+        <title>Boards - <?= $vista->getTitulo() ?></title>
         <meta charset ="utf-8" />
         <meta
             name="viewport"
@@ -71,9 +85,24 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
                                             >Longboard</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item
+                                 <?= ($userData['rol'] == "superadmin" || $userData['rol'] == "admin") ? '' : 'd-none' ?>">
                                     <a class="nav-link font-responsive" href= "admin/index.php?sec=admin_board">ADMIN</a>
                                 </li> 
+                                <li class="nav-item <?= $userData ? "d-none" : "" ?>">
+                                    <a class="nav-link font-responsive fw-bold" href= "index.php?sec=iniciarSesion">Login</a>
+                                </li> 
+
+                                <li class="nav-item <?= $userData ? "" : "d-none" ?>">
+                                    <a class="nav-link font-responsive fw-bold" href= "admin/actions/auth_logout.php">Logout</a>
+                                </li> 
+                                
+                                <?PHP if ($userData) { ?>
+                                <li class="nav-item">
+                                     <a class="nav-link font-responsive bg-danger text-light rounded me-2" href= "#"> <?= $userData['nombre_completo'] ?? "" ?> </a>
+                                </li> 
+                                <?php }?>
+                                
                             </ul>
     
                         </div>
@@ -83,7 +112,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? null);
             <main>
     
                 <?php if($_GET['sec'] ?? null){
-                    require_once "views/{$vista['archivo']}.php";
+                    require_once "views/{$vista->getNombre()}.php";
                 }else { ?>
     
 <div class="container-index">

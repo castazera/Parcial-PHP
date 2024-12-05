@@ -1,12 +1,13 @@
 <?php
-function autoloadClasses($nombreClase){
-    $archivoClase = __DIR__ ."/../clases/$nombreClase.php";
+session_start();
 
-    $dir = __DIR__;
-    if(file_exists($archivoClase)){
+function autoloadClasses($nombreClase) {
+    $archivoClase = __DIR__ . "/../clases/$nombreClase.php";
+
+    if (file_exists($archivoClase)) {
         require_once $archivoClase;
-    } else{
-        "No se pudo cargar la clase";
+    } else {
+        echo "No se pudo cargar la clase"; // Cambié esto para que imprima un mensaje
     }
 }
 

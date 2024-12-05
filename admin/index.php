@@ -1,14 +1,37 @@
 <?php 
 require_once "../functions/autoload.php";
 
-$vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
+echo "<pre>" ;
+echo print_r($_SESSION);
+echo  "</pre>";
+
+// $contraseña = "casta1234";
+// $contraseñaHasheada = password_hash($contraseña, PASSWORD_DEFAULT);
+// echo "<pre>";
+// print_r($contraseñaHasheada);
+// echo "</pre>";
+
+$vista = Vista::ValidarVista($_GET['sec'] ?? 'index');
+
+Autenticacion::verify($vista->getRestringida());
+$userData = $_SESSION['loggedIn'] ?? FALSE;
+
+if (!$userData) {
+    header("Location: views/iniciarSesion.php");
+    exit(); 
+}
+
+
+
+
+
 ?>
 
 
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Boards - <?= $vista['titulo'] ?></title>
+        <title>Boards - <?= $vista->getTitulo() ?></title>
         <meta charset ="utf-8" />
         <meta
             name="viewport"
@@ -28,7 +51,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
             <header>
                 <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
                     <div class="container">
-                        <a class="navbar-brand logo-responsive" href="index.php?sec=dashboard">
+                        <a class="navbar-brand logo-responsive">
                             <div class="container-fluid logoContainer">
                                 <span class="brand-responsive">PANEL DE ADMIN</span>
                             </div>
@@ -38,6 +61,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
                         </button>
                         <div class="collapse navbar-collapse " id="collapsibleNavId">
                             <ul class="justify-content-center navbar-nav ms-auto">
+                                <?PHP if ($userData) { ?>
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive active" href= "index.php?sec=admin_board">Admin Boards</a>
                                 </li>
@@ -47,6 +71,15 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive" href="../index.php?sec=inicio">Volver a inicio</a>
                                 </li>
+
+                                <li class="nav-item <?= $userData ? "d-none" : "" ?>">
+                                    <a class="nav-link font-responsive fw-bold" href= "index.php?sec=iniciarSesion">Login</a>
+                                </li> 
+
+                                <li class="nav-item <?= $userData ? "" : "d-none" ?>">
+                                    <a class="nav-link font-responsive fw-bold" href= "actions/auth_logout.php">Logout</a>
+                                </li> 
+                                <?php } ?>
                         </div>
                     </div>
                 </nav>
@@ -54,7 +87,7 @@ $vista = Vista::ValidarVista($_GET['sec'] ?? 'dashboard');
             <main>
     
                 <?php if($_GET['sec'] ?? 'null'){
-                    require_once "../views/{$vista['archivo']}.php";
+                    require_once "../views/{$vista->getNombre()}.php";
                 }else { 
                 ?>
     

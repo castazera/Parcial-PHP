@@ -8,12 +8,12 @@ class Vista
  private $restringida;
 
     /**
-     * Valida el id de una vista y devuelve un array con los datos de la misma
+     * Valida el id de una vista y devuelve un objeto con los datos de la misma
      * @param ?string $vista El id de la vista o null
      * 
-     * @return array Devuelve un array con el nombre de archivo y el titulo a mostrar
+     * @return Vista Devuelve un objeto Vista con el nombre de archivo y el titulo a mostrar
      */
-    public static function ValidarVista(?string $vista): array
+    public static function ValidarVista(?string $vista): Vista
     {
 
         $conexion = Conexion::getConexion();
@@ -23,37 +23,32 @@ class Vista
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute([$vista]);
     
-        $result = $PDOStatement->fetch();
+        $viewData = $PDOStatement->fetch();
 
-    
-        if($result){
-            if($result->getActiva()){
-                if($result->getRestringida()){
-                    $resultado = [
-                        'archivo' => '403',
-                        'titulo' => 'Sección restringida'
-                    ];
-                }else{
-                    $resultado = [
-                        'archivo' => $result->getNombre(),
-                        'titulo' => $result->getTitulo(),
-                    ];
-                }
+
+
+
+        if($viewData){
+            if($viewData->getActiva()){
+                $resultado = $viewData;
+ 
             }else{
-                $resultado = [
-                    'archivo' => 'noDisponible',
-                    'titulo' => 'Sección no disponible'
-                ];
+                $view403 = new self();
+                $view403->nombre = "No_disponible";
+                $view403->titulo = "Pagina no encontrada";
+                $view403->activa = 1;
+                $view403->restringida = 0;
             }
-
         }else{
-            $resultado = [
-                'archivo' => '404',
-                'titulo' => 'Pagina no encontrada',
-            ];
-        };
+            $view404 = new self();
+            $view404->nombre = "404";
+            $view404->titulo = "Página no encontrada";
+            $view404->activa = 1;
+            $view404->restringida = 0;
+            $resultado = $view404;
+        }
 
-        return $resultado;
+return $resultado;
     }
 
  /**
