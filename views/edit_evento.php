@@ -1,0 +1,39 @@
+<?php
+$id = $_GET['id'] ?? 0;
+$evento = Evento::Busca_Evento($id);
+$catalogo_eventos = Evento::CatalogoCompleto();
+
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Evento</title>
+    <link rel="stylesheet" href="../estilos/style_admin.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Editar una Evento</h2>
+        <form action="actions/edit_evento_acc.php?id=<?= $evento->getEvento_id() ?>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="evento_id">Nombre del Evento:</label>
+                <?php
+                foreach ($catalogo_eventos as $eventoSeleccionado) {
+                    if ($eventoSeleccionado->getEvento_id() == $eventoSeleccionado->getEvento_id()) { ?>
+                        <input type="text" id="evento_id" name="evento_id" value="<?= $evento->getNombre_evento() ?>" placeholder="Nombre del evento" required>
+                    <?php break;
+                    } ?>
+                <?php  };    ?>
+
+            </div>
+            <button type="submit" class="btn">Finalizar edición</button>
+        </form>
+    </div>
+</body>
+
+</html>

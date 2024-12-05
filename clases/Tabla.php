@@ -409,9 +409,9 @@ class Tabla
      * @param float $precio El precio de la tabla.
      */
     
-        public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, int $rider_id, int $evento_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio){
+        public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, /*int $rider_id, int $evento_id,*/ string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio){
         $query = "UPDATE tabla_1  
-        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, rider_id = :rider_id, evento_id = :evento_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
+        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, /*rider_id = :rider_id, evento_id = :evento_id,*/ talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
         Conexion::getConexion();
         $PDOStatement = Conexion::getConexion()->prepare($query);
         $PDOStatement->execute([
@@ -419,8 +419,8 @@ class Tabla
             'tipo_id' => $tipo_id,
             'marca_id' => $marca_id,
             'modelo_id' => $modelo_id,
-            'rider_id' => $rider_id,
-            'evento_id' => $evento_id,
+            //'rider_id' => $rider_id,
+            //'evento_id' => $evento_id,
             'talla' => $talla,
             'publicacion' => $publicacion,
             'color' => $color,

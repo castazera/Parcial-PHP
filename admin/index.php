@@ -66,7 +66,10 @@ if (!$userData) {
                                     <a class="nav-link font-responsive active" href= "index.php?sec=admin_board">Admin Boards</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-responsive" href= "index.php?sec=add_boards">Agregar Boards</a>
+                                    <a class="nav-link font-responsive active" href= "index.php?sec=admin_eventos">Admin Eventos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-responsive active" href= "index.php?sec=admin_riders">Admin Riders</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive" href="../index.php?sec=inicio">Volver a inicio</a>
