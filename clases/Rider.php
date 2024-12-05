@@ -13,7 +13,7 @@ Class Rider {
     public static function get_x_id(int $id): ?Rider
     {
         $conexion = Conexion::getConexion();
-        $query = "SELECT * FROM rider WHERE id = $id";
+        $query = "SELECT * FROM rider WHERE rider_id = $id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
@@ -23,6 +23,49 @@ Class Rider {
 
         return $result ?? null;
     }
+
+            /**
+     * Agrega un rider a la base de datos
+     * @param string $nombre_rider
+
+     */
+    public static function insert_rider(string $nombre_rider)
+    {
+        $OBJconexion = new conexion();
+        $conexion = $OBJconexion->getConexion();
+        $query = "SELECT rider_id FROM rider WHERE nombre_rider = :nombre_rider";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'nombre_rider' => $nombre_rider,
+        ]);
+        $rider = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+        if($rider){
+            return $rider['rider_id'];
+        } else{
+            $query = "INSERT INTO rider (nombre_rider) VALUES (:nombre_rider)";
+            $PDOStatement = $conexion->prepare($query);
+            $PDOStatement->execute(['nombre_rider'=>$nombre_rider]);
+            return $conexion->lastInsertId();
+        }
+    }
+
+    /**
+     * Actualiza el nombre de un rider en la base de datos.
+     * 
+     * @param int $rider_id El ID del rider a actualizar.
+     * @param string $nuevo_nombre El nuevo nombre del rider.
+     */
+    
+     public function editar_rider(int $rider_id, string $nuevo_nombre)
+     {
+         $query = "UPDATE rider SET nombre_rider = :nuevo_nombre WHERE rider_id = :rider_id";
+         $conexion = Conexion::getConexion();
+         $PDOStatement = $conexion->prepare($query);
+         $PDOStatement->execute([
+             'rider_id' => $rider_id,
+             'nuevo_nombre' => $nuevo_nombre,
+         ]);
+     }
 
     /**
      * Get the value of rider_id
@@ -62,6 +105,41 @@ Class Rider {
         $this->nombre_rider = $nombre_rider;
 
         return $this;
+    }
+
+            /**
+     * Devuelve el catalogo completo
+     * @return Rider[] Un array de objetos Rider
+     */
+    public static function CatalogoCompleto(): array
+    {
+        $conexion = Conexion::getConexion();
+        $query = "SELECT * FROM rider";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        $lista_riders = $PDOStatement->fetchAll();
+
+        return $lista_riders;
+    }
+
+            /**
+     * Devuelve los datos de un Rider en particular
+     * @param int $idRider el ID unico del Rider
+     * 
+     * @return ?Rider Devuelve un objeto Rider o null
+     */
+    public static function Busca_Rider(int $idRider): ?Rider
+    {
+        $catalogo = self::CatalogoCompleto();
+        foreach ($catalogo as $rider) {
+            if ($rider->rider_id == $idRider) {
+                return $rider;
+            }
+        }
+        return null;
     }
 }
 

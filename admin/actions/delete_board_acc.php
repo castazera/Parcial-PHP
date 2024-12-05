@@ -6,7 +6,7 @@ try{
     $board = Tabla::get_x_id($id);
     $board->borrar_tabla();
 } catch (Exception $e){
-    die("No se pudo eliminar al personaje");
+    die("No se pudo eliminar el board");
 }
 header('Location: ../index.php?sec=admin_board');
 ?>
