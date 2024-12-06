@@ -9,6 +9,16 @@ echo print_r($postData);
 echo "</pre>";
 try{
     $board = Tabla::get_x_id($id);
+    //$board->clear_eventos();
+    echo("<pre>");
+    print_r("algooooooooooo");
+    print_r($postData);
+    echo("</pre>");
+    if (isset($postData['eventos'])) {
+        foreach ($postData['eventos'] as $evento_id) {
+            $board->add_eventos($id, $evento_id);
+        }
+    }
     $tipo_id = (int)$postData['tipo_id']; 
     $marca_id = (int)$postData['marca_id']; 
             $nombre_modelo = $postData['modelo_id'];
@@ -51,6 +61,6 @@ try{
         echo "</pre>";
 }
 
-header('Location: ../index.php?sec=admin_board');
+//header('Location: ../index.php?sec=admin_board');
 
 ?>
