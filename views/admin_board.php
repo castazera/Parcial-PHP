@@ -3,6 +3,7 @@ $catalogo_completo = Tabla::CatalogoCompleto();
 $tipo_tabla = Tabla::tipo_tabla();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_tipo = Tipo::Tipo_name();
+$catalogo_marcas = Marcas::Marcas_name();
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,7 @@ $catalogo_tipo = Tipo::Tipo_name();
                 <th>Descripción</th>
                 <th>Eventos</th>
                 <th>Precio</th>
+                <th>Marca</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -71,6 +73,16 @@ $catalogo_tipo = Tipo::Tipo_name();
                         ?>
                     </td>
                     <td><?= $board->getPrecio() ?></td>
+                    <td>
+                    <?php
+                    foreach ($catalogo_marcas as $marca) {
+                        if ($marca->getMarcas_id() == $board->getMarca_id()) {
+                            echo $marca->getMarcas_nombre();
+                            break;
+                        }
+                    }
+                    ?>
+                </td>
 
                     <td class="TDbutton">
                         <a href="index.php?sec=edit_board&id=<?= $board->getId() ?>" role="button" class="ov-btn-grow-spin">Editar</a>

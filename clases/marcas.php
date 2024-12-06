@@ -89,18 +89,26 @@ class Marcas{
          ]);
      }
 
-                 /**
-     * Borra un objeto Marcas de la base de datos
-     */
-    public function borrar_marcas()
-    {
-        $conexion = Conexion::getConexion();
-        $query = "DELETE FROM marcas WHERE marcas_id=?";
-        $PDOStatement = $conexion->prepare($query);
-        $PDOStatement->execute([
-            $this->marcas_id
-        ]);
-    }
+/**
+ * Borra un objeto Marcas de la base de datos junto con sus registros dependientes
+ */
+/**
+ * Borra un objeto Marcas de la base de datos junto con sus registros dependientes
+ */
+public function borrar_marcas()
+{
+    $conexion = Conexion::getConexion();
+    
+    // Primero, eliminar los registros dependientes en tabla_1
+    $queryDeleteDependientes = "DELETE FROM tabla_1 WHERE marca_id = ?";
+    $PDOStatement = $conexion->prepare($queryDeleteDependientes);
+    $PDOStatement->execute([$this->marcas_id]);
+
+    // Luego, eliminar la marca
+    $queryDeleteMarca = "DELETE FROM marcas WHERE marcas_id = ?";
+    $PDOStatement = $conexion->prepare($queryDeleteMarca);
+    $PDOStatement->execute([$this->marcas_id]);
+}
 
                 /**
      * Devuelve el catalogo completo

@@ -38,6 +38,14 @@ th, td {
    text-decoration: none;
 }
 
+.conta {
+    display: flex;
+    flex-direction: column ;
+    margin: 0 auto;
+}
+
+
+
 
 .ov-btn-slide-close {
     background: #fff;
@@ -260,6 +268,8 @@ th, td {
 .delete {
     background-color: #f44336;
 }
+
+
 
 .TDbutton{
 text-align: center;
