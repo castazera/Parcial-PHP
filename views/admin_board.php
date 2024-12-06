@@ -3,9 +3,6 @@ $catalogo_completo = Tabla::CatalogoCompleto();
 $tipo_tabla = Tabla::tipo_tabla();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_tipo = Tipo::Tipo_name();
-echo "<pre>";
-echo print_r($catalogo_completo);
-echo "</pre>";
 ?>
 
 <!DOCTYPE html>

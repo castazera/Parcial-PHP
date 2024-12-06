@@ -4,16 +4,16 @@ require_once "../../functions/autoload.php";
 $id = $_GET['id'] ?? false;
 $postData = $_POST;
 $fileData = $_FILES['imagen'];
-echo "<pre>";
-echo print_r($postData);
-echo "</pre>";
+// echo "<pre>";
+// echo print_r($postData);
+// echo "</pre>";
 try{
     $board = Tabla::get_x_id($id);
     //$board->clear_eventos();
-    echo("<pre>");
-    print_r("algooooooooooo");
-    print_r($postData);
-    echo("</pre>");
+    // echo("<pre>");
+    // print_r("algooooooooooo");
+    // print_r($postData);
+    // echo("</pre>");
     if (isset($postData['eventos'])) {
         foreach ($postData['eventos'] as $evento_id) {
             $board->add_eventos($id, $evento_id);

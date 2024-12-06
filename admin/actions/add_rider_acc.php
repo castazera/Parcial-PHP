@@ -2,9 +2,9 @@
 require_once "../../functions/autoload.php";
 
 $postData = $_POST;
-echo("<pre>");
-print_r($postData);
-echo("</pre>");
+// echo("<pre>");
+// print_r($postData);
+// echo("</pre>");
 
         try {        
             Rider::insert_rider(

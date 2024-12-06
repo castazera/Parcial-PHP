@@ -75,10 +75,10 @@ class Tabla
         while ($resultado = $PDOStatement->fetch()) {
             $lista_boards[] = self::crearBoard($resultado);
         }
-        echo("<pre>");
-        echo("el resultadoooooooooooo");
-        echo($resultado);
-        echo("</pre>");
+        // echo("<pre>");
+        // echo("el resultadoooooooooooo");
+        // echo($resultado);
+        // echo("</pre>");
     
         return $lista_boards;
     }
