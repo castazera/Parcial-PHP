@@ -1,5 +1,5 @@
 <?php
-$catalogo = Rider::CatalogoCompleto();
+$catalogo = Marcas::CatalogoCompleto();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $catalogo = Rider::CatalogoCompleto();
 </head>
 
 <body>
-    <h1>Panel de Riders</h1>
+    <h1>Panel de Marcass</h1>
     <table>
         <thead>
             <tr>
@@ -23,19 +23,19 @@ $catalogo = Rider::CatalogoCompleto();
         </thead>
         <tbody>
 
-            <?php foreach ($catalogo as $rider) { ?>
+            <?php foreach ($catalogo as $marcas) { ?>
                 <tr>
-                    <td><?= $rider->getNombre_rider() ?></td>
+                    <td><?= $marcas->getMarcas_nombre() ?></td>
                     <td class="TDbutton">
-                        <a href="index.php?sec=edit_rider&id=<?= $rider->getRider_id() ?>" role="button" class="button edit">Editar</a>
-                        <a href="index.php?sec=delete_rider&id=<?= $rider->getRider_id() ?>" role="button" class="button delete">Eliminar</a>
+                        <a href="index.php?sec=edit_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="button edit">Editar</a>
+                        <a href="index.php?sec=delete_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="button delete">Eliminar</a>
                     </td>
                 </tr>
             <?php }; ?>
         </tbody>
     </table>
     <div class="div_button">
-        <a href="index.php?sec=add_rider"><button class="add-button">Cargar nuevo rider</button></a>
+        <a href="index.php?sec=add_marcas"><button class="add-button">Cargar nuevo marcas</button></a>
     </div>
 </body>
 

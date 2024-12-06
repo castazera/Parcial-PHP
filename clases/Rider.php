@@ -179,6 +179,24 @@ Class Rider {
             $this->rider_id
         ]);
     }
+
+            /**
+     * Actualiza el nombre de un marcas en la base de datos.
+     * 
+     * @param int $marcas_id El ID del marcas a actualizar.
+     * @param string $nuevo_nombre El nuevo nombre del marcas.
+     */
+    
+     public function editar_marcas(int $marcas_id, string $nuevo_nombre)
+     {
+         $query = "UPDATE marcas SET marcas_nombre = :nuevo_nombre WHERE marcas_id = :marcas_id";
+         $conexion = Conexion::getConexion();
+         $PDOStatement = $conexion->prepare($query);
+         $PDOStatement->execute([
+             'marcas_id' => $marcas_id,
+             'nuevo_nombre' => $nuevo_nombre,
+         ]);
+     }
 }
 
 ?>
