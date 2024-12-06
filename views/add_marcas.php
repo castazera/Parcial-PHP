@@ -10,13 +10,13 @@
 <div class="form-container">
     <h1>Administrador nuevo rider</h1>
     <h2>Agregar Nuevo rider</h2>
-    <form action="actions/add_rider_acc.php" method="POST" enctype="multipart/form-data">
+    <form action="actions/add_marcas_acc.php" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
-            <label for="rider_id">Nombre del rider:</label>
-            <input type="text" id="rider_id" name="rider_id" placeholder="Nombre del rider" required>
+            <label for="marcas_id">Nombre de la marca:</label>
+            <input type="text" id="marcas_id" name="marcas_id" placeholder="Nombre del marcas" required>
         </div>
-        <button type="submit" class="btn">Agregar Rider</button>
+        <button type="submit" class="btn">Agregar marcas</button>
     </form>
 </div>
 </body>

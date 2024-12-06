@@ -7,12 +7,12 @@ $postData = $_POST;
 // echo("</pre>");
 
         try {        
-            Rider::insert_rider(
-             $postData['rider_id']
+            Marcas::insert_marcas(
+             $postData['marcas_id']
             );
         } catch (Exception $e) {
             die("No se pudo cargar: $e");
         }
 
-header('Location: ../index.php?sec=admin_riders');
+header('Location: ../index.php?sec=admin_marcas');
 ?>

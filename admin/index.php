@@ -29,7 +29,7 @@ if (!$userData) {
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"/>
-        <link rel="stylesheet" href="estilos/estilos.css">
+        <link rel="stylesheet" href="../estilos/estilos.css">
     </head>
 
     <body>
@@ -55,7 +55,7 @@ if (!$userData) {
                                     <a class="nav-link font-responsive active" href= "index.php?sec=admin_eventos">Admin Eventos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-responsive active" href= "index.php?sec=admin_riders">Admin Riders</a>
+                                    <a class="nav-link font-responsive active" href= "index.php?sec=admin_marcas">Admin marcas</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-responsive" href="../index.php?sec=inicio">Volver a inicio</a>
