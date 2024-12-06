@@ -2,9 +2,16 @@
 $id = $_GET['id'] ?? 0;
 $table = Tabla::Busca_Producto($id);
 $tipo_tabla = Tabla::tipo_tabla();
+$eventos = Evento::CatalogoCompleto();
 $catalogo_tipo = Tipo::Tipo_name();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_marca = Marcas::Marcas_name();
+$eventos_seleccionados = $table->getEventos_ids();
+echo("<pre>");
+print_r("asnjkhsakhj");
+print_r($eventos_seleccionados);
+print_r($eventos);
+echo("</pre>");
 
                 
 
@@ -119,6 +126,24 @@ $catalogo_marca = Marcas::Marcas_name();
             <label for="precio">Precio:</label>
             <input type="number" id="precio" name="precio" value="<?= $table->getPrecio() ?>" placeholder="Precio" step="0.01" required>
         </div>
+
+        <div class="col-md-12 mb-3">
+                    <label class="form-label d-block">Eventos</label>
+                    <?PHP                    
+                    foreach ($eventos as $evento) {
+                    ?>
+                        <div class="form-check form-check-inline">
+                            <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            name="eventos[]" 
+                            id="eventos_<?= $evento->getEvento_id() ?>" 
+                            value="<?= $evento->getEvento_id() ?>"                             
+                            <?= in_array($evento->getEvento_id(), $eventos_seleccionados) ? "checked" : "" ?>>
+                            <label class="form-check-label mb-2" for="eventos_<?= $evento->getEvento_id() ?>"><?= $evento->getNombre_evento() ?></label>
+                        </div>
+                    <?PHP } ?>
+                </div>
 
         <button type="submit" class="btn">Finalizar edición</button>
     </form>

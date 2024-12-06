@@ -1,8 +1,11 @@
 <?php
-$catalogo = Tabla::CatalogoCompleto();
+$catalogo_completo = Tabla::CatalogoCompleto();
 $tipo_tabla = Tabla::tipo_tabla();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_tipo = Tipo::Tipo_name();
+echo "<pre>";
+echo print_r($catalogo_completo);
+echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +30,7 @@ $catalogo_tipo = Tipo::Tipo_name();
                 <th>Color</th>
                 <th>Material</th>
                 <th>Descripción</th>
+                <th>Eventos</th>
                 <th>Precio</th>
                 <th>Acciones</th>
             </tr>
@@ -37,7 +41,7 @@ $catalogo_tipo = Tipo::Tipo_name();
 
             ?>
 
-            <?php foreach ($catalogo as $board) { ?>
+            <?php foreach ($catalogo_completo as $board) { ?>
                 <tr>
                     <td class="box_img">
                         <img src="../img_productos/<?= $board->getImagen() ?>" alt="Skateboard" class="img_admin">
@@ -62,6 +66,13 @@ $catalogo_tipo = Tipo::Tipo_name();
                     <td><?= $board->getColor() ?></td>
                     <td><?= $board->getMaterial() ?></td>
                     <td><?= $board->getDescripcion() ?></td>
+                    <td>
+                        <?PHP
+                        foreach ($board->getEventos() as $evento) {
+                            echo "<p>" . $evento->getNombre_evento() . "</p>";
+                        }
+                        ?>
+                    </td>
                     <td><?= $board->getPrecio() ?></td>
 
                     <td class="TDbutton">

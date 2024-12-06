@@ -6,7 +6,7 @@ class Tabla
     private int $id;
     private int $tipo_id;
     private Tipo $tipo;
-    private int $modelo_id  ;
+    private int $modelo_id;
     private Modelo $modelo;
     private int $marca_id;
     private Marcas $marcas;
@@ -40,8 +40,7 @@ class Tabla
         $tabla->modelo_id = $boardData['modelo_id'];
         $tabla->marcas = Marcas::get_x_id($boardData['marca_id']);
         $tabla->marca_id = $boardData['marca_id']; 
-        $tabla->tipo_id = $boardData['tipo_id']; 
-        //$tabla->rider = Rider::get_x_id($boardData['rider_id']);
+        $tabla->tipo_id = $boardData['tipo_id'];
 
         $EventosId =
             !empty($boardData['eventos']) ?
@@ -76,6 +75,10 @@ class Tabla
         while ($resultado = $PDOStatement->fetch()) {
             $lista_boards[] = self::crearBoard($resultado);
         }
+        echo("<pre>");
+        echo("el resultadoooooooooooo");
+        echo($resultado);
+        echo("</pre>");
     
         return $lista_boards;
     }
@@ -382,25 +385,6 @@ class Tabla
     
     return $conexion->lastInsertId();
 }
-    // public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
-    // {
-    //     $conexion = Conexion::getConexion();
-    //     $query = "INSERT INTO tabla_1 (tipo_id, marca_id,talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (NULL,:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
-    //     $PDOStatement = $conexion->prepare($query);
-    //     $PDOStatement->execute([
-    //         'tipo_id' => $tipo_id,
-    //         'marca_id' => $marca_id,
-    //         'modelo_id' => $modelo_id,
-    //         'talla' => $talla,
-    //         'publicacion' => $publicacion,
-    //         'color' => $color,
-    //         'imagen_url' => $imagen_url,
-    //         'descripcion' => $descripcion,
-    //         'material' => $material,
-    //         'precio' => $precio,
-    //     ]);
-    //     return $conexion->lastInsertId();
-    // }
 
     public static function add_eventos(int $board_id, int $evento_id){
         $conexion = Conexion::getConexion();
@@ -499,6 +483,35 @@ class Tabla
             'material' => $material,
             'precio' => $precio,
         ]);
+    }
+
+    
+     /**
+     * Vaciar lista de eventos
+     */
+    public function clear_eventos()
+    {
+        $conexion = Conexion::getConexion();
+        $query = "DELETE FROM evento_x_board WHERE board_id = :board_id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(
+            [
+                'board_id' => $this->id
+            ]
+        );
+    }
+
+        /**
+     * Devuelve un array compuesto por IDs de todos los eventos
+     */
+    public function getEventos_ids(): array
+    {
+        $result = [];
+        foreach ($this->eventos as $evento) {
+            $result[] = intval($evento->getEvento_id());
+        }
+        return $result;
     }
 
 
@@ -722,6 +735,26 @@ class Tabla
     public function setPublicacion($publicacion)
     {
         $this->publicacion = $publicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of eventos
+     */ 
+    public function getEventos()
+    {
+        return $this->eventos;
+    }
+
+    /**
+     * Set the value of eventos
+     *
+     * @return  self
+     */ 
+    public function setEventos($eventos)
+    {
+        $this->eventos = $eventos;
 
         return $this;
     }

@@ -4,6 +4,7 @@ $id = $_GET['id'] ?? false;
 
 try{
     $board = Tabla::get_x_id($id);
+    $board->clear_eventos();
     $board->borrar_tabla();
 } catch (Exception $e){
     die("No se pudo eliminar el board");
