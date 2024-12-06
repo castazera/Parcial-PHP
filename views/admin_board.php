@@ -19,7 +19,7 @@ $catalogo_tipo = Tipo::Tipo_name();
     <h1>Panel de Boards</h1>
     <table>
         <thead>
-            <tr>
+            <tr >
                 <th>Imagen</th>
                 <th>Modelo</th>
                 <th>Tipo</th>
@@ -65,15 +65,15 @@ $catalogo_tipo = Tipo::Tipo_name();
                     <td><?= $board->getPrecio() ?></td>
 
                     <td class="TDbutton">
-                        <a href="index.php?sec=edit_board&id=<?= $board->getId() ?>" role="button" class="button edit">Editar</a>
-                        <a href="index.php?sec=delete_board&id=<?= $board->getId() ?>" role="button" class="button delete">Eliminar</a>
+                        <a href="index.php?sec=edit_board&id=<?= $board->getId() ?>" role="button" class="ov-btn-grow-spin">Editar</a>
+                        <a href="index.php?sec=delete_board&id=<?= $board->getId() ?>" role="button" class="ov-btn-grow-spin">Eliminar</a>
                     </td>
                 </tr>
             <?php }; ?>
         </tbody>
     </table>
     <div class="div_button">
-        <a href="index.php?sec=add_boards"><button class="add-button">Cargar nueva board</button></a>
+        <a href="index.php?sec=add_boards"><button class="ov-btn-slide-close">Cargar nueva board</button></a>
     </div>
 </body>
 

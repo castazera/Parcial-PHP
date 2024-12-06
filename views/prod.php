@@ -5,7 +5,7 @@ $table = Tabla::Busca_Producto($id);
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_marca = Marcas::Marcas_name();
 ?>
-
+<h1 class="m-4 text-center">Detalle del producto</h1>
 <div class="container d-flex justify-content-center h-rest">
     <div class="row middle-tablet-cel">
             <?php 

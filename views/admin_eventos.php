@@ -17,7 +17,7 @@ $catalogo = Evento::CatalogoCompleto();
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Nombre del evento</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -35,7 +35,7 @@ $catalogo = Evento::CatalogoCompleto();
         </tbody>
     </table>
     <div class="div_button">
-        <a href="index.php?sec=add_evento"><button class="add-button">Cargar nueva evento</button></a>
+        <a href="index.php?sec=add_evento"><button class="ov-btn-slide-close">Cargar nueva evento</button></a>
     </div>
 </body>
 

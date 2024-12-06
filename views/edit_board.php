@@ -19,8 +19,7 @@ $catalogo_marca = Marcas::Marcas_name();
 </head>
 <body>
 <div class="form-container">
-    <h1>Administrador Editor tabla</h1>
-    <h2>Edita los datos de una tabla</h2>
+    <h1 class="mb-4">Edición de una tabla</h1>
     <form action="actions/edit_board_acc.php?id=<?= $table->getId() ?>" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -120,7 +119,8 @@ $catalogo_marca = Marcas::Marcas_name();
             <input type="number" id="precio" name="precio" value="<?= $table->getPrecio() ?>" placeholder="Precio" step="0.01" required>
         </div>
 
-        <button type="submit" class="btn">Finalizar edición</button>
+        <button type="submit" class="ov-btn-grow-box">Finalizar edición</button>
+        <a href="index.php?sec=admin_board" class="ov-btn-grow-box-1">Cancelar</a>
     </form>
 </div>
 </body>

@@ -7,8 +7,8 @@
                     <div class="square">
                             <img class="circle max-width-250 mx-auto" src="img/brian.webp">
                             <div class="datos">
-                                <h3>Nombre: Brian Fernandez</h3>
-                                <h4>Fecha Nacimiento: 11/01/2001 (23 años)</h4>
+                                <h2>Nombre: Brian Fernandez</h2>
+                                <h3>Fecha Nacimiento: 11/01/2001 (23 años)</h3>
                                 <h4>Correo Electrónico: <a href="mailto:briangfernandez011@gmail.com">briangfernandez011@gmail.com</a></h4>
                             </div>
                     </div>

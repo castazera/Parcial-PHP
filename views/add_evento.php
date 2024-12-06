@@ -8,15 +8,15 @@
 </head>
 <body>
 <div class="form-container">
-    <h1>Administrador nuevo evento</h1>
-    <h2>Agregar Nuevo Evento</h2>
+    <h1 class="mb-4">Agregar Nuevo Evento</h1>
     <form action="actions/add_evento_acc.php" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
-            <label for="evento_id">Nombre del evento:</label>
+            <label for="evento_id" >Nombre del evento:</label>
             <input type="text" id="evento_id" name="evento_id" placeholder="Nombre del evento" required>
         </div>
-        <button type="submit" class="btn">Agregar Evento</button>
+        <button type="submit" class="ov-btn-grow-box"">Agregar Evento</button>
+        <a href="index.php?sec=admin_board" class="ov-btn-grow-box-1">Cancelar</a>
     </form>
 </div>
 </body>

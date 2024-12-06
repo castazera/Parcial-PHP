@@ -14,8 +14,7 @@
 
 <body>
     <div class="form-container">
-        <h1>Administrador nueva tabla</h1>
-        <h2>Introducí a continuación los detalles de tu tabla</h2>
+        <h1 class="mb-4">Agregá una nueva tabla</h1>
         <form action="actions/add_board_acc.php" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
@@ -86,7 +85,8 @@
                 <?php } ?>
             </div>
 
-                <button type="submit" class="btn">Agregar Producto</button>
+                <button type="submit" class="ov-btn-grow-box">Agregar Producto</button>
+                <a href="index.php?sec=admin_board" class="ov-btn-grow-box-1">Cancelar</a>
         </form>
     </div>
 </body>

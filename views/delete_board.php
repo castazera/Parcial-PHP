@@ -1,24 +1,37 @@
 <?php
 $id = $_GET['id'] ?? false;
 $board = Tabla::get_x_id($id);
+$catalogo_modelos = Modelo::Modelo_name();
+
 
 ?>
-<div class="row my-5 g-3">
-    <h1 class="text-center mb-5 fw-bold">¿Está seguro que desea eliminar esta tabla?</h1>
-    <div class="col-12 col-md-6">
-        <img src="../img_productos/<?= $board->getImagen() ?>" alt="Imágen Illustrativa de <?= $board->getModelo_id() ?>" class="img-fluid rounded shadow-sm d-block mx-auto mb-3">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Tabla</title>
+    <link rel="stylesheet" href="../estilos/style_admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="text-center mb-4">
+        <h2 class="color-blanco">¿Está seguro que desea eliminar esta tabla?</h2>
+            <img src="../img_productos/<?= $board->getImagen() ?>" alt="Imagen de la tabla" class="img_admin rounded shadow-sm">
+        </div>
+        <?php
+                    foreach ($catalogo_modelos as $modelo) {
+                        if ($modelo->getModelo_id() == $board->getModelo_id()) { ?>
+                            <td><strong>Modelo de la tabla: <?= $modelo->getNombre_modelo() ?></strong></td>
+                        <?php break;
+                        } ?>
+                    <?php  };    ?>
+        <div class="text-center">
+            <a href="actions/delete_board_acc.php?id=<?= $board->getId() ?>" class="ov-btn-grow-skew-1 mt-4">Eliminar</a>
+            <a href="index.php?sec=admin_board" class="ov-btn-grow-skew">Cancelar</a>
+        </div>
     </div>
-
-    <div class="col-12 col-md-6">
-
-
-        <h2 class="fs-6">Nombre</h2>
-        <p><?= $board->getModelo_id() ?></p>
-
-
-        <a href="actions/delete_board_acc.php?id=<?= $board->getId() ?>" role="button" class="d-block btn btn-sm btn-danger mt-4">Eliminar</a>
-    </div>
-
-
-
-</div>
+</body>
+</html>
