@@ -119,7 +119,7 @@ $userData = $_SESSION['loggedIn'] ?? FALSE;
             <footer>
             <div class="sticky-bottom">
                 <div class="card">
-                <div class="card-body text-center" style="margin-top: auto;">
+                <div class="card-body text-center margin-top">
                     <span class="card-title">Web realizada por <a href="index.php?sec=datos_devs">Brian Fernandez & Bruno de Renzis</a></span>
                     </div>
                 </div>

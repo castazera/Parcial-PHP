@@ -6,7 +6,7 @@ class Tabla
     private int $id;
     private int $tipo_id;
     private Tipo $tipo;
-    private int $modelo_id;
+    private int $modelo_id  ;
     private Modelo $modelo;
     private int $marca_id;
     private Marcas $marcas;
@@ -37,8 +37,10 @@ class Tabla
 
         $tabla->tipo = Tipo::get_x_id($boardData['tipo_id']);
         $tabla->modelo = Modelo::get_x_id($boardData['modelo_id']);
-        
+        $tabla->modelo_id = $boardData['modelo_id'];
         $tabla->marcas = Marcas::get_x_id($boardData['marca_id']);
+        $tabla->marca_id = $boardData['marca_id']; 
+        $tabla->tipo_id = $boardData['tipo_id']; 
         //$tabla->rider = Rider::get_x_id($boardData['rider_id']);
 
         $EventosId =
@@ -190,7 +192,7 @@ class Tabla
      * Si no se provee un precio minimo, el minimo obligatorio sera 15.000
      * @return Tabla[] Un array lleno de instancias de objeto Tabla
      */
-    public static function Busca_Precio(int $PrecioMin = 25000): array
+    public static function Busca_Precio(int $PrecioMin = 22000): array
     {
 
         $resultado = [];
@@ -330,16 +332,15 @@ class Tabla
      */
     public static function insertar_o_actualizar_tipo($nombre_tipo)
     {
-        $OBJconexion = new conexion();
-        $conexion = $OBJconexion->getConexion();
+        $conexion = Conexion::getConexion();
 
         $query = "SELECT tipo_id FROM tipo WHERE nombre_tipo = :nombre_tipo";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute(['nombre_tipo' => $nombre_tipo]);
-        $modelo = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+        $tipo = $PDOStatement->fetch(PDO::FETCH_ASSOC);
 
-        if ($modelo) {
-            return $modelo['tipo_id'];
+        if ($tipo) {
+            return $tipo['tipo_id'];
         } else {
             $query = "INSERT INTO tipo (nombre_tipo) VALUES (:nombre_tipo)";
             $PDOStatement = $conexion->prepare($query);
@@ -360,25 +361,46 @@ class Tabla
      * @param string $descripcion
      * @param float $precio
      */
-    public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
-    {
-        $conexion = Conexion::getConexion();
-        $query = "INSERT INTO tabla_1 /*(tipo_id, marca_id, modelo_id,rider_id, talla, publicacion, color, imagen_url, descripcion, material, precio)*/ VALUES (NULL,:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
-        $PDOStatement = $conexion->prepare($query);
-        $PDOStatement->execute([
-            'tipo_id' => $tipo_id,
-            'marca_id' => $marca_id,
-            'modelo_id' => $modelo_id,
-            'talla' => $talla,
-            'publicacion' => $publicacion,
-            'color' => $color,
-            'imagen_url' => $imagen_url,
-            'descripcion' => $descripcion,
-            'material' => $material,
-            'precio' => $precio,
-        ]);
-        return $conexion->lastInsertId();
-    }
+    public static function insert_tabla(int $tipo_id, int $marca_id, int $modelo_id, string $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
+{
+    $conexion = Conexion::getConexion();
+    $query = "INSERT INTO tabla_1 (tipo_id, marca_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+    
+    $PDOStatement = $conexion->prepare($query);
+    $PDOStatement->execute([
+        'tipo_id' => $tipo_id,
+        'marca_id' => $marca_id,
+        'modelo_id' => $modelo_id,
+        'talla' => $talla,
+        'publicacion' => $publicacion,
+        'color' => $color,
+        'imagen_url' => $imagen_url,
+        'descripcion' => $descripcion,
+        'material' => $material,
+        'precio' => $precio,
+    ]);
+    
+    return $conexion->lastInsertId();
+}
+    // public static function insert_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
+    // {
+    //     $conexion = Conexion::getConexion();
+    //     $query = "INSERT INTO tabla_1 (tipo_id, marca_id,talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (NULL,:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+    //     $PDOStatement = $conexion->prepare($query);
+    //     $PDOStatement->execute([
+    //         'tipo_id' => $tipo_id,
+    //         'marca_id' => $marca_id,
+    //         'modelo_id' => $modelo_id,
+    //         'talla' => $talla,
+    //         'publicacion' => $publicacion,
+    //         'color' => $color,
+    //         'imagen_url' => $imagen_url,
+    //         'descripcion' => $descripcion,
+    //         'material' => $material,
+    //         'precio' => $precio,
+    //     ]);
+    //     return $conexion->lastInsertId();
+    // }
 
     public static function add_eventos(int $board_id, int $evento_id){
         $conexion = Conexion::getConexion();

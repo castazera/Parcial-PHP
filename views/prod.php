@@ -27,14 +27,15 @@ $catalogo_marca = Marcas::Marcas_name();
                         </div>
                     <hr class="separador">
 
-                    <p>Color: <?= $table->getColor() ?></p>
-                    <p>Material: <?= $table->getMaterial() ?></p>
                     <?php            
                         foreach($catalogo_marca as $marca) {
                         if($marca->getMarcas_id() == $table->getMarca_id()){?> 
                         <p>Marca: <?=$marca->getMarcas_nombre()?></p>
                         <?php break; } ?>
                         <?php  };    ?>
+
+                    <p>Color: <?= $table->getColor() ?></p>
+                    <p>Material: <?= $table->getMaterial() ?></p>
 
                     <button class="btn btn-primary w-100">Agregar al carrito</button>
                 </div>

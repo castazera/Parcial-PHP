@@ -1,6 +1,7 @@
 <?php 
 $catalogo = Tabla::Busca_Precio();
 $catalogo_modelos = Modelo::Modelo_name();
+$catalogo_marcas = Marcas::Marcas_name();
 
 ?>
 
@@ -16,18 +17,30 @@ $catalogo_modelos = Modelo::Modelo_name();
                     <img class="card-img-top" src="img_productos/<?= $detalles->getImagen()?>" alt="Skateboard">
                 </div>
 
-                <div class="card-body">          
-                        <?php            
+                <div class="card-body">
+                <?php            
                         foreach($catalogo_modelos as $modelo) {
                         if($modelo->getModelo_id() == $detalles->getModelo_id()){?> 
-                        <h2 class="card-title"><?= $modelo->getNombre_modelo()?></h2>
+                           <h2 class="card-title"><?= $modelo->getNombre_modelo(); ?></h2>
                         <?php break; } ?>
                         <?php  };    ?>
+                       <hr>
+                        <?php  
+                        foreach($catalogo_marcas as $marca) {
+                        if($marca->getMarcas_id() == $detalles->getMarca_id()){?> 
+                           <p class="card-text">Marca: <?= $marca->getMarcas_nombre(); ?></p>
+                        <?php break; } ?>
+                        <?php  };    ?>   
+                        <hr>
                     <p class="card-text">Talle: <?= $detalles->getTalla() ?></p>
+                    <hr>
                     <p class="card-text">Color: <?= $detalles->getColor() ?></p>
+                    <hr>
                     <p class="card-text">Material: <?= $detalles->getMaterial()?></p>
-                    <p class="card-text">Descripción: <?= $detalles->recortar_descripcion(30) ?></p>
-                    <p class="card-text text-end"><?= $detalles->precioUnidad() ?></p>
+                    <hr>
+                    <p class="card-text"><strong>Descripción:</strong><br><?=$detalles->recortar_descripcion(100) ?></p>
+                    <hr>
+                    <p class="card-text text-end mb-5 fw-bold "><?= $detalles->precioUnidad() ?></p>
                     <a href="index.php?sec=prod&id=<?= $detalles->getId()?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x
                     mb-2">Ver más</a>
                  </div>

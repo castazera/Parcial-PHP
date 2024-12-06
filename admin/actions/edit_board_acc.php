@@ -36,7 +36,6 @@ try{
         $tipo_id,
         $marca_id,
         $nuevoModeloId,
-        $evento_id,
         $talla,
         $publicacion,
         $color,
@@ -51,6 +50,7 @@ try{
         echo print_r($e);
         echo "</pre>";
 }
-//header('Location: ../index.php?sec=admin_board');
+
+header('Location: ../index.php?sec=admin_board');
 
 ?>

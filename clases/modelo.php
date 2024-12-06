@@ -1,7 +1,7 @@
 <?php 
 class Modelo{
-    private $modelo_id;
-    private $nombre_modelo;
+    private int $modelo_id;
+    private string $nombre_modelo;
  
     /**
      * Obtiene los valores de la tabla modelo
@@ -65,6 +65,7 @@ class Modelo{
     }
     
 
+    
     /**
      * Get the value of modelo_id
      */ 
