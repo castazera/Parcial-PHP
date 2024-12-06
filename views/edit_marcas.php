@@ -29,7 +29,8 @@ $catalogo_marcas = Marcas::CatalogoCompleto();
                 <?php  };    ?>
 
             </div>
-            <button type="submit" class="btn">Finalizar edición</button>
+            <button type="submit" class="ov-btn-grow-box">Finalizar edición</button>
+            <a href="index.php?sec=admin_marcas" class="ov-btn-grow-box-1">Cancelar</a>
         </form>
     </div>
 </body>

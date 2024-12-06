@@ -15,8 +15,8 @@
             <label for="evento_id" >Nombre del evento:</label>
             <input type="text" id="evento_id" name="evento_id" placeholder="Nombre del evento" required>
         </div>
-        <button type="submit" class="ov-btn-grow-box"">Agregar Evento</button>
-        <a href="index.php?sec=admin_board" class="ov-btn-grow-box-1">Cancelar</a>
+        <button type="submit" class="ov-btn-grow-box">Agregar Evento</button>
+        <a href="index.php?sec=admin_eventos" class="ov-btn-grow-box-1">Cancelar</a>
     </form>
 </div>
 </body>

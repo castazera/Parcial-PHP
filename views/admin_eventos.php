@@ -27,8 +27,8 @@ $catalogo = Evento::CatalogoCompleto();
                 <tr>
                     <td><?= $evento->getNombre_evento() ?></td>
                     <td class="TDbutton">
-                        <a href="index.php?sec=edit_evento&id=<?= $evento->getEvento_id() ?>" role="button" class="button edit">Editar</a>
-                        <a href="index.php?sec=delete_evento&id=<?= $evento->getEvento_id() ?>" role="button" class="button delete">Eliminar</a>
+                        <a href="index.php?sec=edit_evento&id=<?= $evento->getEvento_id() ?>" role="button" class="ov-btn-grow-spin">Editar</a>
+                        <a href="index.php?sec=delete_evento&id=<?= $evento->getEvento_id() ?>" role="button" class="ov-btn-grow-spin">Eliminar</a>
                     </td>
                 </tr>
             <?php }; ?>

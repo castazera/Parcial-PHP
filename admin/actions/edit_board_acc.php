@@ -61,6 +61,6 @@ try{
         echo "</pre>";
 }
 
-//header('Location: ../index.php?sec=admin_board');
+header('Location: ../index.php?sec=admin_board');
 
 ?>

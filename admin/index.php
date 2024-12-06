@@ -77,7 +77,7 @@ if (!$userData) {
     
                 <?php if($_GET['sec'] ?? 'null'){
                     require_once "../views/{$vista->getNombre()}.php";
-                }else { 
+                }else{
                 ?>
     
 <div class="container-index">

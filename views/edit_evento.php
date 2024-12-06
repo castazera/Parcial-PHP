@@ -32,7 +32,8 @@ $catalogo_eventos = Evento::CatalogoCompleto();
                 <?php  };    ?>
 
             </div>
-            <button type="submit" class="btn">Finalizar edición</button>
+            <button type="submit" class="ov-btn-grow-box">Finalizar edición</button>
+            <a href="index.php?sec=admin_eventos" class="ov-btn-grow-box-1">Cancelar</a>
         </form>
     </div>
 </body>

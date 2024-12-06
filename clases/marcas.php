@@ -22,45 +22,6 @@ class Marcas{
     }
 
 
-    /**
-     * Get the value of marcas_id
-     */ 
-    public function getMarcas_id()
-    {
-        return $this->marcas_id;
-    }
-
-    /**
-     * Set the value of marcas_id
-     *
-     * @return  self
-     */ 
-    public function setMarcas_id($marcas_id)
-    {
-        $this->marcas_id = $marcas_id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of marcas_nombre
-     */ 
-    public function getMarcas_nombre()
-    {
-        return $this->marcas_nombre;
-    }
-
-    /**
-     * Set the value of marcas_nombre
-     *
-     * @return  self
-     */ 
-    public function setMarcas_nombre($marcas_nombre)
-    {
-        $this->marcas_nombre = $marcas_nombre;
-
-        return $this;
-    }
 
         /**
      * trae un modelo desde la base de datos a través del id
@@ -102,9 +63,10 @@ class Marcas{
         if($marcas){
             return $marcas['marcas_id'];
         } else{
-            $query = "INSERT INTO marcas (marcas_nombre) VALUES (NULL,:marcas_nombre)";
+            $query = "INSERT INTO marcas (marcas_nombre) VALUES (:marcas_nombre)";
             $PDOStatement = $conexion->prepare($query);
-            $PDOStatement->execute(['marcas_nombre'=>$marcas_nombre]);
+            $PDOStatement->execute([
+            ':marcas_nombre' => $marcas_nombre]);
             return $conexion->lastInsertId();
         }
     }
@@ -174,6 +136,48 @@ class Marcas{
         }
         return null;
     }
+
+
+    /**
+     * Get the value of marcas_id
+     */ 
+    public function getMarcas_id()
+    {
+        return $this->marcas_id;
+    }
+
+    /**
+     * Set the value of marcas_id
+     *
+     * @return  self
+     */ 
+    public function setMarcas_id($marcas_id)
+    {
+        $this->marcas_id = $marcas_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of marcas_nombre
+     */ 
+    public function getMarcas_nombre()
+    {
+        return $this->marcas_nombre;
+    }
+
+    /**
+     * Set the value of marcas_nombre
+     *
+     * @return  self
+     */ 
+    public function setMarcas_nombre($marcas_nombre)
+    {
+        $this->marcas_nombre = $marcas_nombre;
+
+        return $this;
+    }
+
 }
 
 ?>

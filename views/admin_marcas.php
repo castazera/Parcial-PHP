@@ -27,15 +27,16 @@ $catalogo = Marcas::CatalogoCompleto();
                 <tr>
                     <td><?= $marcas->getMarcas_nombre() ?></td>
                     <td class="TDbutton">
-                        <a href="index.php?sec=edit_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="button edit">Editar</a>
-                        <a href="index.php?sec=delete_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="button delete">Eliminar</a>
+                        <a href="index.php?sec=edit_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="ov-btn-grow-spin">Editar</a>
+                        <a href="index.php?sec=delete_marcas&id=<?= $marcas->getMarcas_id() ?>" role="button" class="ov-btn-grow-spin">Eliminar</a>
                     </td>
+
                 </tr>
             <?php }; ?>
         </tbody>
     </table>
     <div class="div_button">
-        <a href="index.php?sec=add_marcas"><button class="add-button">Cargar nuevo marcas</button></a>
+        <a href="index.php?sec=add_marcas"><button class="ov-btn-slide-close">Cargar nuevo marcas</button></a>
     </div>
 </body>
 
