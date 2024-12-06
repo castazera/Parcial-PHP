@@ -1,9 +1,6 @@
 <?php
 $id = $_GET['id'] ?? false;
 $marcas = Marcas::get_x_id($id);
-echo("<pre>");
-print_r($_GET['id']);
-echo("</pre>");
 ?>
 
 

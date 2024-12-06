@@ -84,11 +84,11 @@ $eventos = Evento::CatalogoCompleto();
 
 
         <div class="form-group">
-            <label for="marca_id">Marca:</label>
-            <select name="marca_id" id="marca_id" required>
+            <label for="marcas_id">Marca:</label>
+            <select name="marcas_id" id="marcas_id" required>
                 <option value="" disabled>Seleccionar</option>
                 <?php foreach ($catalogo_marca as $marca) { ?>
-                    <option value="<?= $marca->getMarcas_id() ?>" <?= $marca->getMarcas_id() == $table->getMarca_id() ? 'selected' : '' ?>>
+                    <option value="<?= $marca->getMarcas_id() ?>" <?= $marca->getMarcas_id() == $table->getMarcas_id() ? 'selected' : '' ?>>
                         <?= $marca->getMarcas_nombre() ?>
                     </option>
                 <?php } ?>

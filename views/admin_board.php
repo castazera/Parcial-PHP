@@ -20,7 +20,7 @@ $catalogo_marcas = Marcas::Marcas_name();
     <h1>Panel de Boards</h1>
     <table>
         <thead>
-            <tr >
+            <tr>
                 <th>Imagen</th>
                 <th>Modelo</th>
                 <th>Tipo</th>
@@ -36,10 +36,6 @@ $catalogo_marcas = Marcas::Marcas_name();
         </thead>
         <tbody>
 
-            <?php
-
-            ?>
-
             <?php foreach ($catalogo_completo as $board) { ?>
                 <tr>
                     <td class="box_img">
@@ -52,7 +48,7 @@ $catalogo_marcas = Marcas::Marcas_name();
                             <td><?= $modelo->getNombre_modelo() ?></td>
                         <?php break;
                         } ?>
-                    <?php  };    ?>
+                    <?php }; ?>
 
                     <?php
                     foreach ($catalogo_tipo as $tipo) {
@@ -60,13 +56,13 @@ $catalogo_marcas = Marcas::Marcas_name();
                             <td><?= $tipo->getNombre_tipo() ?></td>
                         <?php break;
                         } ?>
-                    <?php  };    ?>
+                    <?php }; ?>
                     <td><?= $board->getTalla() ?></td>
                     <td><?= $board->getColor() ?></td>
                     <td><?= $board->getMaterial() ?></td>
                     <td><?= $board->getDescripcion() ?></td>
                     <td>
-                        <?PHP
+                        <?php
                         foreach ($board->getEventos() as $evento) {
                             echo "<p>" . $evento->getNombre_evento() . "</p>";
                         }
@@ -76,13 +72,13 @@ $catalogo_marcas = Marcas::Marcas_name();
                     <td>
                     <?php
                     foreach ($catalogo_marcas as $marca) {
-                        if ($marca->getMarcas_id() == $board->getMarca_id()) {
-                            echo $marca->getMarcas_nombre();
+                        if ($marca->getMarcas_id() == $board->getMarcas_id()) {
+                            echo($marca->getMarcas_nombre());
                             break;
                         }
                     }
                     ?>
-                </td>
+                    </td>
 
                     <td class="TDbutton">
                         <a href="index.php?sec=edit_board&id=<?= $board->getId() ?>" role="button" class="ov-btn-grow-spin">Editar</a>

@@ -29,7 +29,7 @@ $catalogo_marca = Marcas::Marcas_name();
 
                     <?php            
                         foreach($catalogo_marca as $marca) {
-                        if($marca->getMarcas_id() == $table->getMarca_id()){?> 
+                        if($marca->getMarcas_id() == $table->getMarcas_id()){?> 
                         <p>Marca: <?=$marca->getMarcas_nombre()?></p>
                         <?php break; } ?>
                         <?php  };    ?>

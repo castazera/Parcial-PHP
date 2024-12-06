@@ -27,7 +27,7 @@ $catalogo_marcas = Marcas::Marcas_name();
                        <hr>
                         <?php  
                         foreach($catalogo_marcas as $marca) {
-                        if($marca->getMarcas_id() == $detalles->getMarca_id()){?> 
+                        if($marca->getMarcas_id() == $detalles->getMarcas_id()){?> 
                            <p class="card-text">Marca: <?= $marca->getMarcas_nombre(); ?></p>
                         <?php break; } ?>
                         <?php  };    ?>   

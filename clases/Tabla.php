@@ -8,7 +8,7 @@ class Tabla
     private Tipo $tipo;
     private int $modelo_id;
     private Modelo $modelo;
-    private int $marca_id;
+    private int $marcas_id;
     private Marcas $marcas;
     private $publicacion;
     private float $precio;
@@ -38,8 +38,8 @@ class Tabla
         $tabla->tipo = Tipo::get_x_id($boardData['tipo_id']);
         $tabla->modelo = Modelo::get_x_id($boardData['modelo_id']);
         $tabla->modelo_id = $boardData['modelo_id'];
-        $tabla->marcas = Marcas::get_x_id($boardData['marca_id']);
-        $tabla->marca_id = $boardData['marca_id']; 
+        $tabla->marcas = Marcas::get_x_id($boardData['marcas_id']);
+        $tabla->marcas_id = $boardData['marcas_id']; 
         $tabla->tipo_id = $boardData['tipo_id'];
 
         $EventosId =
@@ -75,10 +75,6 @@ class Tabla
         while ($resultado = $PDOStatement->fetch()) {
             $lista_boards[] = self::crearBoard($resultado);
         }
-        // echo("<pre>");
-        // echo("el resultadoooooooooooo");
-        // echo($resultado);
-        // echo("</pre>");
     
         return $lista_boards;
     }
@@ -364,15 +360,15 @@ class Tabla
      * @param string $descripcion
      * @param float $precio
      */
-    public static function insert_tabla(int $tipo_id, int $marca_id, int $modelo_id, string $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
+    public static function insert_tabla(int $tipo_id, int $marcas_id, int $modelo_id, string $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, float $precio)
 {
     $conexion = Conexion::getConexion();
-    $query = "INSERT INTO tabla_1 (tipo_id, marca_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marca_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
+    $query = "INSERT INTO tabla_1 (tipo_id, marcas_id, modelo_id, talla, publicacion, color, imagen_url, descripcion, material, precio) VALUES (:tipo_id, :marcas_id, :modelo_id, :talla, :publicacion, :color, :imagen_url, :descripcion, :material, :precio)";
     
     $PDOStatement = $conexion->prepare($query);
     $PDOStatement->execute([
         'tipo_id' => $tipo_id,
-        'marca_id' => $marca_id,
+        'marcas_id' => $marcas_id,
         'modelo_id' => $modelo_id,
         'talla' => $talla,
         'publicacion' => $publicacion,
@@ -453,7 +449,7 @@ class Tabla
      * Actualiza los datos de una tabla en la base de datos.
      * 
      * @param int $tipo_id id del tipo de tabla.
-     * @param int $marca_id id de la marca de la tabla.
+     * @param int $marcas_id id de la marca de la tabla.
      * @param int $modelo_id id del modelo de la tabla.
      * @param string $talla La talla de la tabla.
      * @param string $publicacion La fecha de publicación de la tabla.
@@ -464,16 +460,16 @@ class Tabla
      * @param float $precio El precio de la tabla.
      */
 
-    public function editar_tabla(int $tipo_id, int  $marca_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio)
+    public function editar_tabla(int $tipo_id, int  $marcas_id, int  $modelo_id, string  $talla, string $publicacion, string $color, string $imagen_url, string $descripcion, string $material, $precio)
     {
         $query = "UPDATE tabla_1  
-        SET tipo_id = :tipo_id, marca_id = :marca_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
+        SET tipo_id = :tipo_id, marcas_id = :marcas_id, modelo_id = :modelo_id, talla = :talla, publicacion = :publicacion, color = :color, imagen_url = :imagen_url, descripcion = :descripcion, material = :material, precio = :precio WHERE id = :id";
         Conexion::getConexion();
         $PDOStatement = Conexion::getConexion()->prepare($query);
         $PDOStatement->execute([
             'id' => $this->id,
             'tipo_id' => $tipo_id,
-            'marca_id' => $marca_id,
+            'marcas_id' => $marcas_id,
             'modelo_id' => $modelo_id,
             'talla' => $talla,
             'publicacion' => $publicacion,
@@ -700,21 +696,21 @@ class Tabla
 
 
     /**
-     * Get the value of marca_id
+     * Get the value of marcas_id
      */
-    public function getMarca_id()
+    public function getMarcas_id()
     {
-        return $this->marca_id;
+        return $this->marcas_id;
     }
 
     /**
-     * Set the value of marca_id
+     * Set the value of marcas_id
      *
      * @return  self
      */
-    public function setMarca_id($marca_id)
+    public function setMarcas_id($marcas_id)
     {
-        $this->marca_id = $marca_id;
+        $this->marcas_id = $marcas_id;
 
         return $this;
     }
@@ -755,6 +751,26 @@ class Tabla
     public function setEventos($eventos)
     {
         $this->eventos = $eventos;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of marcas
+     */ 
+    public function getMarcas()
+    {
+        return $this->marcas;
+    }
+
+    /**
+     * Set the value of marcas
+     *
+     * @return  self
+     */ 
+    public function setMarcas($marcas)
+    {
+        $this->marcas = $marcas;
 
         return $this;
     }

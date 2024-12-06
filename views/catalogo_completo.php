@@ -12,7 +12,7 @@ $catalogo_marcas = Marcas::Marcas_name();
             <div class="row d-flex justify-content-center">
                 <?php foreach($catalogo as $marca => $detalles) {
                     
-                    // echo $detalles->getModelo_id();?>
+                ?>
 
             <div class="card mx-2 my-2 col-sm-12 col-md-4 col-lg-3 col-xl-3 ancho">
                 <div class="container mt-3">
@@ -28,7 +28,7 @@ $catalogo_marcas = Marcas::Marcas_name();
                        <hr>
                         <?php  
                         foreach($catalogo_marcas as $marca) {
-                        if($marca->getMarcas_id() == $detalles->getMarca_id()){?> 
+                        if($marca->getMarcas_id() == $detalles->getMarcas_id()){?> 
                            <p class="card-text">Marca: <?= $marca->getMarcas_nombre(); ?></p>
                         <?php break; } ?>
                         <?php  };    ?>   

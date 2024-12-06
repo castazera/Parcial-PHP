@@ -99,12 +99,10 @@ public function borrar_marcas()
 {
     $conexion = Conexion::getConexion();
     
-    // Primero, eliminar los registros dependientes en tabla_1
-    $queryDeleteDependientes = "DELETE FROM tabla_1 WHERE marca_id = ?";
+    $queryDeleteDependientes = "DELETE FROM tabla_1 WHERE marcas_id = ?";
     $PDOStatement = $conexion->prepare($queryDeleteDependientes);
     $PDOStatement->execute([$this->marcas_id]);
 
-    // Luego, eliminar la marca
     $queryDeleteMarca = "DELETE FROM marcas WHERE marcas_id = ?";
     $PDOStatement = $conexion->prepare($queryDeleteMarca);
     $PDOStatement->execute([$this->marcas_id]);

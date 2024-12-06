@@ -1,9 +1,6 @@
 <?php
 $id = $_GET['id'] ?? false;
 $evento = Evento::get_x_id($id);
-echo("<pre>");
-print_r($_GET['id']);
-echo("</pre>");
 ?>
 <!DOCTYPE html>
 <html lang="en">

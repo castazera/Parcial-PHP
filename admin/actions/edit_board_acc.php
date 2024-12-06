@@ -4,23 +4,15 @@ require_once "../../functions/autoload.php";
 $id = $_GET['id'] ?? false;
 $postData = $_POST;
 $fileData = $_FILES['imagen'];
-// echo "<pre>";
-// echo print_r($postData);
-// echo "</pre>";
 try{
     $board = Tabla::get_x_id($id);
-    //$board->clear_eventos();
-    // echo("<pre>");
-    // print_r("algooooooooooo");
-    // print_r($postData);
-    // echo("</pre>");
     if (isset($postData['eventos'])) {
         foreach ($postData['eventos'] as $evento_id) {
             $board->add_eventos($id, $evento_id);
         }
     }
     $tipo_id = (int)$postData['tipo_id']; 
-    $marca_id = (int)$postData['marca_id']; 
+    $marcas_id = (int)$postData['marcas_id']; 
             $nombre_modelo = $postData['modelo_id'];
             $modeloExistente = Modelo::Busca_Modelo($nombre_modelo); 
         
@@ -44,7 +36,7 @@ try{
 
     $board->editar_tabla(
         $tipo_id,
-        $marca_id,
+        $marcas_id,
         $nuevoModeloId,
         $talla,
         $publicacion,

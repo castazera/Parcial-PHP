@@ -5,9 +5,6 @@ $id = $_GET['id'] ?? false;
 $postData = $_POST;
 
 try{
-    echo "<pre>";
-    echo print_r($postData);
-    echo "</pre>";
     $marcas = Marcas::get_x_id($id);
     $marcas->editar_marcas(
         $marcas->getMarcas_id(),

@@ -2,9 +2,6 @@
 require_once "../../functions/autoload.php";
 
 $postData = $_POST;
-// echo("<pre>");
-// print_r($postData);
-// echo("</pre>");
 
         try {        
             Evento::insert_evento(
