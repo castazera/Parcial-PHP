@@ -2,13 +2,11 @@
 $id = $_GET['id'] ?? 0;
 $table = Tabla::Busca_Producto($id);
 $tipo_tabla = Tabla::tipo_tabla();
-$eventos = Evento::CatalogoCompleto();
 $catalogo_tipo = Tipo::Tipo_name();
 $catalogo_modelos = Modelo::Modelo_name();
 $catalogo_marca = Marcas::Marcas_name();
 $eventos_seleccionados = $table->getEventos_ids();
-
-                
+$eventos = Evento::CatalogoCompleto();                
 
 ?>
 <!DOCTYPE html>
